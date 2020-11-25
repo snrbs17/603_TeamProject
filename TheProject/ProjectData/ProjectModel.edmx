@@ -1,0 +1,627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Facility">
+          <Key>
+            <PropertyRef Name="FacilityId" />
+          </Key>
+          <Property Name="FacilityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StorageQuantity" Type="int" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fee">
+          <Key>
+            <PropertyRef Name="FeeId" />
+          </Key>
+          <Property Name="FeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StorageTypeId" Type="int" Nullable="false" />
+          <Property Name="TimePassId" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PW" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reciept">
+          <Key>
+            <PropertyRef Name="ReceiptId" />
+          </Key>
+          <Property Name="ReceiptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StorageSelectionCount" Type="int" Nullable="false" />
+          <Property Name="MemberId" Type="int" Nullable="false" />
+          <Property Name="PaymentDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="TotalCost" Type="int" Nullable="false" />
+          <Property Name="OvertimeFee" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Storage">
+          <Key>
+            <PropertyRef Name="StorageId" />
+          </Key>
+          <Property Name="StorageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FacilityId" Type="int" Nullable="false" />
+          <Property Name="StorageTypeId" Type="int" Nullable="false" />
+          <Property Name="Activation" Type="bit" Nullable="false" />
+          <Property Name="MemberId" Type="int" />
+        </EntityType>
+        <EntityType Name="StorageSelection">
+          <Key>
+            <PropertyRef Name="StorageSelectionId" />
+          </Key>
+          <Property Name="StorageSelectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StorageId" Type="int" Nullable="false" />
+          <Property Name="FeeId" Type="int" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ReceiptId" Type="int" Nullable="false" />
+          <Property Name="ExitDateExpected" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ExitDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="StorageType">
+          <Key>
+            <PropertyRef Name="StorageTypeId" />
+          </Key>
+          <Property Name="StorageTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StorageTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimePass">
+          <Key>
+            <PropertyRef Name="TimePassId" />
+          </Key>
+          <Property Name="TimePassId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TimePassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_결제영수증_회원">
+          <End Role="Member" Type="Self.Member" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Reciept" Type="Self.Reciept" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="Reciept">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_보관소_직원">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Facility" Type="Self.Facility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="Facility">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_보관함_보관소">
+          <End Role="Facility" Type="Self.Facility" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Storage" Type="Self.Storage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facility">
+              <PropertyRef Name="FacilityId" />
+            </Principal>
+            <Dependent Role="Storage">
+              <PropertyRef Name="FacilityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_보관함_보관함종류">
+          <End Role="StorageType" Type="Self.StorageType" Multiplicity="1" />
+          <End Role="Storage" Type="Self.Storage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StorageType">
+              <PropertyRef Name="StorageTypeId" />
+            </Principal>
+            <Dependent Role="Storage">
+              <PropertyRef Name="StorageTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_보관함이용_결제영수증">
+          <End Role="Reciept" Type="Self.Reciept" Multiplicity="1" />
+          <End Role="StorageSelection" Type="Self.StorageSelection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reciept">
+              <PropertyRef Name="ReceiptId" />
+            </Principal>
+            <Dependent Role="StorageSelection">
+              <PropertyRef Name="ReceiptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_보관함이용_보관함">
+          <End Role="Storage" Type="Self.Storage" Multiplicity="1" />
+          <End Role="StorageSelection" Type="Self.StorageSelection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Storage">
+              <PropertyRef Name="StorageId" />
+            </Principal>
+            <Dependent Role="StorageSelection">
+              <PropertyRef Name="StorageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_보관함이용_이용가격">
+          <End Role="Fee" Type="Self.Fee" Multiplicity="1" />
+          <End Role="StorageSelection" Type="Self.StorageSelection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fee">
+              <PropertyRef Name="FeeId" />
+            </Principal>
+            <Dependent Role="StorageSelection">
+              <PropertyRef Name="FeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_이용가격_보관함종류">
+          <End Role="StorageType" Type="Self.StorageType" Multiplicity="1" />
+          <End Role="Fee" Type="Self.Fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StorageType">
+              <PropertyRef Name="StorageTypeId" />
+            </Principal>
+            <Dependent Role="Fee">
+              <PropertyRef Name="StorageTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_이용가격_시간권">
+          <End Role="TimePass" Type="Self.TimePass" Multiplicity="1" />
+          <End Role="Fee" Type="Self.Fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimePass">
+              <PropertyRef Name="TimePassId" />
+            </Principal>
+            <Dependent Role="Fee">
+              <PropertyRef Name="TimePassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectModelStoreContainer">
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facility" EntityType="Self.Facility" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fee" EntityType="Self.Fee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reciept" EntityType="Self.Reciept" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Storage" EntityType="Self.Storage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorageSelection" EntityType="Self.StorageSelection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorageType" EntityType="Self.StorageType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimePass" EntityType="Self.TimePass" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_결제영수증_회원" Association="Self.FK_결제영수증_회원">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Reciept" EntitySet="Reciept" />
+          </AssociationSet>
+          <AssociationSet Name="FK_보관소_직원" Association="Self.FK_보관소_직원">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Facility" EntitySet="Facility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_보관함_보관소" Association="Self.FK_보관함_보관소">
+            <End Role="Facility" EntitySet="Facility" />
+            <End Role="Storage" EntitySet="Storage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_보관함_보관함종류" Association="Self.FK_보관함_보관함종류">
+            <End Role="StorageType" EntitySet="StorageType" />
+            <End Role="Storage" EntitySet="Storage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_보관함이용_결제영수증" Association="Self.FK_보관함이용_결제영수증">
+            <End Role="Reciept" EntitySet="Reciept" />
+            <End Role="StorageSelection" EntitySet="StorageSelection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_보관함이용_보관함" Association="Self.FK_보관함이용_보관함">
+            <End Role="Storage" EntitySet="Storage" />
+            <End Role="StorageSelection" EntitySet="StorageSelection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_보관함이용_이용가격" Association="Self.FK_보관함이용_이용가격">
+            <End Role="Fee" EntitySet="Fee" />
+            <End Role="StorageSelection" EntitySet="StorageSelection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_이용가격_보관함종류" Association="Self.FK_이용가격_보관함종류">
+            <End Role="StorageType" EntitySet="StorageType" />
+            <End Role="Fee" EntitySet="Fee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_이용가격_시간권" Association="Self.FK_이용가격_시간권">
+            <End Role="TimePass" EntitySet="TimePass" />
+            <End Role="Fee" EntitySet="Fee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Facilities" Relationship="Self.FK_보관소_직원" FromRole="Employee" ToRole="Facility" />
+        </EntityType>
+        <EntityType Name="Facility">
+          <Key>
+            <PropertyRef Name="FacilityId" />
+          </Key>
+          <Property Name="FacilityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StorageQuantity" Type="Int32" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_보관소_직원" FromRole="Facility" ToRole="Employee" />
+          <NavigationProperty Name="Storages" Relationship="Self.FK_보관함_보관소" FromRole="Facility" ToRole="Storage" />
+        </EntityType>
+        <EntityType Name="Fee">
+          <Key>
+            <PropertyRef Name="FeeId" />
+          </Key>
+          <Property Name="FeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StorageTypeId" Type="Int32" Nullable="false" />
+          <Property Name="TimePassId" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StorageSelections" Relationship="Self.FK_보관함이용_이용가격" FromRole="Fee" ToRole="StorageSelection" />
+          <NavigationProperty Name="StorageType" Relationship="Self.FK_이용가격_보관함종류" FromRole="Fee" ToRole="StorageType" />
+          <NavigationProperty Name="TimePass" Relationship="Self.FK_이용가격_시간권" FromRole="Fee" ToRole="TimePass" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PW" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Reciepts" Relationship="Self.FK_결제영수증_회원" FromRole="Member" ToRole="Reciept" />
+        </EntityType>
+        <EntityType Name="Reciept">
+          <Key>
+            <PropertyRef Name="ReceiptId" />
+          </Key>
+          <Property Name="ReceiptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StorageSelectionCount" Type="Int32" Nullable="false" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <Property Name="PaymentDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="TotalCost" Type="Int32" Nullable="false" />
+          <Property Name="OvertimeFee" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_결제영수증_회원" FromRole="Reciept" ToRole="Member" />
+          <NavigationProperty Name="StorageSelections" Relationship="Self.FK_보관함이용_결제영수증" FromRole="Reciept" ToRole="StorageSelection" />
+        </EntityType>
+        <EntityType Name="Storage">
+          <Key>
+            <PropertyRef Name="StorageId" />
+          </Key>
+          <Property Name="StorageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FacilityId" Type="Int32" Nullable="false" />
+          <Property Name="StorageTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Activation" Type="Boolean" Nullable="false" />
+          <Property Name="MemberId" Type="Int32" />
+          <NavigationProperty Name="Facility" Relationship="Self.FK_보관함_보관소" FromRole="Storage" ToRole="Facility" />
+          <NavigationProperty Name="StorageType" Relationship="Self.FK_보관함_보관함종류" FromRole="Storage" ToRole="StorageType" />
+          <NavigationProperty Name="StorageSelections" Relationship="Self.FK_보관함이용_보관함" FromRole="Storage" ToRole="StorageSelection" />
+        </EntityType>
+        <EntityType Name="StorageSelection">
+          <Key>
+            <PropertyRef Name="StorageSelectionId" />
+          </Key>
+          <Property Name="StorageSelectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StorageId" Type="Int32" Nullable="false" />
+          <Property Name="FeeId" Type="Int32" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ReceiptId" Type="Int32" Nullable="false" />
+          <Property Name="ExitDateExpected" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ExitDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Fee" Relationship="Self.FK_보관함이용_이용가격" FromRole="StorageSelection" ToRole="Fee" />
+          <NavigationProperty Name="Reciept" Relationship="Self.FK_보관함이용_결제영수증" FromRole="StorageSelection" ToRole="Reciept" />
+          <NavigationProperty Name="Storage" Relationship="Self.FK_보관함이용_보관함" FromRole="StorageSelection" ToRole="Storage" />
+        </EntityType>
+        <EntityType Name="StorageType">
+          <Key>
+            <PropertyRef Name="StorageTypeId" />
+          </Key>
+          <Property Name="StorageTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StorageTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Fees" Relationship="Self.FK_이용가격_보관함종류" FromRole="StorageType" ToRole="Fee" />
+          <NavigationProperty Name="Storages" Relationship="Self.FK_보관함_보관함종류" FromRole="StorageType" ToRole="Storage" />
+        </EntityType>
+        <EntityType Name="TimePass">
+          <Key>
+            <PropertyRef Name="TimePassId" />
+          </Key>
+          <Property Name="TimePassId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TimePassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Fees" Relationship="Self.FK_이용가격_시간권" FromRole="TimePass" ToRole="Fee" />
+        </EntityType>
+        <Association Name="FK_보관소_직원">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Facility" Type="Self.Facility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="Facility">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_보관함_보관소">
+          <End Role="Facility" Type="Self.Facility" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Storage" Type="Self.Storage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facility">
+              <PropertyRef Name="FacilityId" />
+            </Principal>
+            <Dependent Role="Storage">
+              <PropertyRef Name="FacilityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_보관함이용_이용가격">
+          <End Role="Fee" Type="Self.Fee" Multiplicity="1" />
+          <End Role="StorageSelection" Type="Self.StorageSelection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fee">
+              <PropertyRef Name="FeeId" />
+            </Principal>
+            <Dependent Role="StorageSelection">
+              <PropertyRef Name="FeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_이용가격_보관함종류">
+          <End Role="StorageType" Type="Self.StorageType" Multiplicity="1" />
+          <End Role="Fee" Type="Self.Fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StorageType">
+              <PropertyRef Name="StorageTypeId" />
+            </Principal>
+            <Dependent Role="Fee">
+              <PropertyRef Name="StorageTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_이용가격_시간권">
+          <End Role="TimePass" Type="Self.TimePass" Multiplicity="1" />
+          <End Role="Fee" Type="Self.Fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimePass">
+              <PropertyRef Name="TimePassId" />
+            </Principal>
+            <Dependent Role="Fee">
+              <PropertyRef Name="TimePassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_결제영수증_회원">
+          <End Role="Member" Type="Self.Member" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Reciept" Type="Self.Reciept" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="Reciept">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_보관함이용_결제영수증">
+          <End Role="Reciept" Type="Self.Reciept" Multiplicity="1" />
+          <End Role="StorageSelection" Type="Self.StorageSelection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reciept">
+              <PropertyRef Name="ReceiptId" />
+            </Principal>
+            <Dependent Role="StorageSelection">
+              <PropertyRef Name="ReceiptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_보관함_보관함종류">
+          <End Role="StorageType" Type="Self.StorageType" Multiplicity="1" />
+          <End Role="Storage" Type="Self.Storage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StorageType">
+              <PropertyRef Name="StorageTypeId" />
+            </Principal>
+            <Dependent Role="Storage">
+              <PropertyRef Name="StorageTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_보관함이용_보관함">
+          <End Role="Storage" Type="Self.Storage" Multiplicity="1" />
+          <End Role="StorageSelection" Type="Self.StorageSelection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Storage">
+              <PropertyRef Name="StorageId" />
+            </Principal>
+            <Dependent Role="StorageSelection">
+              <PropertyRef Name="StorageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="projectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Facilities" EntityType="Self.Facility" />
+          <EntitySet Name="Fees" EntityType="Self.Fee" />
+          <EntitySet Name="Members" EntityType="Self.Member" />
+          <EntitySet Name="Reciepts" EntityType="Self.Reciept" />
+          <EntitySet Name="Storages" EntityType="Self.Storage" />
+          <EntitySet Name="StorageSelections" EntityType="Self.StorageSelection" />
+          <EntitySet Name="StorageTypes" EntityType="Self.StorageType" />
+          <EntitySet Name="TimePasses" EntityType="Self.TimePass" />
+          <AssociationSet Name="FK_보관소_직원" Association="Self.FK_보관소_직원">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Facility" EntitySet="Facilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_보관함_보관소" Association="Self.FK_보관함_보관소">
+            <End Role="Facility" EntitySet="Facilities" />
+            <End Role="Storage" EntitySet="Storages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_보관함이용_이용가격" Association="Self.FK_보관함이용_이용가격">
+            <End Role="Fee" EntitySet="Fees" />
+            <End Role="StorageSelection" EntitySet="StorageSelections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_이용가격_보관함종류" Association="Self.FK_이용가격_보관함종류">
+            <End Role="StorageType" EntitySet="StorageTypes" />
+            <End Role="Fee" EntitySet="Fees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_이용가격_시간권" Association="Self.FK_이용가격_시간권">
+            <End Role="TimePass" EntitySet="TimePasses" />
+            <End Role="Fee" EntitySet="Fees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_결제영수증_회원" Association="Self.FK_결제영수증_회원">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Reciept" EntitySet="Reciepts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_보관함이용_결제영수증" Association="Self.FK_보관함이용_결제영수증">
+            <End Role="Reciept" EntitySet="Reciepts" />
+            <End Role="StorageSelection" EntitySet="StorageSelections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_보관함_보관함종류" Association="Self.FK_보관함_보관함종류">
+            <End Role="StorageType" EntitySet="StorageTypes" />
+            <End Role="Storage" EntitySet="Storages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_보관함이용_보관함" Association="Self.FK_보관함이용_보관함">
+            <End Role="Storage" EntitySet="Storages" />
+            <End Role="StorageSelection" EntitySet="StorageSelections" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectModelStoreContainer" CdmEntityContainer="projectEntities">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="ProjectModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facilities">
+            <EntityTypeMapping TypeName="ProjectModel.Facility">
+              <MappingFragment StoreEntitySet="Facility">
+                <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+                <ScalarProperty Name="StorageQuantity" ColumnName="StorageQuantity" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fees">
+            <EntityTypeMapping TypeName="ProjectModel.Fee">
+              <MappingFragment StoreEntitySet="Fee">
+                <ScalarProperty Name="FeeId" ColumnName="FeeId" />
+                <ScalarProperty Name="StorageTypeId" ColumnName="StorageTypeId" />
+                <ScalarProperty Name="TimePassId" ColumnName="TimePassId" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="ProjectModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PW" ColumnName="PW" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reciepts">
+            <EntityTypeMapping TypeName="ProjectModel.Reciept">
+              <MappingFragment StoreEntitySet="Reciept">
+                <ScalarProperty Name="ReceiptId" ColumnName="ReceiptId" />
+                <ScalarProperty Name="StorageSelectionCount" ColumnName="StorageSelectionCount" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="OvertimeFee" ColumnName="OvertimeFee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Storages">
+            <EntityTypeMapping TypeName="ProjectModel.Storage">
+              <MappingFragment StoreEntitySet="Storage">
+                <ScalarProperty Name="StorageId" ColumnName="StorageId" />
+                <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+                <ScalarProperty Name="StorageTypeId" ColumnName="StorageTypeId" />
+                <ScalarProperty Name="Activation" ColumnName="Activation" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StorageSelections">
+            <EntityTypeMapping TypeName="ProjectModel.StorageSelection">
+              <MappingFragment StoreEntitySet="StorageSelection">
+                <ScalarProperty Name="StorageSelectionId" ColumnName="StorageSelectionId" />
+                <ScalarProperty Name="StorageId" ColumnName="StorageId" />
+                <ScalarProperty Name="FeeId" ColumnName="FeeId" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="ReceiptId" ColumnName="ReceiptId" />
+                <ScalarProperty Name="ExitDateExpected" ColumnName="ExitDateExpected" />
+                <ScalarProperty Name="ExitDate" ColumnName="ExitDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StorageTypes">
+            <EntityTypeMapping TypeName="ProjectModel.StorageType">
+              <MappingFragment StoreEntitySet="StorageType">
+                <ScalarProperty Name="StorageTypeId" ColumnName="StorageTypeId" />
+                <ScalarProperty Name="StorageTypeName" ColumnName="StorageTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimePasses">
+            <EntityTypeMapping TypeName="ProjectModel.TimePass">
+              <MappingFragment StoreEntitySet="TimePass">
+                <ScalarProperty Name="TimePassId" ColumnName="TimePassId" />
+                <ScalarProperty Name="TimePassName" ColumnName="TimePassName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
