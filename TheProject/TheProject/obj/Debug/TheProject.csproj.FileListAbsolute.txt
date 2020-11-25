@@ -1,0 +1,9 @@
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\bin\Debug\TheProject.exe.config
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\bin\Debug\TheProject.exe
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\bin\Debug\TheProject.pdb
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.csprojAssemblyReference.cache
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.Properties.Resources.resources
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.csproj.GenerateResource.cache
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.csproj.CoreCompileInputs.cache
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.exe
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.pdb
