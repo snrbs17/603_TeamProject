@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
+using ToggleSlider;
 
 namespace TheProject
 {
@@ -166,8 +163,8 @@ namespace TheProject
 
         public void PayBtnClick(object sender, EventArgs e)
         {
-            Form6 form6 = new Form6();
-            form6.Show();
+            Payment payment = new Payment();
+            payment.Show();
         }
 
         // 여기까지
