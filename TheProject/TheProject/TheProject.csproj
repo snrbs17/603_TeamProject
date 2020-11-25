@@ -54,6 +54,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ToggleSlider">
+      <HintPath>..\..\Dll\ToggleSlider.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form\Payment.cs">
