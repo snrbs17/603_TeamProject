@@ -1,0 +1,2 @@
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\ProjectData\obj\Debug\ProjectData.csprojAssemblyReference.cache
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\ProjectData\obj\Debug\ProjectData.csproj.CoreCompileInputs.cache
