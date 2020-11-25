@@ -8,5 +8,9 @@ namespace EF.Data.Dao
 {
     class StorageDao
     {
+        public void getAll()
+        {
+
+        }
     }
 }
