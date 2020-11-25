@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EF.Data.Dao
 {
-    class StorageTypeDao : SingleKeyDao<StorageType, int>
+    public class StorageTypeDao : SingleKeyDao<StorageType, int>
     {
         protected override Expression<Func<StorageType, int>> KeySelector => x => x.StorageTypeId;
 

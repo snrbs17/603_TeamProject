@@ -1,4 +1,4 @@
-﻿using EFLibrary
+﻿using EFLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EF.Data.Dao
 {
-    class StorageDao : SingleKeyDao<Storage, int>
+    public class StorageDao : SingleKeyDao<Storage, int>
     {
         protected override Expression<Func<Storage, int>> KeySelector => x => x.StorageId;
         protected override Expression<Func<Storage, bool>> IsKey(int key)

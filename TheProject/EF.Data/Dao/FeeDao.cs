@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EF.Data.Dao
 {
-    class FeeDao : SingleKeyDao<Fee, int>
+    public class FeeDao : SingleKeyDao<Fee, int>
     {
         protected override Expression<Func<Fee, int>> KeySelector => x => x.FeeId;
 
