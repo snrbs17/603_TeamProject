@@ -33,6 +33,9 @@ namespace TheProject
             List<Import> list = Dao.Import.MonthlyImpoprt(11);
 
             dataGridView1.DataSource = list;
+
+            foreach (var x in list)
+                chart1.Series[0].Points.AddXY(x.Day,x.Cost);
         }
 
         private void chart1_Click(object sender, EventArgs e)
