@@ -167,6 +167,11 @@ namespace TheProject
             payment.Show();
         }
 
+        private void Storage_Load(object sender, EventArgs e)
+        {
+
+        }
+
         // 여기까지
 
         // 만약 결제버튼을 누른다면
