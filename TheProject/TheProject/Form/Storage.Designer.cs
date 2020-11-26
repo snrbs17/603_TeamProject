@@ -98,6 +98,7 @@ namespace TheProject
             this.button2.TabIndex = 21;
             this.button2.Text = "보관함 정보";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.boxCheckClick);
             // 
             // label21
             // 
@@ -379,6 +380,7 @@ namespace TheProject
             this.dgvStorageInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStorageInfo.Location = new System.Drawing.Point(13, 559);
             this.dgvStorageInfo.Name = "dgvStorageInfo";
+            this.dgvStorageInfo.ReadOnly = true;
             this.dgvStorageInfo.RowHeadersWidth = 51;
             this.dgvStorageInfo.RowTemplate.Height = 27;
             this.dgvStorageInfo.Size = new System.Drawing.Size(940, 134);

@@ -3,6 +3,7 @@ using EF.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using ToggleSlider;
@@ -21,8 +22,9 @@ namespace TheProject
         private int payBtnClickFlag = 0;
 
         private List<Label> _labels = new List<Label>();
-        public List<StorageInfoForClientEntity> saveData = new List<StorageInfoForClientEntity>();
-        public List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
+        List<StorageInfoForClientEntity> saveData = new List<StorageInfoForClientEntity>();
+        List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
+        List<StorageInfoForClientEntity> addDataList = new List<StorageInfoForClientEntity>();
 
         //초기 시작시
         protected override void OnLoad(EventArgs e)
@@ -84,21 +86,28 @@ namespace TheProject
                 toggle();
             }
 
+            selectCheck();
+        }
+
+        // 선택체크
+        private void selectCheck()
+        {
+            addDataList.Clear();
             foreach (var item in _labels)
             {
-                if(item.BackColor == Color.Yellow)
+                if (item.BackColor == Color.Yellow)
                 {
-                    int index = Convert.ToInt32(item.Text);
+                    int index = Convert.ToInt32(item.Text)-1;
                     addDataList.Add(dbList[index]);
                 }
             }
         }
-
+        // 토글 기능
         public void toggle()
         {
             foreach (var item in _labels)
             {
-                int labelNum = Convert.ToInt32(item.Text);
+                int labelNum = Convert.ToInt32(item.Text)-1;
                 
                 if(item.BackColor == Color.Yellow)
                 {
@@ -128,7 +137,7 @@ namespace TheProject
         {
             foreach (var item in _labels)
             {
-                int labelNum = Convert.ToInt32(item.Text);
+                int labelNum = Convert.ToInt32(item.Text)-1;
                 if (item.BackColor == Color.Yellow)
                 {
                     continue;
@@ -154,9 +163,7 @@ namespace TheProject
             }
         }
 
-        // 삭제 그리드에서 안되니 dataTable 써야한다고 인터넷에 있었음
         // 라벨 선택시 데이터를 dgv에 표시해주고 색상 변화를 주는 메서드
-        List<StorageInfoForClientEntity> addDataList = new List<StorageInfoForClientEntity>();
         public void ClickLabel(object sender, EventArgs e)
         {
             if(payBtnClickFlag == 1)
@@ -242,14 +249,26 @@ namespace TheProject
         }
 
         // 결제버튼 누르면 화면 띄우는 메서드
+        public void boxCheckClick(object sender, EventArgs e)
+        {
+            dgvStorageInfo.DataSource = null;
+            dgvStorageInfo.Rows.Clear();
+            selectCheck();
+            
+            dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
+            payBtnClickFlag = 1;   
+        }
+
         public void PayBtnClick(object sender, EventArgs e)
         {
             dgvStorageInfo.DataSource = null;
             dgvStorageInfo.Rows.Clear();
-            dgvStorageInfo.DataSource = addDataList;
+            
+            dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
             saveListPush(addDataList);
-
-            payBtnClickFlag = 1;   
+            payBtnClickFlag = 1;
+            Payment payment = new Payment(saveData);
+            payment.Show();
         }
 
         private void exitBtn(object sender, EventArgs e)
