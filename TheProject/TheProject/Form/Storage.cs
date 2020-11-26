@@ -16,8 +16,13 @@ namespace TheProject
             InitializeComponent();
         }
 
+        private int toggleFlag = 0;
+        private int nomalboxMaxNum = 14;
+        private int payBtnClickFlag = 0;
+
         private List<Label> _labels = new List<Label>();
         public List<StorageInfoForClientEntity> saveData = new List<StorageInfoForClientEntity>();
+        public List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
 
         //초기 시작시
         protected override void OnLoad(EventArgs e)
@@ -27,27 +32,7 @@ namespace TheProject
             CreateLabelList();
 
             // 데이터를 받아 storageTypeId 에 따라 색을 부여
-            List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
-            foreach (var item in _labels)
-            {
-                int labelNum = Convert.ToInt32(item.Text);
-                
-                // 사용불가(누가 사용중임)
-                if(dbList[labelNum].CanUse == false)
-                {
-                    item.BackColor = Color.Red;
-                }
-                // 사용 가능하고 일반일경우 
-                else if(dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 1)
-                {
-                    item.BackColor = Color.White;
-                }
-                // 사용 가능하지만 신선
-                else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 2)
-                {
-                    item.BackColor = Color.DarkGray;
-                }
-            }
+            toggle();
 
             //dgv
             dgvStorageInfo.DataSource = null;
@@ -74,38 +59,96 @@ namespace TheProject
         // toggle에 따라 색상 변화하는 메서드
         public void ToggleClick(object sender, EventArgs e)
         {
+            if (payBtnClickFlag == 1)
+            {
+                dgvStorageInfo.DataSource = null;
+                dgvStorageInfo.Rows.Clear();
+
+                addDataList = saveData;
+                saveData.Clear();
+                payBtnClickFlag = 0;
+            }
             ToggleSliderComponent tog = (ToggleSliderComponent)sender;
             if (tog.ToggleCircleColor == Color.Silver)
             {
                 tog.ToggleCircleColor = Color.Green;
                 tog.ToggleBarText = " 신선";
-
-                foreach (var label in _labels)
-                {
-                    if (label.BackColor == Color.DarkGray)
-                    {
-                        label.BackColor = Color.White;
-                    }
-                    else if (label.BackColor == Color.White)
-                    {
-                        label.BackColor = Color.DarkGray;
-                    }
-                }
+                toggleFlag = 1;
+                toggleReverse();
             }
             else
             {
                 tog.ToggleCircleColor = Color.Silver;
                 tog.ToggleBarText = " 일반";
+                toggleFlag = 0;
+                toggle();
+            }
 
-                foreach (var label in _labels)
+            foreach (var item in _labels)
+            {
+                if(item.BackColor == Color.Yellow)
                 {
-                    if (label.BackColor == Color.DarkGray)
+                    int index = Convert.ToInt32(item.Text);
+                    addDataList.Add(dbList[index]);
+                }
+            }
+        }
+
+        public void toggle()
+        {
+            foreach (var item in _labels)
+            {
+                int labelNum = Convert.ToInt32(item.Text);
+                
+                if(item.BackColor == Color.Yellow)
+                {
+                    continue;
+                }
+                else
+                {
+                    // 사용불가(누가 사용중임)
+                    if (dbList[labelNum].CanUse == false)
                     {
-                        label.BackColor = Color.White;
+                        item.BackColor = Color.Red;
                     }
-                    else if (label.BackColor == Color.White)
+                    // 사용 가능하고 일반일경우 
+                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 1)
                     {
-                        label.BackColor = Color.DarkGray;
+                        item.BackColor = Color.White;
+                    }
+                    // 사용 가능하지만 신선
+                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 2)
+                    {
+                        item.BackColor = Color.DarkGray;
+                    }
+                }
+            }
+        }
+        public void toggleReverse()
+        {
+            foreach (var item in _labels)
+            {
+                int labelNum = Convert.ToInt32(item.Text);
+                if (item.BackColor == Color.Yellow)
+                {
+                    continue;
+                }
+                else
+                {
+                    // 사용불가(누가 사용중임)
+                    if (dbList[labelNum].CanUse == false)
+                    {
+                        item.BackColor = Color.Red;
+                    }
+                    // 사용 가능하고 일반일경우 
+                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 2)
+                    {
+                        item.BackColor = Color.White;
+                    }
+                    // 사용 가능하지만 신선
+                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 1)
+                    {
+                        item.BackColor = Color.DarkGray;
                     }
                 }
             }
@@ -116,6 +159,16 @@ namespace TheProject
         List<StorageInfoForClientEntity> addDataList = new List<StorageInfoForClientEntity>();
         public void ClickLabel(object sender, EventArgs e)
         {
+            if(payBtnClickFlag == 1)
+            {
+                dgvStorageInfo.DataSource = null;
+                dgvStorageInfo.Rows.Clear();
+                addDataList.Clear();
+                addDataList = saveData;
+                saveData.Clear();
+                payBtnClickFlag = 0;
+            }
+
             List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
            
             Label labelBox = (Label)sender;
@@ -133,11 +186,16 @@ namespace TheProject
             // 노란건 이미 선택된거기 때문에 다시 하얀색으로
             else if (labelBox.BackColor == Color.Yellow)
             {
-                labelBox.BackColor = Color.White;
-                // 그리고 리스트에 사라지게 만들어아햠
-                //addDataList.Remove(dbList[labelNum]);
+                int labelCheckNum = Convert.ToInt32(labelBox.Text);
 
-                // 이 사이에
+                if((labelCheckNum < nomalboxMaxNum && toggleFlag == 0) || (labelCheckNum >= nomalboxMaxNum && toggleFlag == 1))
+                {
+                    labelBox.BackColor = Color.White;
+                }
+                else if ((labelCheckNum < nomalboxMaxNum && toggleFlag == 1)|| (labelCheckNum >= nomalboxMaxNum && toggleFlag == 0))
+                {
+                    labelBox.BackColor = Color.DarkGray;
+                }
             }
             // 빨간건 이미 사용중인거라 결제버튼 비활성화하고 검정색으로
             else if (labelBox.BackColor == Color.Red)
@@ -157,8 +215,7 @@ namespace TheProject
                 // 정보도 뜨면 안된다
             }
 
-            dgvStorageInfo.DataSource = addDataList;
-            saveListPush(addDataList);
+            
 
             int blackLabelCount = 0;
             foreach (var item in _labels)
@@ -187,18 +244,12 @@ namespace TheProject
         // 결제버튼 누르면 화면 띄우는 메서드
         public void PayBtnClick(object sender, EventArgs e)
         {
-            foreach (var item in _labels)
-            {
-                if(item.BackColor == Color.Black)
-                {
-                    MessageBox.Show("사용중인 항목이 들어있습니다");
-                }
-                else if(item.BackColor == Color.Yellow)
-                {
-                    Payment payment = new Payment(saveData);
-                    payment.Show();
-                }
-            }   
+            dgvStorageInfo.DataSource = null;
+            dgvStorageInfo.Rows.Clear();
+            dgvStorageInfo.DataSource = addDataList;
+            saveListPush(addDataList);
+
+            payBtnClickFlag = 1;   
         }
 
         private void exitBtn(object sender, EventArgs e)
