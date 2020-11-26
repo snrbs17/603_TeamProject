@@ -26,7 +26,7 @@ namespace TheProject.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.8.127;Initial Catalog=_603_보관소;User ID=sa;Password=3512")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=kimpro;Initial Catalog=_603_보관소;User ID=sa;Password=3512")]
         public string ProjectEntitiesConnectionString {
             get {
                 return ((string)(this["ProjectEntitiesConnectionString"]));
