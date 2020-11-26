@@ -113,13 +113,12 @@ namespace TheProject
 
         // 삭제 그리드에서 안되니 dataTable 써야한다고 인터넷에 있었음
         // 라벨 선택시 데이터를 dgv에 표시해주고 색상 변화를 주는 메서드
+        List<StorageInfoForClientEntity> addDataList = new List<StorageInfoForClientEntity>();
         public void ClickLabel(object sender, EventArgs e)
         {
             List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
            
             Label labelBox = (Label)sender;
-
-            List<StorageInfoForClientEntity> addDataList = new List<StorageInfoForClientEntity>();
 
             int labelNum = Convert.ToInt32(labelBox.Text);
             // 만약 누른 라벨의 배경색이 하얀거라면 노랗게 만들고
@@ -145,14 +144,11 @@ namespace TheProject
             {
                 labelBox.BackColor = Color.Black;
                 labelBox.ForeColor = Color.White;
-                payBtn.Enabled = false;
             }
             else if (labelBox.BackColor == Color.Black)
             {
                 labelBox.BackColor = Color.Red;
                 labelBox.ForeColor = Color.Black;
-
-                payBtn.Enabled = true;
             }
             // 다크그레이는 신선이나 일반에서 비활성화인것들
             else if (labelBox.BackColor == Color.DarkGray)
@@ -163,6 +159,24 @@ namespace TheProject
 
             dgvStorageInfo.DataSource = addDataList;
             saveListPush(addDataList);
+
+            int blackLabelCount = 0;
+            foreach (var item in _labels)
+            {
+                if(item.BackColor == Color.Black)
+                {
+                    blackLabelCount++;
+                }
+            }
+
+            if(blackLabelCount > 0)
+            {
+                payBtn.Enabled = false;
+            }
+            else if(blackLabelCount == 0)
+            {
+                payBtn.Enabled = true;
+            }
         }
 
         private void saveListPush(List<StorageInfoForClientEntity> addDataList)

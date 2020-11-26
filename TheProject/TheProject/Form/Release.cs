@@ -5,6 +5,7 @@ namespace TheProject
 {
     public partial class Release : Form
     {
+        /*
         public Release()
         {
             InitializeComponent();
@@ -45,6 +46,6 @@ namespace TheProject
                 MessageBox.Show("이용 감사");
             }
             Close();
-        }
+        }*/
     }
 }

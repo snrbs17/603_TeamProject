@@ -118,7 +118,6 @@ namespace TheProject
             this.releaseBtn.TabIndex = 1;
             this.releaseBtn.Text = "총 1건 출고";
             this.releaseBtn.UseVisualStyleBackColor = true;
-            this.releaseBtn.Click += new System.EventHandler(this.releaseBtn_Click);
             // 
             // label2
             // 

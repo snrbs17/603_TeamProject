@@ -18,7 +18,7 @@ namespace TheProject
         public List<PaymentEntity> paymentList = new List<PaymentEntity>();
         public Payment(List<StorageInfoForClientEntity> list) : base()
         {
-            paymentList = Dao.Payment.GetList(list);
+            //paymentList = Dao.Payment.GetList(list);
         }
 
         
