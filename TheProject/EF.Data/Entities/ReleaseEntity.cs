@@ -8,5 +8,9 @@ namespace EF.Data.Entities
 {
     public class ReleaseEntity
     {
+        public int StorageId { get; set; }
+        public int FacilityId { get; set; }
+        public int StorageTypeId { get; set; }
+        public DateTime EntryDate { get; set; }
     }
 }

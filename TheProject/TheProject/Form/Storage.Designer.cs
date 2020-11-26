@@ -53,10 +53,6 @@ namespace TheProject
             this.label1 = new System.Windows.Forms.Label();
             this.toggleSliderComponent1 = new ToggleSlider.ToggleSliderComponent();
             this.dgvStorageInfo = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.payBtn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -381,45 +377,12 @@ namespace TheProject
             // dgvStorageInfo
             // 
             this.dgvStorageInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStorageInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
             this.dgvStorageInfo.Location = new System.Drawing.Point(13, 559);
             this.dgvStorageInfo.Name = "dgvStorageInfo";
             this.dgvStorageInfo.RowHeadersWidth = 51;
             this.dgvStorageInfo.RowTemplate.Height = 27;
             this.dgvStorageInfo.Size = new System.Drawing.Size(940, 134);
             this.dgvStorageInfo.TabIndex = 4;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "보관함 번호";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 227;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "사용가능여부";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 220;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "사용가능시각";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 220;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "보관함 크기(L:W:H)";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 220;
             // 
             // button1
             // 
@@ -477,10 +440,6 @@ namespace TheProject
         private System.Windows.Forms.Label label1;
         private ToggleSlider.ToggleSliderComponent toggleSliderComponent1;
         private System.Windows.Forms.DataGridView dgvStorageInfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button payBtn;
         private System.Windows.Forms.Label label14;
