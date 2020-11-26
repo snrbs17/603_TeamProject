@@ -2,7 +2,6 @@
 using EF.Data.Entities;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
@@ -18,6 +17,7 @@ namespace TheProject
         }
 
         private List<Label> _labels = new List<Label>();
+        public List<StorageInfoForClientEntity> saveData = new List<StorageInfoForClientEntity>();
 
         //초기 시작시
         protected override void OnLoad(EventArgs e)
@@ -162,7 +162,12 @@ namespace TheProject
             }
 
             dgvStorageInfo.DataSource = addDataList;
+            saveListPush(addDataList);
+        }
 
+        private void saveListPush(List<StorageInfoForClientEntity> addDataList)
+        {
+            saveData = addDataList;
         }
 
         // 결제버튼 누르면 화면 띄우는 메서드
@@ -176,13 +181,13 @@ namespace TheProject
                 }
                 else if(item.BackColor == Color.Yellow)
                 {
-                    Payment payment = new Payment();
+                    Payment payment = new Payment(saveData);
                     payment.Show();
                 }
             }   
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void exitBtn(object sender, EventArgs e)
         {
             Close();
         }

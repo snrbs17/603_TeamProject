@@ -197,20 +197,23 @@
     <Compile Include="Form\Storage.Designer.cs">
       <DependentUpon>Storage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\Release.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form\Release.Designer.cs">
-      <DependentUpon>Release.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form\Search.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\Search.Designer.cs">
       <DependentUpon>Search.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\Release.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Release.Designer.cs">
+      <DependentUpon>Release.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form\DataForOwner.resx">
       <DependentUpon>DataForOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Storage.resx">
       <DependentUpon>Storage.cs</DependentUpon>

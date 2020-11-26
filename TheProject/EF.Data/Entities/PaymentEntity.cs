@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EF.Data.Entities
 {
@@ -14,8 +10,5 @@ namespace EF.Data.Entities
         public DateTime ExitDateExpected { get; set; }
         public int TimePassId { get; set; }
         public int Cost { get; set; }
-        
-
-
     }
 }
