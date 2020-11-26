@@ -172,6 +172,7 @@
     <Compile Include="Dao\StorageInfoForClientDao.cs" />
     <Compile Include="Dao\StorageSelectionDao.cs" />
     <Compile Include="Dao\StorageTypeDao.cs" />
+    <Compile Include="MyLibrary\DataCreator.cs" />
     <Compile Include="EFLibrary\BaseDao.cs" />
     <Compile Include="EFLibrary\DbContextCreator.cs" />
     <Compile Include="EFLibrary\DualKeyDao.cs" />
