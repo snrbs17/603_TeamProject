@@ -20,6 +20,7 @@ namespace EF.Data.Dao
             return x => x.PaymentDate.Year == year;
         }
 
+
         public Func<Reciept, int> DaylyUnit()
         {
             return x => x.PaymentDate.Day;
@@ -30,37 +31,19 @@ namespace EF.Data.Dao
             return x => x.PaymentDate.Month;
         }
         
-        public List<ImportEntity> ImpoprtPerUnitTime(Func<Reciept,bool> function, Func<Reciept,int> function2)
+
+        public List<ImportEntity> ImpoprtPerUnitTime(Func<Reciept,bool> SelectScope, Func<Reciept,int> SelectUnit)
         {
             using (var context = new projectEntities())
             {
                 var query = context.Reciepts
-                    .Where(function)
-                    .GroupBy(function2, x => x.TotalCost,
+                    .Where(SelectScope)
+                    .OrderBy(SelectUnit)
+                    .GroupBy(SelectUnit, x => x.TotalCost,
                     (key, entities) => new ImportEntity { TimeUnit = key, Cost = entities.Sum() });
                                         
                 return query.ToList();
             }
         }
-
-
-        public List<ImportEntity> YearlyImpoprt(int year)
-        {
-            using (var context = new projectEntities())
-            {
-                var query = from x in context.Reciepts
-                            where x.PaymentDate.Year == year
-                            group x.TotalCost by x.PaymentDate.Month into g
-                            select new ImportEntity
-                            {
-                                TimeUnit = g.Key,
-                                Cost = g.Sum()
-                            };
-
-                return query.ToList();
-            }
-        }
-
-
     }
 }

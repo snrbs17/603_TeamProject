@@ -39,7 +39,6 @@ namespace TheProject
             this.recieptTableAdapter = new TheProject.ProjectDataSetTableAdapters.RecieptTableAdapter();
             this.storageSelectionTableAdapter = new TheProject.ProjectDataSetTableAdapters.StorageSelectionTableAdapter();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -96,27 +95,15 @@ namespace TheProject
             this.chart1.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(401, 41);
+            this.chart1.Location = new System.Drawing.Point(401, -2);
             this.chart1.Name = "chart1";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(399, 407);
+            this.chart1.Size = new System.Drawing.Size(399, 450);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(672, 12);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(111, 19);
-            this.radioButton3.TabIndex = 3;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton1";
-            this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -130,7 +117,7 @@ namespace TheProject
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(126, 1);
+            this.radioButton2.Location = new System.Drawing.Point(126, 0);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(67, 19);
             this.radioButton2.TabIndex = 3;
@@ -141,17 +128,13 @@ namespace TheProject
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 4);
+            this.radioButton1.Location = new System.Drawing.Point(3, 0);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(80, 19);
             this.radioButton1.TabIndex = 3;
             this.radioButton1.Text = "Monthly";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // importBindingSource
-            // 
-            //this.importBindingSource.DataSource = typeof(EF.Data.Entities.ImportEntity);
             // 
             // comboBox1
             // 
@@ -197,7 +180,6 @@ namespace TheProject
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
@@ -211,7 +193,6 @@ namespace TheProject
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.importBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -224,7 +205,6 @@ namespace TheProject
         private ProjectDataSetTableAdapters.StorageSelectionTableAdapter storageSelectionTableAdapter;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.BindingSource importBindingSource;
-        private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;

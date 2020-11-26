@@ -28,16 +28,12 @@ namespace TheProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<ImportEntity> list = Dao.Import.ImpoprtPerUnitTime(DataCreator.TimeScope,DataCreator.TimeUnit);
+            List<ImportEntity> list =
+                Dao.Import.ImpoprtPerUnitTime(DataCreator.TimeScope, DataCreator.TimeUnit);
             dataGridView1.DataSource = list;
 
             foreach (var x in list)
                 chart1.Series[0].Points.AddXY(x.TimeUnit,x.Cost);
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -55,21 +51,16 @@ namespace TheProject
 
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int timeUnitValue = comboBox1.SelectedIndex;
+            int timeUnitValue = comboBox1.SelectedIndex+1;
             DataCreator.TimeScope = Dao.Import.Monthly(timeUnitValue);
             DataCreator.TimeUnit = Dao.Import.DaylyUnit();
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int timeUnitValue = comboBox3.SelectedIndex;
+            int timeUnitValue = DateTime.Now.Year - comboBox3.SelectedIndex;
             DataCreator.TimeScope = Dao.Import.Yearly(timeUnitValue);
             DataCreator.TimeUnit = Dao.Import.MonthlyUnit();
         }
