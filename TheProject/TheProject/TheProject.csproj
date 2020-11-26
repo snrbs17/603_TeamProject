@@ -182,6 +182,9 @@
       <DependentUpon>Payment.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectDataSet.cs">
+      <DependentUpon>ProjectDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ProjectDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,6 +211,9 @@
     </Compile>
     <EmbeddedResource Include="Form\DataForOwner.resx">
       <DependentUpon>DataForOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Storage.resx">
+      <DependentUpon>Storage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

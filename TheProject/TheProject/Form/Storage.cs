@@ -1,5 +1,8 @@
-﻿using System;
+﻿using EF.Data.Dao;
+using EF.Data.Entities;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
@@ -14,51 +17,45 @@ namespace TheProject
             InitializeComponent();
         }
 
-        // 이건 나중에 5번 폼 시작하면 그룹박스안에 있는 라벨들의 이름을 DB와 매칭 시킨다
-        // 아직 미완성
-        /*public void Form1_Load(object sender, EventArgs e)
-        {
-            for (int iCount = 1; iCount <= 10; iCount++)
-            {
-                this.FindByName<Label>("Label" + iCount.ToString()).Text = "Test" + iCount.ToString();
-            }
-        }*/
-
-
-
-        // 처음 들어오면 시작되어 DB를 가져와서 색 정해지게, 색상이 이상하면 나중에 바꾸면 됨
-        // 박스랑 라벨이랑 일치시켜줘야함(어떻게 해야할까나)
-        /*public void startMainWindowBox()
-        {
-            box = DB에서 가져온 박스의 이름
-           
-            if (box.사용여부 == 0)
-            {
-                if(box.종류?(신선/일반) == 일반)
-                    box.BackColor = Color.White;
-                else (box.종류 ? (신선 / 일반) == 신선)
-                     box.BackColor = Color.DarkGray;
-            }
-            // 1인건 사용중이니깐 
-            else
-            {
-                 box.BackColor = Color.Red;
-            }
-        }
-        */
-
-        // 이건 DB에서 신선박스들을 가져와서 변경해야할듯, 박스리스트에 조건을 넣어서 검색해서 가져옴
-        // 하얀색(일반이나 신선 선택된것)만 누르는거 가능
-
         private List<Label> _labels = new List<Label>();
 
+        //초기 시작시
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
-            ChangeLabelColor();
+            CreateLabelList();
+
+            // 데이터를 받아 storageTypeId 에 따라 색을 부여
+            List<StorageInfoForClient> dbList = Dao.StorageInfoForClient.GetList();
+            foreach (var item in _labels)
+            {
+                int labelNum = Convert.ToInt32(item.Text);
+                
+                // 사용불가(누가 사용중임)
+                if(dbList[labelNum].CanUse == false)
+                {
+                    item.BackColor = Color.Red;
+                }
+                // 사용 가능하고 일반일경우 
+                else if(dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 1)
+                {
+                    item.BackColor = Color.White;
+                }
+                // 사용 가능하지만 신선
+                else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 2)
+                {
+                    item.BackColor = Color.DarkGray;
+                }
+            }
+
+            //dgv
+            dgvStorageInfo.DataSource = null;
+
         }
-        private void ChangeLabelColor()
+
+        // _labels를 만들기 위해 reflection 하는 메서드
+        private void CreateLabelList()
         {
             Type type = GetType();
             FieldInfo[] fieldInfos =
@@ -74,11 +71,9 @@ namespace TheProject
             }
         }
 
-        // 우선 보관함종류에 대해 데이터를 받고 일반/신선에 따라 색을 부여해야함
-        // 지금 코드를 좀 바꿔야할듯
-        public void button1_Click(object sender, EventArgs e)
+        // toggle에 따라 색상 변화하는 메서드
+        public void ToggleClick(object sender, EventArgs e)
         {
-
             ToggleSliderComponent tog = (ToggleSliderComponent)sender;
             if (tog.ToggleCircleColor == Color.Silver)
             {
@@ -114,80 +109,77 @@ namespace TheProject
                     }
                 }
             }
-
         }
-        // 여기까지
 
-
-        // 라벨 버튼 선택시, freshCheckNumber=1 신선만 가능, 스위치로 할까나
-        public void ClickBox(object sender, EventArgs e)
+        // 삭제 그리드에서 안되니 dataTable 써야한다고 인터넷에 있었음
+        // 라벨 선택시 데이터를 dgv에 표시해주고 색상 변화를 주는 메서드
+        public void ClickLabel(object sender, EventArgs e)
         {
-            Label labelbox = (Label)sender;
-            // 만약 누른 라벨의 배경색이 하얀거라면 노랗게 만들고
-            if (labelbox.BackColor == Color.White)
-            {
-                labelbox.BackColor = Color.Yellow;
-                // 그리고 리스트에 나오게 만들어아햠
+            List<StorageInfoForClient> dbList = Dao.StorageInfoForClient.GetList();
+           
+            Label labelBox = (Label)sender;
 
+            List<StorageInfoForClient> addDataList = new List<StorageInfoForClient>();
+
+            int labelNum = Convert.ToInt32(labelBox.Text);
+            // 만약 누른 라벨의 배경색이 하얀거라면 노랗게 만들고
+            if (labelBox.BackColor == Color.White)
+            {
+                labelBox.BackColor = Color.Yellow;
+                // 그리고 리스트에 나오게 만들어아햠
+                //dgvStorageInfo.DataSource = dbList[labelNum];
+                addDataList.Add(dbList[labelNum]);
                 // 이 사이에
             }
             // 노란건 이미 선택된거기 때문에 다시 하얀색으로
-            else if (labelbox.BackColor == Color.Yellow)
+            else if (labelBox.BackColor == Color.Yellow)
             {
-                labelbox.BackColor = Color.White;
+                labelBox.BackColor = Color.White;
                 // 그리고 리스트에 사라지게 만들어아햠
+                //addDataList.Remove(dbList[labelNum]);
 
                 // 이 사이에
             }
             // 빨간건 이미 사용중인거라 결제버튼 비활성화하고 검정색으로
-            else if (labelbox.BackColor == Color.Red)
+            else if (labelBox.BackColor == Color.Red)
             {
-                labelbox.BackColor = Color.Black;
-                labelbox.ForeColor = Color.White;
+                labelBox.BackColor = Color.Black;
+                labelBox.ForeColor = Color.White;
                 payBtn.Enabled = false;
             }
-            else if (labelbox.BackColor == Color.Black)
+            else if (labelBox.BackColor == Color.Black)
             {
-                labelbox.BackColor = Color.Red;
-                labelbox.ForeColor = Color.Black;
+                labelBox.BackColor = Color.Red;
+                labelBox.ForeColor = Color.Black;
 
                 payBtn.Enabled = true;
             }
             // 다크그레이는 신선이나 일반에서 비활성화인것들
-            else if (labelbox.BackColor == Color.DarkGray)
+            else if (labelBox.BackColor == Color.DarkGray)
             {
                 // 아무것도 안되도록
                 // 정보도 뜨면 안된다
             }
+
+            dgvStorageInfo.DataSource = addDataList;
+
         }
 
+        // 결제버튼 누르면 화면 띄우는 메서드
         public void PayBtnClick(object sender, EventArgs e)
         {
-            Payment payment = new Payment();
-            payment.Show();
-        }
-
-        // 여기까지
-
-        // 만약 결제버튼을 누른다면
-        // 상세 내역중에 사용중인게 있는지 확인
-        /*public void ClickPay()
-        {
-            if(보관소 정보 리스트 항목중에 하나라도 사용가능여부 == 사용중)
+            foreach (var item in _labels)
             {
-                MessageBox.Show("사용중인 항목이 들어있습니다");
-            }
-            else if(전부 == 사용가능)
-            {
-                다음화면으로 넘어감
-            }
+                if(item.BackColor == Color.Black)
+                {
+                    MessageBox.Show("사용중인 항목이 들어있습니다");
+                }
+                else if(item.BackColor == Color.Yellow)
+                {
+                    Payment payment = new Payment();
+                    payment.Show();
+                }
+            }   
         }
-        */
-
-        //public void dgvDataCheck(object sender, EventArgs e)
-        //{
-        //    DataGridView dgvInfo = (DataGridView)sender;
-        //    dgvInfo.Rows[0]="hi";
-        //}
     }
 }

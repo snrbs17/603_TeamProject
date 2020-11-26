@@ -181,6 +181,7 @@
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Import.cs" />
+    <Compile Include="Entities\StorageForState.cs" />
     <Compile Include="Entities\StorageInfoForClient.cs" />
     <Compile Include="Facility.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>

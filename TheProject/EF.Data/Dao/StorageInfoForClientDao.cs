@@ -18,6 +18,7 @@ namespace EF.Data.Dao
                             select new StorageInfoForClient
                             {
                                 StorageId = x.StorageId,
+                                StorageTypeId = x.StorageTypeId,
                                 CanUse = y.ExitDate != null,
                                 Time = y.ExitDateExpected
                             };
