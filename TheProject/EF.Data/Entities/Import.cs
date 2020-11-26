@@ -8,7 +8,7 @@ namespace EF.Data.Entities
 {
     public class Import
     {
-        public int Day { get; set; }
+        public int TimeUnit { get; set; }
         public int Cost { get; set; }
     }
 }
