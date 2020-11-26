@@ -168,10 +168,12 @@
     <Compile Include="Dao\FeeDao.cs" />
     <Compile Include="Dao\ImportDao.cs" />
     <Compile Include="Dao\PaymentDao.cs" />
+    <Compile Include="Dao\ReleaseDao.cs" />
     <Compile Include="Dao\StorageDao.cs" />
     <Compile Include="Dao\StorageInfoForClientDao.cs" />
     <Compile Include="Dao\StorageSelectionDao.cs" />
     <Compile Include="Dao\StorageTypeDao.cs" />
+    <Compile Include="Entities\ReleaseEntity.cs" />
     <Compile Include="MyLibrary\DataCreator.cs" />
     <Compile Include="EFLibrary\BaseDao.cs" />
     <Compile Include="EFLibrary\DbContextCreator.cs" />

@@ -215,6 +215,9 @@
     <EmbeddedResource Include="Form\Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\Release.resx">
+      <DependentUpon>Release.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Storage.resx">
       <DependentUpon>Storage.cs</DependentUpon>
     </EmbeddedResource>

@@ -12,5 +12,6 @@ namespace EF.Data.Dao
         public static StorageDao Storage { get; } = new StorageDao();
         public static ImportDao Import { get; } = new ImportDao();
         public static PaymentDao Payment { get; } = new PaymentDao();
+        public static ReleaseDao Release { get; } = new ReleaseDao();
     }
 }
