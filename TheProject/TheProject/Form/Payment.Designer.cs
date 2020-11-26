@@ -46,6 +46,7 @@ namespace TheProject
             this.dgvInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInfo.Location = new System.Drawing.Point(41, 123);
             this.dgvInfo.Name = "dgvInfo";
+            this.dgvInfo.ReadOnly = true;
             this.dgvInfo.RowHeadersWidth = 51;
             this.dgvInfo.RowTemplate.Height = 27;
             this.dgvInfo.Size = new System.Drawing.Size(719, 150);
@@ -67,7 +68,7 @@ namespace TheProject
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("Gulim", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(41, 308);
+            this.label1.Location = new System.Drawing.Point(41, 353);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 49);
             this.label1.TabIndex = 2;
@@ -80,7 +81,7 @@ namespace TheProject
             this.infoPayFee.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.infoPayFee.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.infoPayFee.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.infoPayFee.Location = new System.Drawing.Point(201, 370);
+            this.infoPayFee.Location = new System.Drawing.Point(201, 415);
             this.infoPayFee.Name = "infoPayFee";
             this.infoPayFee.Size = new System.Drawing.Size(559, 49);
             this.infoPayFee.TabIndex = 5;
@@ -92,7 +93,7 @@ namespace TheProject
             this.label5.BackColor = System.Drawing.Color.Firebrick;
             this.label5.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label5.Location = new System.Drawing.Point(133, 450);
+            this.label5.Location = new System.Drawing.Point(133, 495);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(515, 49);
             this.label5.TabIndex = 6;
@@ -105,7 +106,7 @@ namespace TheProject
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label7.Font = new System.Drawing.Font("Gulim", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(41, 370);
+            this.label7.Location = new System.Drawing.Point(41, 415);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(144, 49);
             this.label7.TabIndex = 8;
@@ -118,7 +119,7 @@ namespace TheProject
             this.infoTotalFee.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.infoTotalFee.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.infoTotalFee.ForeColor = System.Drawing.SystemColors.Window;
-            this.infoTotalFee.Location = new System.Drawing.Point(201, 308);
+            this.infoTotalFee.Location = new System.Drawing.Point(201, 353);
             this.infoTotalFee.Name = "infoTotalFee";
             this.infoTotalFee.Size = new System.Drawing.Size(559, 49);
             this.infoTotalFee.TabIndex = 9;
@@ -152,7 +153,7 @@ namespace TheProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 547);
+            this.ClientSize = new System.Drawing.Size(800, 639);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.infoTotalFee);

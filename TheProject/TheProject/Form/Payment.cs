@@ -2,6 +2,7 @@
 using EF.Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace TheProject
@@ -16,7 +17,6 @@ namespace TheProject
         // Storage에서 리스트를 payList에 받아옴
         private List<StorageInfoForClientEntity> selectList = new List<StorageInfoForClientEntity>();
         public List<PaymentEntity> paymentList = new List<PaymentEntity>();
-        public List<PaymentEntity> payList = new List<PaymentEntity>();
 
         public Payment(List<StorageInfoForClientEntity> list)
         {
@@ -36,10 +36,17 @@ namespace TheProject
                 //paymentList[i].Cost = 0;
                 //payList.Add(paymentList[i]);
 
-                
+                paymentList.Add(new PaymentEntity()
+                {
+                    StorageId = list[i].StorageId,
+                    StorageTypeId = list[i].StorageTypeId,
+                    EntryDate = DateTime.Now,
+                    ExitDateExpected = null,
+                    TimePassId=0,
+                    Cost=0
+                });
             }
-
-            dgvInfo.DataSource = payList;
+            dgvInfo.DataSource = paymentList;
         }
 
 
@@ -50,7 +57,7 @@ namespace TheProject
 
             // 우선 받아온 payList만 보여줌
             // 여기에 따로 받아온 List를 넣어줘야함
-            dgvInfo.DataSource = paymentList;
+            dgvInfo.DataSource = paymentList.OrderBy(o => o.StorageId).ToList();
         }
 
 

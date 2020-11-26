@@ -185,10 +185,7 @@ namespace TheProject
             if (labelBox.BackColor == Color.White)
             {
                 labelBox.BackColor = Color.Yellow;
-                // 그리고 리스트에 나오게 만들어아햠
-                //dgvStorageInfo.DataSource = dbList[labelNum];
                 addDataList.Add(dbList[labelNum]);
-                // 이 사이에
             }
             // 노란건 이미 선택된거기 때문에 다시 하얀색으로
             else if (labelBox.BackColor == Color.Yellow)
@@ -241,6 +238,14 @@ namespace TheProject
             {
                 payBtn.Enabled = true;
             }
+
+            int yellowCount = 0;
+            foreach (var item in _labels)
+            {
+                if (item.BackColor == Color.Yellow)
+                    yellowCount++;
+            }
+            infoBtn.Text = $"현재 보관함 {yellowCount}개를 선택하셨습니다.";
         }
 
         private void saveListPush(List<StorageInfoForClientEntity> addDataList)
@@ -263,7 +268,7 @@ namespace TheProject
         {
             dgvStorageInfo.DataSource = null;
             dgvStorageInfo.Rows.Clear();
-            
+            selectCheck();
             dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
             saveListPush(addDataList);
             payBtnClickFlag = 1;
