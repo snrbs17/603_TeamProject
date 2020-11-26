@@ -20,8 +20,17 @@ namespace EF.Data.Dao
             return x => x.PaymentDate.Year == year;
         }
 
-        public Func<Reciept, int> DaylyUnit;
-        public List<ImportEntity> ImpoprtPerUnitTime(Func<Reciept,bool> function)
+        public Func<Reciept, int> DaylyUnit()
+        {
+            return x => x.PaymentDate.Day;
+        }
+
+        public Func<Reciept, int> MonthlyUnit()
+        {
+            return x => x.PaymentDate.Month;
+        }
+        
+        public List<ImportEntity> ImpoprtPerUnitTime(Func<Reciept,bool> function, Func<Reciept,int> function2)
         {
             using (var context = new projectEntities())
             {
