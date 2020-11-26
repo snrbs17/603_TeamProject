@@ -21,28 +21,28 @@ namespace EF.Data.Dao
         }
 
         public Func<Reciept, int> DaylyUnit;
-        public List<Import> ImpoprtPerUnitTime(Func<Reciept,bool> function)
+        public List<ImportEntity> ImpoprtPerUnitTime(Func<Reciept,bool> function)
         {
             using (var context = new projectEntities())
             {
                 var query = context.Reciepts
                     .Where(function)
                     .GroupBy(function2, x => x.TotalCost,
-                    (key, entities) => new Import { TimeUnit = key, Cost = entities.Sum() });
+                    (key, entities) => new ImportEntity { TimeUnit = key, Cost = entities.Sum() });
                                         
                 return query.ToList();
             }
         }
 
 
-        public List<Import> YearlyImpoprt(int year)
+        public List<ImportEntity> YearlyImpoprt(int year)
         {
             using (var context = new projectEntities())
             {
                 var query = from x in context.Reciepts
                             where x.PaymentDate.Year == year
                             group x.TotalCost by x.PaymentDate.Month into g
-                            select new Import
+                            select new ImportEntity
                             {
                                 TimeUnit = g.Key,
                                 Cost = g.Sum()

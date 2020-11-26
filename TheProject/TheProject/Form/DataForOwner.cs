@@ -30,7 +30,7 @@ namespace TheProject
         {
             //List<Import> list = Dao.Import.ImpoprtPerUnitTime(DataCreator.func);
             //dataGridView1.DataSource = list;
-            List<Import> list = Dao.Import.YearlyImpoprt(2020);
+            List<ImportEntity> list = Dao.Import.YearlyImpoprt(2020);
 
             foreach (var x in list)
                 chart1.Series[0].Points.AddXY(x.TimeUnit,x.Cost);
