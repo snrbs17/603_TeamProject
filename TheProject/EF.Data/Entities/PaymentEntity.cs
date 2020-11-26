@@ -10,8 +10,5 @@ namespace EF.Data.Entities
         public DateTime ExitDateExpected { get; set; }
         public int TimePassId { get; set; }
         public int Cost { get; set; }
-        
-
-
     }
 }

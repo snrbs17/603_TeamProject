@@ -187,7 +187,7 @@ namespace TheProject
             }   
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void exitBtn(object sender, EventArgs e)
         {
             Close();
         }
