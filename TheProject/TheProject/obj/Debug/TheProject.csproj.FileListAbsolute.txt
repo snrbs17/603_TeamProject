@@ -98,3 +98,4 @@ C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.csproj.
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.csproj.CopyComplete
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.exe
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.pdb
+C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.Search.resources
