@@ -167,6 +167,7 @@
     <Compile Include="Dao\Dao.cs" />
     <Compile Include="Dao\FeeDao.cs" />
     <Compile Include="Dao\ImportDao.cs" />
+    <Compile Include="Dao\PaymentDao.cs" />
     <Compile Include="Dao\StorageDao.cs" />
     <Compile Include="Dao\StorageInfoForClientDao.cs" />
     <Compile Include="Dao\StorageSelectionDao.cs" />
