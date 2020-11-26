@@ -1,19 +1,16 @@
 ﻿using EF.Data.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EF.Data.Dao
 {
     public class PaymentDao
     {
-        public List<PaymentEntity> GetList()
+        public List<PaymentEntity> GetList(List<StorageInfoForClientEntity> list)
         {
             using(var context = new projectEntities())
             {
-                var query = from x in context.Storages
+                var query = from x in list
                             join y in context.StorageSelections on x.StorageId equals y.StorageId
                             join z in context.Fees on y.FeeId equals z.FeeId
                             select new PaymentEntity

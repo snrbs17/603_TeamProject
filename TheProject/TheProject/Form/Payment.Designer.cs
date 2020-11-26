@@ -29,7 +29,7 @@ namespace TheProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvInfo = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,30 +37,30 @@ namespace TheProject
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.infoPayFee = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.infoTotalFee = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvInfo
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(41, 123);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(719, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvInfo.Location = new System.Drawing.Point(41, 123);
+            this.dgvInfo.Name = "dgvInfo";
+            this.dgvInfo.RowHeadersWidth = 51;
+            this.dgvInfo.RowTemplate.Height = 27;
+            this.dgvInfo.Size = new System.Drawing.Size(719, 150);
+            this.dgvInfo.TabIndex = 0;
             // 
             // Column1
             // 
@@ -105,7 +105,7 @@ namespace TheProject
             this.button1.TabIndex = 1;
             this.button1.Text = "추가";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.addBtn);
             // 
             // label1
             // 
@@ -120,18 +120,18 @@ namespace TheProject
             this.label1.Text = "총 결제금액";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // infoPayFee
             // 
-            this.label4.BackColor = System.Drawing.Color.Gold;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label4.Location = new System.Drawing.Point(201, 370);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(559, 49);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "총 입금금액은 XX,XXX원 입니다.";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.infoPayFee.BackColor = System.Drawing.Color.Gold;
+            this.infoPayFee.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.infoPayFee.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.infoPayFee.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.infoPayFee.Location = new System.Drawing.Point(201, 370);
+            this.infoPayFee.Name = "infoPayFee";
+            this.infoPayFee.Size = new System.Drawing.Size(559, 49);
+            this.infoPayFee.TabIndex = 5;
+            this.infoPayFee.Text = "총 입금금액은 XX,XXX원 입니다.";
+            this.infoPayFee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -158,18 +158,18 @@ namespace TheProject
             this.label7.Text = "총 입금금액";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // infoTotalFee
             // 
-            this.label2.BackColor = System.Drawing.Color.Gold;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(201, 308);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(559, 49);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "총 결제금액은 XX,XXX원 입니다.";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.infoTotalFee.BackColor = System.Drawing.Color.Gold;
+            this.infoTotalFee.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.infoTotalFee.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.infoTotalFee.ForeColor = System.Drawing.SystemColors.Window;
+            this.infoTotalFee.Location = new System.Drawing.Point(201, 308);
+            this.infoTotalFee.Name = "infoTotalFee";
+            this.infoTotalFee.Size = new System.Drawing.Size(559, 49);
+            this.infoTotalFee.TabIndex = 9;
+            this.infoTotalFee.Text = "총 결제금액은 XX,XXX원 입니다.";
+            this.infoTotalFee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -192,32 +192,32 @@ namespace TheProject
             this.button2.TabIndex = 11;
             this.button2.Text = "나가기";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.exitBtn);
             // 
-            // Form6
+            // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 547);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.infoTotalFee);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.infoPayFee);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "Form6";
+            this.Controls.Add(this.dgvInfo);
+            this.Name = "Payment";
             this.Text = "Form6";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvInfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -225,10 +225,10 @@ namespace TheProject
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label infoPayFee;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label infoTotalFee;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
     }
