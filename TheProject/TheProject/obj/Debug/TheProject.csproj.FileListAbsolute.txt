@@ -193,3 +193,4 @@ C:\Users\kccistc\Desktop\T603\TheProject\TheProject\bin\Debug\zh-Hans\Microsoft.
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.DataForOwner.resources
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.Storage.resources
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.Storage.resources
