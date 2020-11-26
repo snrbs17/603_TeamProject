@@ -16,12 +16,33 @@ namespace TheProject
         // Storage에서 리스트를 payList에 받아옴
         private List<StorageInfoForClientEntity> selectList = new List<StorageInfoForClientEntity>();
         public List<PaymentEntity> paymentList = new List<PaymentEntity>();
-        public Payment(List<StorageInfoForClientEntity> list) : base()
+        public List<PaymentEntity> payList = new List<PaymentEntity>();
+
+        public Payment(List<StorageInfoForClientEntity> list)
         {
-            //paymentList = Dao.Payment.GetList(list);
+            InitializeComponent();
+            ExtractStorageData(list);
         }
 
-        
+        private void ExtractStorageData(List<StorageInfoForClientEntity> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                //paymentList[i].StorageId = list[i].StorageId;
+                //paymentList[i].StorageTypeId = list[i].StorageTypeId;
+                //paymentList[i].EntryDate = DateTime.Now;
+                //paymentList[i].ExitDateExpected = null;
+                //paymentList[i].TimePassId = 0;
+                //paymentList[i].Cost = 0;
+                //payList.Add(paymentList[i]);
+
+                
+            }
+
+            dgvInfo.DataSource = payList;
+        }
+
+
         // 시작시
         protected override void OnLoad(EventArgs e)
         {
