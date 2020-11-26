@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EF.Data.Entities
 {
-    public class StorageInfoForClient
+    public class StorageInfoForClientEntity
     {
         public int StorageId { get; set; }
         public bool CanUse { get; set; }

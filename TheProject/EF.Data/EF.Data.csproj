@@ -180,9 +180,10 @@
     <Compile Include="Employee.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Import.cs" />
-    <Compile Include="Entities\StorageForState.cs" />
-    <Compile Include="Entities\StorageInfoForClient.cs" />
+    <Compile Include="Entities\ImportEntity.cs" />
+    <Compile Include="Entities\PaymentEntity.cs" />
+    <Compile Include="Entities\StorageEntity.cs" />
+    <Compile Include="Entities\StorageInfoForClientEntity.cs" />
     <Compile Include="Facility.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>

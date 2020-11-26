@@ -27,7 +27,7 @@ namespace TheProject
             CreateLabelList();
 
             // 데이터를 받아 storageTypeId 에 따라 색을 부여
-            List<StorageInfoForClient> dbList = Dao.StorageInfoForClient.GetList();
+            List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
             foreach (var item in _labels)
             {
                 int labelNum = Convert.ToInt32(item.Text);
@@ -115,11 +115,11 @@ namespace TheProject
         // 라벨 선택시 데이터를 dgv에 표시해주고 색상 변화를 주는 메서드
         public void ClickLabel(object sender, EventArgs e)
         {
-            List<StorageInfoForClient> dbList = Dao.StorageInfoForClient.GetList();
+            List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
            
             Label labelBox = (Label)sender;
 
-            List<StorageInfoForClient> addDataList = new List<StorageInfoForClient>();
+            List<StorageInfoForClientEntity> addDataList = new List<StorageInfoForClientEntity>();
 
             int labelNum = Convert.ToInt32(labelBox.Text);
             // 만약 누른 라벨의 배경색이 하얀거라면 노랗게 만들고
@@ -180,6 +180,11 @@ namespace TheProject
                     payment.Show();
                 }
             }   
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

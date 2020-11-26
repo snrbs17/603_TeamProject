@@ -9,14 +9,14 @@ namespace EF.Data.Dao
 {
     public class ImportDao
     {
-        public List<Import> MonthlyImpoprt(int month)
+        public List<ImportEntity> MonthlyImpoprt(int month)
         {
             using (var context = new projectEntities())
             {
                 var query = from x in context.Reciepts
                             where x.PaymentDate.Month == month
                             group x.TotalCost by x.PaymentDate.Day into g
-                            select new Import
+                            select new ImportEntity
                             {
                                 Day = g.Key,
                                 Cost = g.Sum()

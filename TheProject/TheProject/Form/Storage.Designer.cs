@@ -59,6 +59,7 @@ namespace TheProject
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.payBtn = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStorageInfo)).BeginInit();
             this.SuspendLayout();
@@ -439,12 +440,23 @@ namespace TheProject
             this.payBtn.UseVisualStyleBackColor = true;
             this.payBtn.Click += new System.EventHandler(this.PayBtnClick);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(846, 41);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "나가기";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Storage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(982, 1035);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.payBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvStorageInfo);
@@ -491,5 +503,6 @@ namespace TheProject
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

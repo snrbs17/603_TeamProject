@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EF.Data.Entities
 {
-    public class StorageForState
+    public class StorageEntity
     {
         public int StorageId { get; set; }
         public int FacilityId { get; set; }

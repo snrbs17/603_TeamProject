@@ -9,13 +9,13 @@ namespace EF.Data.Dao
 {
     public class StorageInfoForClientDao
     { 
-        public List<StorageInfoForClient> GetList()
+        public List<StorageInfoForClientEntity> GetList()
         {
             using (var context = new projectEntities())
             {
                 var query = from x in context.Storages
                             join y in context.StorageSelections on x.StorageId equals y.StorageId
-                            select new StorageInfoForClient
+                            select new StorageInfoForClientEntity
                             {
                                 StorageId = x.StorageId,
                                 StorageTypeId = x.StorageTypeId,

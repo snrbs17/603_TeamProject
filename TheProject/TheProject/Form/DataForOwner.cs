@@ -30,7 +30,7 @@ namespace TheProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Import> list = Dao.Import.MonthlyImpoprt(11);
+            List<ImportEntity> list = Dao.Import.MonthlyImpoprt(11);
 
             dataGridView1.DataSource = list;
 
