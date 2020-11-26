@@ -218,6 +218,9 @@
     <EmbeddedResource Include="Form\Release.resx">
       <DependentUpon>Release.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Storage.resx">
       <DependentUpon>Storage.cs</DependentUpon>
     </EmbeddedResource>
