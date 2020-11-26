@@ -151,7 +151,7 @@ namespace TheProject
             // 
             // importBindingSource
             // 
-            this.importBindingSource.DataSource = typeof(EF.Data.Entities.Import);
+            this.importBindingSource.DataSource = typeof(EF.Data.Entities.ImportEntity);
             // 
             // comboBox1
             // 

@@ -15,5 +15,6 @@ namespace EF.Data.Dao
         {
             return x => x.StorageId == key;
         }
+
     }
 }
