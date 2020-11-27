@@ -43,9 +43,10 @@ namespace TheProject
             loginform.ShowDialog();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void idtxtBox_TextChanged(object sender, EventArgs e)
         {
-
+            Login loginform = new Login();
+            loginform.ShowDialog();
         }
 
         private void signUpbtn_Click(object sender, EventArgs e)
@@ -54,6 +55,12 @@ namespace TheProject
             SignUp signUpform = new SignUp();
             signUpform.ShowDialog();
 
+        }
+
+        private void pwtxtBox_TextChanged(object sender, EventArgs e)
+        {
+            Login loginform = new Login();
+            loginform.ShowDialog();
         }
     }
 }

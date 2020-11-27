@@ -27,5 +27,10 @@ namespace TheProject
             Menu menuform = new Menu();
             menuform.ShowDialog();
         }
+
+        private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

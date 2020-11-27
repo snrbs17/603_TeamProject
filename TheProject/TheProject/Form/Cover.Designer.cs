@@ -34,11 +34,11 @@ namespace TheProject
             this.button34 = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.username = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
+            this.pwtxtBox = new System.Windows.Forms.TextBox();
+            this.idtxtBox = new System.Windows.Forms.TextBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -113,11 +113,11 @@ namespace TheProject
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.username, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.textBox4, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.textBox3, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.password, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.pwtxtBox, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.idtxtBox, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -144,19 +144,20 @@ namespace TheProject
             this.panel3.Size = new System.Drawing.Size(290, 1);
             this.panel3.TabIndex = 13;
             // 
-            // textBox1
+            // username
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(3, 43);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(290, 31);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Username";
+            this.username.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.username.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.username.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.username.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.username.Location = new System.Drawing.Point(3, 43);
+            this.username.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            this.username.Size = new System.Drawing.Size(290, 31);
+            this.username.TabIndex = 2;
+            this.username.Text = "Username";
             // 
             // panel1
             // 
@@ -168,49 +169,51 @@ namespace TheProject
             this.panel1.Size = new System.Drawing.Size(290, 1);
             this.panel1.TabIndex = 0;
             // 
-            // textBox2
+            // password
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox2.Location = new System.Drawing.Point(3, 171);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(290, 31);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "Password";
+            this.password.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.password.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.password.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.password.Location = new System.Drawing.Point(3, 171);
+            this.password.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
+            this.password.Size = new System.Drawing.Size(290, 31);
+            this.password.TabIndex = 3;
+            this.password.Text = "Password";
             // 
-            // textBox4
+            // pwtxtBox
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox4.Location = new System.Drawing.Point(6, 222);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(284, 23);
-            this.textBox4.TabIndex = 15;
-            this.textBox4.Enter += new System.EventHandler(this.loginbtn_Click);
+            this.pwtxtBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pwtxtBox.BackColor = System.Drawing.SystemColors.Menu;
+            this.pwtxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pwtxtBox.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.pwtxtBox.Location = new System.Drawing.Point(6, 222);
+            this.pwtxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pwtxtBox.Name = "pwtxtBox";
+            this.pwtxtBox.ReadOnly = true;
+            this.pwtxtBox.Size = new System.Drawing.Size(284, 23);
+            this.pwtxtBox.TabIndex = 15;
+            this.pwtxtBox.TextChanged += new System.EventHandler(this.pwtxtBox_TextChanged);
+            this.pwtxtBox.Enter += new System.EventHandler(this.loginbtn_Click);
             // 
-            // textBox3
+            // idtxtBox
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox3.Location = new System.Drawing.Point(6, 91);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(284, 23);
-            this.textBox3.TabIndex = 14;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            this.textBox3.Enter += new System.EventHandler(this.loginbtn_Click);
+            this.idtxtBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.idtxtBox.BackColor = System.Drawing.SystemColors.Menu;
+            this.idtxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.idtxtBox.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.idtxtBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.idtxtBox.Location = new System.Drawing.Point(6, 91);
+            this.idtxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.idtxtBox.Name = "idtxtBox";
+            this.idtxtBox.ReadOnly = true;
+            this.idtxtBox.Size = new System.Drawing.Size(284, 23);
+            this.idtxtBox.TabIndex = 14;
+            this.idtxtBox.TextChanged += new System.EventHandler(this.idtxtBox_TextChanged);
+            this.idtxtBox.Enter += new System.EventHandler(this.loginbtn_Click);
             // 
             // splitContainer3
             // 
@@ -356,11 +359,11 @@ namespace TheProject
         private System.Windows.Forms.Button button34;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.TextBox pwtxtBox;
+        private System.Windows.Forms.TextBox idtxtBox;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer2;

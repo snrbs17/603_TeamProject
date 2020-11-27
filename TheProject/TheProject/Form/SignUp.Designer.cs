@@ -523,6 +523,7 @@ namespace TheProject
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(297, 325);
             this.tableLayoutPanel6.TabIndex = 16;
+            this.tableLayoutPanel6.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel6_Paint);
             // 
             // textBox2
             // 
@@ -629,7 +630,7 @@ namespace TheProject
             this.tableLayoutPanel10.ColumnCount = 3;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.60938F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.39063F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel10.Controls.Add(this.button33, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(145, 453);
@@ -642,10 +643,10 @@ namespace TheProject
             // button33
             // 
             this.button33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button33.Location = new System.Drawing.Point(60, 4);
+            this.button33.Location = new System.Drawing.Point(59, 4);
             this.button33.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(168, 61);
+            this.button33.Size = new System.Drawing.Size(166, 61);
             this.button33.TabIndex = 8;
             this.button33.Text = "회원가입";
             this.button33.UseVisualStyleBackColor = true;
