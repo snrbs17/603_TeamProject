@@ -53,7 +53,7 @@ namespace TheProject
             this.label1 = new System.Windows.Forms.Label();
             this.toggleSliderComponent1 = new ToggleSlider.ToggleSliderComponent();
             this.dgvStorageInfo = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.infoBtn = new System.Windows.Forms.Button();
             this.payBtn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -98,6 +98,7 @@ namespace TheProject
             this.button2.TabIndex = 21;
             this.button2.Text = "보관함 정보";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.boxCheckClick);
             // 
             // label21
             // 
@@ -379,19 +380,20 @@ namespace TheProject
             this.dgvStorageInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStorageInfo.Location = new System.Drawing.Point(13, 559);
             this.dgvStorageInfo.Name = "dgvStorageInfo";
+            this.dgvStorageInfo.ReadOnly = true;
             this.dgvStorageInfo.RowHeadersWidth = 51;
             this.dgvStorageInfo.RowTemplate.Height = 27;
             this.dgvStorageInfo.Size = new System.Drawing.Size(940, 134);
             this.dgvStorageInfo.TabIndex = 4;
             // 
-            // button1
+            // infoBtn
             // 
-            this.button1.Location = new System.Drawing.Point(374, 733);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(419, 65);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "현재 보관함 X개를 선택하셨습니다.";
-            this.button1.UseVisualStyleBackColor = true;
+            this.infoBtn.Location = new System.Drawing.Point(374, 733);
+            this.infoBtn.Name = "infoBtn";
+            this.infoBtn.Size = new System.Drawing.Size(419, 65);
+            this.infoBtn.TabIndex = 6;
+            this.infoBtn.Text = "현재 보관함 0개를 선택하셨습니다.";
+            this.infoBtn.UseVisualStyleBackColor = true;
             // 
             // payBtn
             // 
@@ -421,7 +423,7 @@ namespace TheProject
             this.ClientSize = new System.Drawing.Size(982, 1035);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.payBtn);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.infoBtn);
             this.Controls.Add(this.dgvStorageInfo);
             this.Controls.Add(this.toggleSliderComponent1);
             this.Controls.Add(this.groupBox1);
@@ -440,7 +442,7 @@ namespace TheProject
         private System.Windows.Forms.Label label1;
         private ToggleSlider.ToggleSliderComponent toggleSliderComponent1;
         private System.Windows.Forms.DataGridView dgvStorageInfo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button infoBtn;
         private System.Windows.Forms.Button payBtn;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;

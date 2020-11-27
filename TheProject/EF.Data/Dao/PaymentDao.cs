@@ -8,7 +8,6 @@ namespace EF.Data.Dao
 {
     public class PaymentDao
     {
-
         public List<PaymentEntity> GetList(List<StorageInfoForClientEntity> list)
         {
             using (var context = new projectEntities())
@@ -27,8 +26,8 @@ namespace EF.Data.Dao
                 return query.ToList();
             }
         }
-
-/*        public List<projectEntities> inputList()
+        /*
+        public List<projectEntities> inputList()
         {
             using (var context = new projectEntities())
             {
@@ -50,3 +49,4 @@ namespace EF.Data.Dao
         }*/
     }
 }
+    
