@@ -50,7 +50,7 @@ namespace TheProject
             this.dgvInfo.RowTemplate.Height = 27;
             this.dgvInfo.Size = new System.Drawing.Size(719, 150);
             this.dgvInfo.TabIndex = 0;
-            this.dgvInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cellClick);
+            this.dgvInfo.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.comboBoxClick);
             // 
             // button1
             // 
@@ -85,7 +85,7 @@ namespace TheProject
             this.infoPayFee.Name = "infoPayFee";
             this.infoPayFee.Size = new System.Drawing.Size(559, 49);
             this.infoPayFee.TabIndex = 5;
-            this.infoPayFee.Text = "총 입금금액은 XX,XXX원 입니다.";
+            this.infoPayFee.Text = "XX,XXX원 입니다.";
             this.infoPayFee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -111,7 +111,7 @@ namespace TheProject
             this.infoTotalFee.Name = "infoTotalFee";
             this.infoTotalFee.Size = new System.Drawing.Size(559, 49);
             this.infoTotalFee.TabIndex = 9;
-            this.infoTotalFee.Text = "총 결제금액은 XX,XXX원 입니다.";
+            this.infoTotalFee.Text = "XX,XXX원 입니다.";
             this.infoTotalFee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
