@@ -20,7 +20,8 @@ namespace EF.Data.Dao
                                 StorageId = x.StorageId,
                                 StorageTypeId = x.StorageTypeId,
                                 CanUse = y.ExitDate != null,
-                                Time = y.ExitDateExpected
+                                Time = y.ExitDateExpected,
+                                Activation = x.Activation
                             };
 
                 return query.ToList();

@@ -17,31 +17,18 @@ namespace TheProject
             InitializeComponent();
         }
 
+        // 사용하는 필드 (나중에 모아서 클래스 이동)
         private int toggleFlag = 0;
         private int nomalboxMaxNum = 14;
         private int payBtnClickFlag = 0;
 
+        // 사용하는 리스트
         private List<Label> _labels = new List<Label>();
-        List<StorageInfoForClientEntity> saveData = new List<StorageInfoForClientEntity>();
-        List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
-        List<StorageInfoForClientEntity> addDataList = new List<StorageInfoForClientEntity>();
+        private List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
+        private List<StorageInfoForClientEntity> addDataList = new List<StorageInfoForClientEntity>();
+        public List<StorageInfoForClientEntity> saveData = new List<StorageInfoForClientEntity>();
 
-        //초기 시작시
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            CreateLabelList();
-
-            // 데이터를 받아 storageTypeId 에 따라 색을 부여
-            Toggle();
-
-            //dgv
-            dgvStorageInfo.DataSource = null;
-
-        }
-
-        // _labels를 만들기 위해 reflection 하는 메서드
+        // CreateLabelList - _labels를 만들기 위해 reflection 하는 메서드
         private void CreateLabelList()
         {
             Type type = GetType();
@@ -58,7 +45,38 @@ namespace TheProject
             }
         }
 
-        // toggle에 따라 색상 변화하는 메서드
+        // OnLoad - 초기 시작시
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            CreateLabelList();
+
+            // 데이터를 받아 storageTypeId 에 따라 색을 부여
+            Toggle();
+
+            //dgv
+            dgvStorageInfo.DataSource = null;
+            CheckRedBox();
+        }
+
+        // CheckRedBox - 사용중인 박스 찾아서 Red로 표현해주는 메서드
+        private void CheckRedBox()
+        {
+            foreach (var item in _labels)
+            {
+                List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
+                for (int i = 0; i < dbList.Count; i++)
+                {
+                    if (item.Text == Convert.ToString(dbList[i].StorageId) && dbList[i].Activation == false)
+                    {
+                        item.BackColor = Color.Red;
+                    }
+                }
+            }
+        }
+
+        // ToggleClick - toggle에 따라 색상 변화하는 메서드
         public void ToggleClick(object sender, EventArgs e)
         {
             if (payBtnClickFlag == 1)
@@ -88,21 +106,8 @@ namespace TheProject
 
             SelectCheck();
         }
-
-        // 선택체크
-        private void SelectCheck()
-        {
-            addDataList.Clear();
-            foreach (var item in _labels)
-            {
-                if (item.BackColor == Color.Yellow)
-                {
-                    int index = Convert.ToInt32(item.Text)-1;
-                    addDataList.Add(dbList[index]);
-                }
-            }
-        }
-        // 토글 기능
+        
+        // Toggle, ToggleReverse - 토글 기능
         public void Toggle()
         {
             foreach (var item in _labels)
@@ -132,6 +137,7 @@ namespace TheProject
                     }
                 }
             }
+            CheckRedBox();
         }
         public void ToggleReverse()
         {
@@ -161,9 +167,10 @@ namespace TheProject
                     }
                 }
             }
+            CheckRedBox();
         }
 
-        // 라벨 선택시 데이터를 dgv에 표시해주고 색상 변화를 주는 메서드
+        // ClickLabel - 라벨 선택시 데이터를 dgv에 표시해주고 색상 변화를 주는 메서드
         public void ClickLabel(object sender, EventArgs e)
         {
             if(payBtnClickFlag == 1)
@@ -248,49 +255,61 @@ namespace TheProject
             infoBtn.Text = $"현재 보관함 {yellowCount}개를 선택하셨습니다.";
         }
 
-        private void SaveListPush(List<StorageInfoForClientEntity> addDataList)
-        {
-            saveData = addDataList;
-        }
-
-        // 결제버튼 누르면 화면 띄우는 메서드
+        // BoxCheckClick - 박스 정보를 보기위해 누르는
         public void BoxCheckClick(object sender, EventArgs e)
         {
-            dgvStorageInfo.DataSource = null;
-            dgvStorageInfo.Rows.Clear();
-            SelectCheck();
-
-            dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
-            
-            for (int i = 0; i < dgvStorageInfo.ColumnCount; i++)
-            {
-                DataGridViewColumn column = dgvStorageInfo.Columns[i];
-                dgvStorageInfo.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                column.Width = 191;
-            }
-
-
-            payBtnClickFlag = 1;   
+            ShowDgv();
         }
 
+        // PayBtnClick - 버튼 누르면 결제창르로 이동
         public void PayBtnClick(object sender, EventArgs e)
         {
-            dgvStorageInfo.DataSource = null;
-            dgvStorageInfo.Rows.Clear();
-            SelectCheck();
-            dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
-            for (int i = 0; i < dgvStorageInfo.ColumnCount; i++)
-            {
-                DataGridViewColumn column = dgvStorageInfo.Columns[i];
-                dgvStorageInfo.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                column.Width = 191;
-            }
+            ShowDgv();
+
             SaveListPush(addDataList);
-            payBtnClickFlag = 1;
+
             Payment payment = new Payment(saveData);
             payment.Show();
         }
 
+        // SaveListPush - 저장해서 결제화면으로 보내주기 위해 리스트를 저장
+        private void SaveListPush(List<StorageInfoForClientEntity> addDataList)
+        {
+            saveData = addDataList;
+        }
+        
+        // SelectCheck - 다시 화면 돌아왔을때 선택되어 있는 박스를 체크
+        private void SelectCheck()
+        {
+            addDataList.Clear();
+            foreach (var item in _labels)
+            {
+                if (item.BackColor == Color.Yellow)
+                {
+                    int index = Convert.ToInt32(item.Text) - 1;
+                    addDataList.Add(dbList[index]);
+                }
+            }
+        }
+
+        // ShowDgv - dgv 보여주는 메서드
+        public void ShowDgv()
+        {
+            dgvStorageInfo.DataSource = null;
+            dgvStorageInfo.Rows.Clear();
+            SelectCheck();
+            dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
+            for (int i = 0; i < dgvStorageInfo.ColumnCount; i++)
+            {
+                DataGridViewColumn column = dgvStorageInfo.Columns[i];
+                dgvStorageInfo.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                column.Width = 191;
+            }
+            dgvStorageInfo.Columns[4].Visible = false;
+            payBtnClickFlag = 1;
+        }
+
+        // ExitBtn - 나가기 버튼
         private void ExitBtn(object sender, EventArgs e)
         {
             Close();
