@@ -211,10 +211,10 @@
     <Compile Include="Form\Release.Designer.cs">
       <DependentUpon>Release.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchTest.cs">
+    <Compile Include="Test\SearchTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchTest.Designer.cs">
+    <Compile Include="Test\SearchTest.Designer.cs">
       <DependentUpon>SearchTest.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form\DataForOwner.resx">
@@ -241,7 +241,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SearchTest.resx">
+    <EmbeddedResource Include="Test\SearchTest.resx">
       <DependentUpon>SearchTest.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
