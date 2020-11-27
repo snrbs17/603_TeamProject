@@ -33,11 +33,11 @@ namespace TheProject
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.infoPayFee = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.infoTotalFee = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.payBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,11 +46,11 @@ namespace TheProject
             this.dgvInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInfo.Location = new System.Drawing.Point(41, 123);
             this.dgvInfo.Name = "dgvInfo";
-            this.dgvInfo.ReadOnly = true;
             this.dgvInfo.RowHeadersWidth = 51;
             this.dgvInfo.RowTemplate.Height = 27;
             this.dgvInfo.Size = new System.Drawing.Size(719, 150);
             this.dgvInfo.TabIndex = 0;
+            this.dgvInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cellClick);
             // 
             // button1
             // 
@@ -87,18 +87,6 @@ namespace TheProject
             this.infoPayFee.TabIndex = 5;
             this.infoPayFee.Text = "총 입금금액은 XX,XXX원 입니다.";
             this.infoPayFee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.Firebrick;
-            this.label5.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label5.Location = new System.Drawing.Point(133, 495);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(515, 49);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "결제 승인중입니다.";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -149,16 +137,28 @@ namespace TheProject
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.exitBtn);
             // 
+            // payBtn
+            // 
+            this.payBtn.BackColor = System.Drawing.Color.Firebrick;
+            this.payBtn.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.payBtn.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.payBtn.Location = new System.Drawing.Point(138, 514);
+            this.payBtn.Name = "payBtn";
+            this.payBtn.Size = new System.Drawing.Size(510, 67);
+            this.payBtn.TabIndex = 12;
+            this.payBtn.Text = "결제 승인중입니다.";
+            this.payBtn.UseVisualStyleBackColor = false;
+            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 639);
+            this.Controls.Add(this.payBtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.infoTotalFee);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.infoPayFee);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -176,10 +176,10 @@ namespace TheProject
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label infoPayFee;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label infoTotalFee;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button payBtn;
     }
 }
