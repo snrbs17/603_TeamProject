@@ -51,6 +51,8 @@ namespace TheProject
             this.label2 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.projectDataSet = new TheProject.ProjectDataSet();
             this.recieptTableAdapter = new TheProject.ProjectDataSetTableAdapters.RecieptTableAdapter();
             this.storageSelectionTableAdapter = new TheProject.ProjectDataSetTableAdapters.StorageSelectionTableAdapter();
@@ -72,16 +74,16 @@ namespace TheProject
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.DataSource = this.importDaoBindingSource;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(48, 188);
+            this.dataGridView1.Location = new System.Drawing.Point(48, 230);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(482, 111);
+            this.dataGridView1.Size = new System.Drawing.Size(482, 69);
             this.dataGridView1.TabIndex = 0;
             // 
             // importDaoBindingSource
             // 
-            this.importDaoBindingSource.DataSource = typeof(EF.Data.Dao.ImportDao);
+            this.importDaoBindingSource.DataSource = typeof(EF.Data.Dao.EarningDao);
             // 
             // button1
             // 
@@ -90,9 +92,9 @@ namespace TheProject
             this.button1.FlatAppearance.BorderSize = 3;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
             this.button1.Font = new System.Drawing.Font("Gulim", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(48, 48);
+            this.button1.Location = new System.Drawing.Point(50, 88);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 117);
+            this.button1.Size = new System.Drawing.Size(115, 117);
             this.button1.TabIndex = 1;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = false;
@@ -107,6 +109,10 @@ namespace TheProject
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
+            legend1.Position.Auto = false;
+            legend1.Position.Height = 5F;
+            legend1.Position.Width = 20F;
+            legend1.Position.X = 80F;
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(580, 28);
             this.chart1.Name = "chart1";
@@ -127,7 +133,7 @@ namespace TheProject
             this.panel1.Controls.Add(this.radioButton1);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(185, 48);
+            this.panel1.Location = new System.Drawing.Point(187, 88);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(187, 85);
             this.panel1.TabIndex = 5;
@@ -192,7 +198,7 @@ namespace TheProject
             "October",
             "November",
             "December"});
-            this.comboBox1.Location = new System.Drawing.Point(185, 142);
+            this.comboBox1.Location = new System.Drawing.Point(187, 182);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(187, 23);
             this.comboBox1.TabIndex = 6;
@@ -205,7 +211,7 @@ namespace TheProject
             this.comboBox3.Items.AddRange(new object[] {
             "2020",
             "2019"});
-            this.comboBox3.Location = new System.Drawing.Point(185, 142);
+            this.comboBox3.Location = new System.Drawing.Point(187, 182);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(187, 23);
             this.comboBox3.TabIndex = 6;
@@ -268,7 +274,7 @@ namespace TheProject
             this.panel2.Controls.Add(this.radioButton5);
             this.panel2.Controls.Add(this.radioButton3);
             this.panel2.Controls.Add(this.radioButton4);
-            this.panel2.Location = new System.Drawing.Point(396, 48);
+            this.panel2.Location = new System.Drawing.Point(398, 88);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(134, 117);
             this.panel2.TabIndex = 8;
@@ -311,11 +317,11 @@ namespace TheProject
             "storage 18 activate",
             "storage 19 activate",
             "storage 20 activate"});
-            this.checkedListBox1.Location = new System.Drawing.Point(48, 323);
+            this.checkedListBox1.Location = new System.Drawing.Point(48, 343);
             this.checkedListBox1.MultiColumn = true;
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkedListBox1.Size = new System.Drawing.Size(363, 124);
+            this.checkedListBox1.Size = new System.Drawing.Size(363, 104);
             this.checkedListBox1.TabIndex = 12;
             this.checkedListBox1.ThreeDCheckBoxes = true;
             // 
@@ -323,13 +329,35 @@ namespace TheProject
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button2.Location = new System.Drawing.Point(433, 323);
+            this.button2.Font = new System.Drawing.Font("Gulim", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button2.Location = new System.Drawing.Point(433, 325);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(97, 124);
             this.button2.TabIndex = 13;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Gulim", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(46, 315);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(278, 20);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Storage Activate/Deactivate";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(39, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(243, 34);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Data Analysis";
             // 
             // projectDataSet
             // 
@@ -350,6 +378,8 @@ namespace TheProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1189, 494);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.panel2);
@@ -373,6 +403,7 @@ namespace TheProject
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -399,5 +430,7 @@ namespace TheProject
         private System.Windows.Forms.BindingSource importDaoBindingSource;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EF.Data.Entities
 {
-    public class ImportEntity
+    public class EarningEntity
     {
         public int TimeUnit { get; set; }
         public int Cost { get; set; }

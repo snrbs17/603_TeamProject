@@ -44,28 +44,33 @@ namespace TheProject
 
         private void button1_Click(object sender, EventArgs e)
         {
+            button1.Enabled = false;
+
             chart1.Series.Clear();
 
-            List<ImportEntity> list =
-                Dao.Import.ImpoprtPerUnitTime(DataCreator.TimeScope, DataCreator.TimeUnit, DataCreator.TypeSelect);
+            List<EarningEntity> list =
+                Dao.Earning.EarningPerUnitTime(DataCreator.TimeScope, DataCreator.TimeUnit, DataCreator.TypeSelect);
             dataGridView1.DataSource = list;
 
-            chart1.Series.Add("Import");
+            chart1.Series.Add("Earning");
             foreach (var x in list)
-                chart1.Series["Import"].Points.AddXY(x.TimeUnit,x.Cost);
-            //chart1.Series["Import"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+                chart1.Series["Earning"].Points.AddXY(x.TimeUnit,x.Cost);
+            //chart1.Series["Earning"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            button1.Enabled = true;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             //MyLibrary.DataCreator.function(int month) = x => x.PaymentDate.Month == month;
             comboBox1.Enabled = true;
+            comboBox1.PerformLayout();
             comboBox3.Visible = false;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             comboBox3.Visible = true;
+            comboBox3.PerformLayout();
             comboBox1.Enabled = false;
 
         }
@@ -73,8 +78,8 @@ namespace TheProject
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             timeUnitValue = comboBox1.SelectedIndex+1;
-            DataCreator.TimeScope = Dao.Import.Monthly(timeUnitValue);
-            DataCreator.TimeUnit = Dao.Import.DaylyUnit();
+            DataCreator.TimeScope = Dao.Earning.Monthly(timeUnitValue);
+            DataCreator.TimeUnit = Dao.Earning.DaylyUnit();
             button1.Enabled = true;
           
         }
@@ -82,24 +87,24 @@ namespace TheProject
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             int timeUnitValue = DateTime.Now.Year - comboBox3.SelectedIndex;
-            DataCreator.TimeScope = Dao.Import.Yearly(timeUnitValue);
-            DataCreator.TimeUnit = Dao.Import.MonthlyUnit();
+            DataCreator.TimeScope = Dao.Earning.Yearly(timeUnitValue);
+            DataCreator.TimeUnit = Dao.Earning.MonthlyUnit();
             button1.Enabled = true;
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
-            DataCreator.TypeSelect = Dao.Import.Normal();
+            DataCreator.TypeSelect = Dao.Earning.Normal();
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            DataCreator.TypeSelect = Dao.Import.Fridge();
+            DataCreator.TypeSelect = Dao.Earning.Fridge();
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            DataCreator.TypeSelect = Dao.Import.AnyType();
+            DataCreator.TypeSelect = Dao.Earning.AnyType();
         }
 
         private void button2_Click(object sender, EventArgs e)

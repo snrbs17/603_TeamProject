@@ -165,7 +165,7 @@ namespace TheProject
             //todo 데이터 업데이트
             storageForm.Close();
             Close();
-        }*/
+        }
 
         // todo 카드나 돈을 받아서 넣게 해야할듯
         private void PayTestBtnClick(object sender, EventArgs e)
