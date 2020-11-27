@@ -20,7 +20,7 @@ namespace TheProject
         }
         private void btn조회_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection("Server=host;Database=dbname;User ID=uid;Password=pwd");
+            SqlConnection conn = new SqlConnection("Data Source=kimpro;Initial Catalog=_603_보관소;User ID=sa;Password=3512");
             da = new SqlDataAdapter("SELECT ROW_Number() over (order by ID), MachineTime FROM  EventLogs with (nolock) order by ID", conn);
             ds = new DataSet();
             //Fill the DataSet.
