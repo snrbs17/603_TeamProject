@@ -29,7 +29,7 @@ namespace TheProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvHistory = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.firstPageBtn = new System.Windows.Forms.Button();
@@ -37,19 +37,18 @@ namespace TheProject
             this.lastPageBtn = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvHistory
+            // dataGridView1
             // 
-            this.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHistory.Location = new System.Drawing.Point(12, 121);
-            this.dgvHistory.Name = "dgvHistory";
-            this.dgvHistory.ReadOnly = true;
-            this.dgvHistory.RowHeadersWidth = 51;
-            this.dgvHistory.RowTemplate.Height = 27;
-            this.dgvHistory.Size = new System.Drawing.Size(776, 208);
-            this.dgvHistory.TabIndex = 1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 121);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.Size = new System.Drawing.Size(776, 208);
+            this.dataGridView1.TabIndex = 1;
             // 
             // label2
             // 
@@ -133,10 +132,10 @@ namespace TheProject
             this.Controls.Add(this.firstPageBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgvHistory);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "Search";
             this.Text = "Form8";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,7 +143,7 @@ namespace TheProject
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvHistory;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button firstPageBtn;
