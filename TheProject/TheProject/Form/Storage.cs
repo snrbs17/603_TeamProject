@@ -305,6 +305,7 @@ namespace TheProject
                 dgvStorageInfo.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 column.Width = 191;
             }
+            
             dgvStorageInfo.Columns[4].Visible = false;
             payBtnClickFlag = 1;
         }
