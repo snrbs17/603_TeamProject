@@ -21,7 +21,7 @@ namespace TheProject
 
             DbContextCreator.Context = () => new projectEntities();
 
-            Application.Run(new Storage());
+            Application.Run(new DataForOwner());
         }
     }
 }
