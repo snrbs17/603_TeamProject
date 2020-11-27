@@ -165,45 +165,6 @@ namespace TheProject
             }
         }
 
-
-
-        // cell control 잠시 중지
-        private void cellControl(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-
-        }
-
-
-        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dgvInfo.CurrentCell.RowIndex >= 0)
-                {
-                    if (dgvInfo.CurrentCell.ColumnIndex == 4)
-                    {
-                        if (dgvInfo.Rows[dgvInfo.CurrentCell.RowIndex].Cells[4].Value != null)
-                        {
-                            this.dgvInfo.CommitEdit(DataGridViewDataErrorContexts.Commit);
-                            this.dgvInfo.UpdateCellValue(dgvInfo.CurrentCell.ColumnIndex, dgvInfo.CurrentCell.RowIndex);
-
-                            // 발생시 동작 - 앞뒤 셀에 시간 가격
-                            this.dgvInfo.Rows[dgvInfo.CurrentCell.RowIndex].Cells[5].Value = 5;
-
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        // cell click시 
-        private void dgvInfo_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
     }
 }
