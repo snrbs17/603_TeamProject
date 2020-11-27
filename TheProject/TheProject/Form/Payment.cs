@@ -19,12 +19,13 @@ namespace TheProject
         //private List<StorageInfoForClientEntity> selectList = new List<StorageInfoForClientEntity>();
         public List<PaymentEntity> paymentList = new List<PaymentEntity>();
         public List<PaymentEntity> sendPaymentList = new List<PaymentEntity>();
+        Storage storageForm;
 
-
-        public Payment(List<StorageInfoForClientEntity> list)
+        public Payment(List<StorageInfoForClientEntity> list, Storage form)
         {
             InitializeComponent();
             ExtractStorageData(list);
+            storageForm = form;
         }
 
         private void ExtractStorageData(List<StorageInfoForClientEntity> list)
@@ -162,11 +163,11 @@ namespace TheProject
                 sendPaymentList.Add(pl);
             }
             //todo 데이터 업데이트
-
+            storageForm.Close();
             Close();
         }
 
-        // 돈 받아서 넣게 해야할듯
+        // todo 카드나 돈을 받아서 넣게 해야할듯
         private void PayTestBtnClick(object sender, EventArgs e)
         {
             int testMoney = 3000;

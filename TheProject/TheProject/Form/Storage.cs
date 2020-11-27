@@ -268,7 +268,7 @@ namespace TheProject
 
             SaveListPush(addDataList);
 
-            Payment payment = new Payment(saveData);
+            Payment payment = new Payment(saveData, this);
             payment.Show();
         }
 
