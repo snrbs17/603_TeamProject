@@ -17,6 +17,7 @@ namespace TheProject
 {
     public partial class DataForOwner : Form
     {
+        int timeUnitValue;
         public DataForOwner()
         {
             InitializeComponent();
@@ -25,6 +26,12 @@ namespace TheProject
         private void DataForOwner_Load(object sender, EventArgs e)
         {
             radioButton3.PerformClick();
+            radioButton1.PerformClick();
+
+            comboBox3.SelectedIndex = 0;
+            comboBox1.SelectedIndex = DateTime.Now.Month -1;
+
+            chart1.Series.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,23 +51,24 @@ namespace TheProject
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             //MyLibrary.DataCreator.function(int month) = x => x.PaymentDate.Month == month;
-            comboBox1.Visible = true;
+            comboBox1.Enabled = true;
             comboBox3.Visible = false;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             comboBox3.Visible = true;
-            comboBox1.Visible = false;
+            comboBox1.Enabled = false;
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int timeUnitValue = comboBox1.SelectedIndex+1;
+            timeUnitValue = comboBox1.SelectedIndex+1;
             DataCreator.TimeScope = Dao.Import.Monthly(timeUnitValue);
             DataCreator.TimeUnit = Dao.Import.DaylyUnit();
             button1.Enabled = true;
+          
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,5 +93,6 @@ namespace TheProject
         {
             DataCreator.TypeSelect = Dao.Import.AnyType();
         }
+
     }
 }

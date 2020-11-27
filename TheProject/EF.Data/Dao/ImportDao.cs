@@ -11,14 +11,10 @@ namespace EF.Data.Dao
     public class ImportDao
     {
         public Func<RecieptSelectionStorage, bool> Monthly(int month) => x => x.reciept.PaymentDate.Month == month;
-
         public Func<RecieptSelectionStorage, bool> Yearly(int year) => x => x.reciept.PaymentDate.Year == year;
 
-
         public Func<RecieptSelectionStorage, int> DaylyUnit() => x => x.reciept.PaymentDate.Day;
-
         public Func<RecieptSelectionStorage, int> MonthlyUnit() => x => x.reciept.PaymentDate.Month;
-
 
         public Func<RecieptSelectionStorage, bool> AnyType() => x => true;
         public Func<RecieptSelectionStorage, bool> Fridge() => x => x.storage.StorageTypeId == 1;
