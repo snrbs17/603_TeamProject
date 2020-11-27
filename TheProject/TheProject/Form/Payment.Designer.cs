@@ -38,6 +38,7 @@ namespace TheProject
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.payBtn = new System.Windows.Forms.Button();
+            this.payTestBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,9 +49,10 @@ namespace TheProject
             this.dgvInfo.Name = "dgvInfo";
             this.dgvInfo.RowHeadersWidth = 51;
             this.dgvInfo.RowTemplate.Height = 27;
+            this.dgvInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInfo.Size = new System.Drawing.Size(719, 150);
             this.dgvInfo.TabIndex = 0;
-            this.dgvInfo.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.comboBoxClick);
+            this.dgvInfo.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.ComboBoxClick);
             // 
             // button1
             // 
@@ -60,7 +62,7 @@ namespace TheProject
             this.button1.TabIndex = 1;
             this.button1.Text = "추가";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.addBtn);
+            this.button1.Click += new System.EventHandler(this.AddBtnClick);
             // 
             // label1
             // 
@@ -85,7 +87,7 @@ namespace TheProject
             this.infoPayFee.Name = "infoPayFee";
             this.infoPayFee.Size = new System.Drawing.Size(559, 49);
             this.infoPayFee.TabIndex = 5;
-            this.infoPayFee.Text = "XX,XXX원 입니다.";
+            this.infoPayFee.Text = "XXX,XXX원 입니다.";
             this.infoPayFee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -135,7 +137,7 @@ namespace TheProject
             this.button2.TabIndex = 11;
             this.button2.Text = "나가기";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.exitBtn);
+            this.button2.Click += new System.EventHandler(this.ExitBtnClick);
             // 
             // payBtn
             // 
@@ -148,12 +150,24 @@ namespace TheProject
             this.payBtn.TabIndex = 12;
             this.payBtn.Text = "결제 승인중입니다.";
             this.payBtn.UseVisualStyleBackColor = false;
+            this.payBtn.Click += new System.EventHandler(this.PayBtnClick);
+            // 
+            // payTestBtn
+            // 
+            this.payTestBtn.Location = new System.Drawing.Point(689, 514);
+            this.payTestBtn.Name = "payTestBtn";
+            this.payTestBtn.Size = new System.Drawing.Size(75, 67);
+            this.payTestBtn.TabIndex = 13;
+            this.payTestBtn.Text = "테스트";
+            this.payTestBtn.UseVisualStyleBackColor = true;
+            this.payTestBtn.Click += new System.EventHandler(this.PayTestBtnClick);
             // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 639);
+            this.Controls.Add(this.payTestBtn);
             this.Controls.Add(this.payBtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
@@ -181,5 +195,6 @@ namespace TheProject
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button payBtn;
+        private System.Windows.Forms.Button payTestBtn;
     }
 }

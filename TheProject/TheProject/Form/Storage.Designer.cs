@@ -98,7 +98,7 @@ namespace TheProject
             this.button2.TabIndex = 21;
             this.button2.Text = "보관함 정보";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.boxCheckClick);
+            this.button2.Click += new System.EventHandler(this.BoxCheckClick);
             // 
             // label21
             // 
@@ -378,12 +378,12 @@ namespace TheProject
             // dgvStorageInfo
             // 
             this.dgvStorageInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStorageInfo.Location = new System.Drawing.Point(13, 559);
+            this.dgvStorageInfo.Location = new System.Drawing.Point(24, 559);
             this.dgvStorageInfo.Name = "dgvStorageInfo";
             this.dgvStorageInfo.ReadOnly = true;
             this.dgvStorageInfo.RowHeadersWidth = 51;
             this.dgvStorageInfo.RowTemplate.Height = 27;
-            this.dgvStorageInfo.Size = new System.Drawing.Size(940, 134);
+            this.dgvStorageInfo.Size = new System.Drawing.Size(935, 134);
             this.dgvStorageInfo.TabIndex = 4;
             // 
             // infoBtn
@@ -413,7 +413,7 @@ namespace TheProject
             this.button3.TabIndex = 8;
             this.button3.Text = "나가기";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.exitBtn);
+            this.button3.Click += new System.EventHandler(this.ExitBtn);
             // 
             // Storage
             // 

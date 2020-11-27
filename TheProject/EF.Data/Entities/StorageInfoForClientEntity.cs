@@ -12,5 +12,6 @@ namespace EF.Data.Entities
         public bool CanUse { get; set; }
         public DateTime Time { get; set; }
         public int StorageTypeId { get; set; }
+        public bool Activation { get; set; }
     }
 }
