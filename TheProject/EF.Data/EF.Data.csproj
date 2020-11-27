@@ -166,7 +166,7 @@
   <ItemGroup>
     <Compile Include="Dao\Dao.cs" />
     <Compile Include="Dao\FeeDao.cs" />
-    <Compile Include="Dao\ImportDao.cs" />
+    <Compile Include="Dao\EarningDao.cs" />
     <Compile Include="Dao\PaymentDao.cs" />
     <Compile Include="Dao\ReleaseDao.cs" />
     <Compile Include="Dao\StorageDao.cs" />
@@ -184,7 +184,7 @@
     <Compile Include="Employee.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\ImportEntity.cs" />
+    <Compile Include="Entities\EarningEntity.cs" />
     <Compile Include="Entities\PaymentEntity.cs" />
     <Compile Include="Entities\StorageEntity.cs" />
     <Compile Include="Entities\StorageInfoForClientEntity.cs" />

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EF.Data.Dao
 {
-    public class ImportDao
+    public class EarningDao
     {
         public Func<RecieptSelectionStorage, bool> Monthly(int month) => x => x.reciept.PaymentDate.Month == month;
         public Func<RecieptSelectionStorage, bool> Yearly(int year) => x => x.reciept.PaymentDate.Year == year;
@@ -29,7 +29,7 @@ namespace EF.Data.Dao
             public Storage storage;
         }
 
-        public List<ImportEntity> ImpoprtPerUnitTime(Func<RecieptSelectionStorage,bool> SelectTimeScope, Func<RecieptSelectionStorage,int> SelectTimeUnit, Func<RecieptSelectionStorage, bool> TypeSelect)
+        public List<EarningEntity> EarningPerUnitTime(Func<RecieptSelectionStorage,bool> SelectTimeScope, Func<RecieptSelectionStorage,int> SelectTimeUnit, Func<RecieptSelectionStorage, bool> TypeSelect)
         {
             using (var context = new projectEntities())
             {
@@ -40,7 +40,7 @@ namespace EF.Data.Dao
                     .Where(SelectTimeScope)
                     .Where(TypeSelect)
                     .OrderBy(SelectTimeUnit)
-                    .GroupBy(SelectTimeUnit, x => x.storageSelection.FeeId, (key, entities) => new ImportEntity { TimeUnit = key, Cost = entities.Sum() *1000  });
+                    .GroupBy(SelectTimeUnit, x => x.storageSelection.FeeId, (key, entities) => new EarningEntity { TimeUnit = key, Cost = entities.Sum() *1000  });
                                         
                 return query.ToList();
             }
