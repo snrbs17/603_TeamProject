@@ -13,5 +13,6 @@ namespace EF.Data.Dao
         public static EarningDao Earning { get; } = new EarningDao();
         public static PaymentDao Payment { get; } = new PaymentDao();
         public static ReleaseDao Release { get; } = new ReleaseDao();
+        public static SearchDao Search { get; } = new SearchDao();
     }
 }

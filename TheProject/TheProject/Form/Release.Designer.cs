@@ -32,7 +32,8 @@ namespace TheProject
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.releaseBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.chargeLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.infoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,6 +42,7 @@ namespace TheProject
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(12, 85);
             this.dgvList.Name = "dgvList";
+            this.dgvList.ReadOnly = true;
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 27;
             this.dgvList.Size = new System.Drawing.Size(776, 208);
@@ -48,9 +50,9 @@ namespace TheProject
             // 
             // releaseBtn
             // 
-            this.releaseBtn.Location = new System.Drawing.Point(604, 299);
+            this.releaseBtn.Location = new System.Drawing.Point(435, 299);
             this.releaseBtn.Name = "releaseBtn";
-            this.releaseBtn.Size = new System.Drawing.Size(184, 47);
+            this.releaseBtn.Size = new System.Drawing.Size(353, 47);
             this.releaseBtn.TabIndex = 1;
             this.releaseBtn.Text = "총 1건 출고";
             this.releaseBtn.UseVisualStyleBackColor = true;
@@ -64,22 +66,33 @@ namespace TheProject
             this.label2.TabIndex = 4;
             this.label2.Text = "보관내역";
             // 
-            // chargeLabel
+            // label1
             // 
-            this.chargeLabel.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.chargeLabel.Location = new System.Drawing.Point(141, 307);
-            this.chargeLabel.Name = "chargeLabel";
-            this.chargeLabel.Size = new System.Drawing.Size(457, 31);
-            this.chargeLabel.TabIndex = 5;
-            this.chargeLabel.Text = "출고시 x,xxx원 결제가 필요합니다";
-            this.chargeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(32, 376);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(182, 50);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "출고 과금";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // infoLabel
+            // 
+            this.infoLabel.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.infoLabel.Location = new System.Drawing.Point(220, 376);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(550, 50);
+            this.infoLabel.TabIndex = 7;
+            this.infoLabel.Text = "출고 시 XX,XXX 원이 부과됩니다.";
+            this.infoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Release
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.chargeLabel);
+            this.ClientSize = new System.Drawing.Size(800, 496);
+            this.Controls.Add(this.infoLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.releaseBtn);
             this.Controls.Add(this.dgvList);
@@ -96,6 +109,7 @@ namespace TheProject
         private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button releaseBtn;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label chargeLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label infoLabel;
     }
 }

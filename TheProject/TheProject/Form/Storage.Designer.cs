@@ -420,7 +420,7 @@ namespace TheProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(982, 1035);
+            this.ClientSize = new System.Drawing.Size(982, 853);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.payBtn);
             this.Controls.Add(this.infoBtn);
