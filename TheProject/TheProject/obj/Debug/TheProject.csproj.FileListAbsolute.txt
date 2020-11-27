@@ -200,3 +200,4 @@ C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\bin\Debug\ru\Micr
 C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.csproj.CopyComplete
+C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.SearchTest.resources
