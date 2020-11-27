@@ -141,15 +141,20 @@ namespace TheProject
             }
         }
 
+        // 결제 버튼 누른겨
         private void payBtnClick(object sender, EventArgs e)
         {
-            // main으로
+            // 여기에 데이터 넘겨줘야함
+            Dao.Payment.InputData(paymentList);
             Close();
         }
 
 
-        private void cellClick(object sender, DataGridViewCellEventArgs e)
+        // comboBoxClick시 
+        // 아직 바로 떠야되는데 안뜸
+        private void comboBoxClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
             {
                 return;
@@ -163,47 +168,34 @@ namespace TheProject
                 dgvInfo.Rows[selectCellRow].Cells[3].Value = date.AddHours(selectTime);
                 dgvInfo.Rows[selectCellRow].Cells[5].Value = selectTime * 1000;
             }
-        }
 
-
-
-        // cell control 잠시 중지
-        private void cellControl(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-
-        }
-
-
-        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
+            int sumTotal = 0;
+            for (int i = 0; i < dgvInfo.Rows.Count; i++)
             {
-                if (dgvInfo.CurrentCell.RowIndex >= 0)
-                {
-                    if (dgvInfo.CurrentCell.ColumnIndex == 4)
-                    {
-                        if (dgvInfo.Rows[dgvInfo.CurrentCell.RowIndex].Cells[4].Value != null)
-                        {
-                            this.dgvInfo.CommitEdit(DataGridViewDataErrorContexts.Commit);
-                            this.dgvInfo.UpdateCellValue(dgvInfo.CurrentCell.ColumnIndex, dgvInfo.CurrentCell.RowIndex);
-
-                            // 발생시 동작 - 앞뒤 셀에 시간 가격
-                            this.dgvInfo.Rows[dgvInfo.CurrentCell.RowIndex].Cells[5].Value = 5;
-
-                        }
-                    }
-                }
+                sumTotal += Convert.ToInt32(dgvInfo.Rows[i].Cells[5].Value);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
+            infoTotalFee.Text = $"{sumTotal:C} 원 입니다.";
         }
 
-        // cell click시 
-        private void dgvInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        /*private void changedCell(DataGridViewCellEventArgs e)
         {
+            int selectCellRow = e.RowIndex;
+            if (e.ColumnIndex == 4)
+            {
+                int selectTime = Convert.ToInt32(dgvInfo.Rows[selectCellRow].Cells[4].Value);
+                DateTime date = Convert.ToDateTime(dgvInfo.Rows[selectCellRow].Cells[2].Value);
+                dgvInfo.Rows[selectCellRow].Cells[3].Value = date.AddHours(selectTime);
+                dgvInfo.Rows[selectCellRow].Cells[5].Value = selectTime * 1000;
+            }
 
-        }
+            int sumTotal = 0;
+            for (int i = 0; i < dgvInfo.Rows.Count; i++)
+            {
+                sumTotal += Convert.ToInt32(dgvInfo.Rows[i].Cells[5].Value);
+            }
+
+            infoTotalFee.Text = $"{sumTotal:C} 원 입니다.";
+        }*/
     }
 }

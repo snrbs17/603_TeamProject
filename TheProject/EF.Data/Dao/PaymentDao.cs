@@ -1,4 +1,5 @@
 ﻿using EF.Data.Entities;
+using EFLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,8 +7,9 @@ using System.Linq.Expressions;
 
 namespace EF.Data.Dao
 {
-    public class PaymentDao
+    public class PaymentDao 
     {
+        
         public List<PaymentEntity> GetList(List<StorageInfoForClientEntity> list)
         {
             using (var context = new projectEntities())
@@ -26,8 +28,8 @@ namespace EF.Data.Dao
                 return query.ToList();
             }
         }
-        /*
-        public List<projectEntities> inputList()
+        
+        public void InputData(List<PaymentEntity> paymentList)
         {
             using (var context = new projectEntities())
             {
@@ -46,7 +48,10 @@ namespace EF.Data.Dao
 
                 return query.ToList();
             }
-        }*/
+        }
+
+
+        
     }
 }
     
