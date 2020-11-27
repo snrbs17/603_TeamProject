@@ -34,6 +34,7 @@ namespace TheProject
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.importDaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,10 +49,13 @@ namespace TheProject
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.projectDataSet = new TheProject.ProjectDataSet();
             this.recieptTableAdapter = new TheProject.ProjectDataSetTableAdapters.RecieptTableAdapter();
             this.storageSelectionTableAdapter = new TheProject.ProjectDataSetTableAdapters.StorageSelectionTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.importDaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.importBindingSource)).BeginInit();
@@ -63,8 +67,10 @@ namespace TheProject
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.DataSource = this.importDaoBindingSource;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.Location = new System.Drawing.Point(48, 188);
             this.dataGridView1.Name = "dataGridView1";
@@ -72,6 +78,10 @@ namespace TheProject
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(482, 111);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // importDaoBindingSource
+            // 
+            this.importDaoBindingSource.DataSource = typeof(EF.Data.Dao.ImportDao);
             // 
             // button1
             // 
@@ -98,13 +108,13 @@ namespace TheProject
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(581, 28);
+            this.chart1.Location = new System.Drawing.Point(580, 28);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(553, 423);
+            this.chart1.Size = new System.Drawing.Size(554, 454);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             // 
@@ -119,7 +129,7 @@ namespace TheProject
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(185, 48);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(187, 88);
+            this.panel1.Size = new System.Drawing.Size(187, 85);
             this.panel1.TabIndex = 5;
             // 
             // label1
@@ -141,7 +151,7 @@ namespace TheProject
             this.radioButton2.FlatAppearance.BorderSize = 3;
             this.radioButton2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
             this.radioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
-            this.radioButton2.Location = new System.Drawing.Point(105, 38);
+            this.radioButton2.Location = new System.Drawing.Point(105, 44);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(67, 19);
             this.radioButton2.TabIndex = 3;
@@ -156,7 +166,7 @@ namespace TheProject
             this.radioButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.radioButton1.FlatAppearance.BorderSize = 3;
-            this.radioButton1.Location = new System.Drawing.Point(14, 38);
+            this.radioButton1.Location = new System.Drawing.Point(14, 45);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(80, 19);
             this.radioButton1.TabIndex = 3;
@@ -273,6 +283,54 @@ namespace TheProject
             this.label2.TabIndex = 3;
             this.label2.Text = "StorageType";
             // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkedListBox1.CausesValidation = false;
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.ColumnWidth = 200;
+            this.checkedListBox1.HorizontalExtent = 100;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "storage 1 activate",
+            "storage 2 activate",
+            "storage 3 activate",
+            "storage 4 activate",
+            "storage 5 activate",
+            "storage 6 activate",
+            "storage 7 activate",
+            "storage 8 activate",
+            "storage 9 activate",
+            "storage 10 activate",
+            "storage 11 activate",
+            "storage 12 activate",
+            "storage 13 activate",
+            "storage 14 activate",
+            "storage 15 activate",
+            "storage 16 activate",
+            "storage 17 activate",
+            "storage 18 activate",
+            "storage 19 activate",
+            "storage 20 activate"});
+            this.checkedListBox1.Location = new System.Drawing.Point(48, 323);
+            this.checkedListBox1.MultiColumn = true;
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.checkedListBox1.Size = new System.Drawing.Size(363, 124);
+            this.checkedListBox1.TabIndex = 12;
+            this.checkedListBox1.ThreeDCheckBoxes = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button2.Location = new System.Drawing.Point(433, 323);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 124);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Update";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // projectDataSet
             // 
             this.projectDataSet.DataSetName = "ProjectDataSet";
@@ -292,6 +350,8 @@ namespace TheProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1189, 494);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox1);
@@ -304,6 +364,7 @@ namespace TheProject
             this.Text = "DataForOwner";
             this.Load += new System.EventHandler(this.DataForOwner_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.importDaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -335,5 +396,8 @@ namespace TheProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource importDaoBindingSource;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -142,12 +142,12 @@ namespace TheProject
         }
 
         // 결제 버튼 누른겨
-        private void payBtnClick(object sender, EventArgs e)
+        /*private void payBtnClick(object sender, EventArgs e)
         {
             // 여기에 데이터 넘겨줘야함
             Dao.Payment.InputData(paymentList);
             Close();
-        }
+        }*/
 
 
         // comboBoxClick시 

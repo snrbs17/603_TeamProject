@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using EF.Data;
 using EF.Data.Dao;
 using EF.Data.Entities;
+using EFLibrary;
 using MyLibrary;
 
 namespace TheProject
@@ -25,6 +26,13 @@ namespace TheProject
 
         private void DataForOwner_Load(object sender, EventArgs e)
         {
+            var list = Dao.Storage.GetAll();
+            foreach (var item in list)
+            {
+                if (item.Activation == true && item.StorageId <= 20)
+                    checkedListBox1.SetItemChecked(item.StorageId - 1, true);
+            }
+
             radioButton3.PerformClick();
             radioButton1.PerformClick();
 
@@ -94,5 +102,39 @@ namespace TheProject
             DataCreator.TypeSelect = Dao.Import.AnyType();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //checkedListBox1.CheckedItems.
+            //var list = Dao.Storage.GetAll();
+            /*list[0].Activation = false;
+            using (var context = DbContextCreator.Context())
+            {
+                context.Entry(Dao.Storage.GetByPK(1).state = System.Data.Entity.EntityState.Modified;
+
+                context.SaveChanges();
+            }
+            Dao.Storage.Update(Dao.Storage.GetByPK(1));*/
+
+            button2.Enabled = false;
+            button2.BackColor = SystemColors.ControlLight;
+            //todo update : var x = context.Fees.Where(x =>조건(ex x.FeeId ==1)).ToList();
+            //https://www.csharpstudy.com/Data/SQL-linq-dml.aspx 마지막 줄 submitChanges 대신에 SaveChanges
+            using (var context = new projectEntities())
+            {
+                var x = context.Storages.ToList();
+                if(x != null)
+                {
+                    foreach (var item in x)
+                    {
+                        if (item.StorageId <= 20)
+                            item.Activation = checkedListBox1.GetItemChecked(item.StorageId - 1);
+                    }
+                    context.SaveChanges();
+                }
+            }
+            //update ends
+            button2.Enabled = true;
+            button2.BackColor = SystemColors.GradientActiveCaption;
+        }
     }
 }
