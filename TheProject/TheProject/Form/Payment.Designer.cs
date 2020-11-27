@@ -32,11 +32,11 @@ namespace TheProject
             this.dgvInfo = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.infoPayFee = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.infoTotalFee = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.infoPayFee = new System.Windows.Forms.Label();
-            this.infoTotalFee = new System.Windows.Forms.Label();
             this.payBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +50,7 @@ namespace TheProject
             this.dgvInfo.RowTemplate.Height = 27;
             this.dgvInfo.Size = new System.Drawing.Size(719, 150);
             this.dgvInfo.TabIndex = 0;
-            this.dgvInfo.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvTest_DataError);
+            this.dgvInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cellClick);
             // 
             // button1
             // 
@@ -75,6 +75,19 @@ namespace TheProject
             this.label1.Text = "총 결제금액";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // infoPayFee
+            // 
+            this.infoPayFee.BackColor = System.Drawing.Color.Gold;
+            this.infoPayFee.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.infoPayFee.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.infoPayFee.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.infoPayFee.Location = new System.Drawing.Point(201, 415);
+            this.infoPayFee.Name = "infoPayFee";
+            this.infoPayFee.Size = new System.Drawing.Size(559, 49);
+            this.infoPayFee.TabIndex = 5;
+            this.infoPayFee.Text = "총 입금금액은 XX,XXX원 입니다.";
+            this.infoPayFee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.SystemColors.Highlight;
@@ -87,6 +100,19 @@ namespace TheProject
             this.label7.TabIndex = 8;
             this.label7.Text = "총 입금금액";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // infoTotalFee
+            // 
+            this.infoTotalFee.BackColor = System.Drawing.Color.Gold;
+            this.infoTotalFee.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.infoTotalFee.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.infoTotalFee.ForeColor = System.Drawing.SystemColors.Window;
+            this.infoTotalFee.Location = new System.Drawing.Point(201, 353);
+            this.infoTotalFee.Name = "infoTotalFee";
+            this.infoTotalFee.Size = new System.Drawing.Size(559, 49);
+            this.infoTotalFee.TabIndex = 9;
+            this.infoTotalFee.Text = "총 결제금액은 XX,XXX원 입니다.";
+            this.infoTotalFee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -111,45 +137,17 @@ namespace TheProject
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.exitBtn);
             // 
-            // infoPayFee
-            // 
-            this.infoPayFee.BackColor = System.Drawing.Color.Gold;
-            this.infoPayFee.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.infoPayFee.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.infoPayFee.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.infoPayFee.Location = new System.Drawing.Point(201, 415);
-            this.infoPayFee.Name = "infoPayFee";
-            this.infoPayFee.Size = new System.Drawing.Size(559, 49);
-            this.infoPayFee.TabIndex = 5;
-            this.infoPayFee.Text = "1 XX,XXX원 입니다.";
-            this.infoPayFee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.infoPayFee.TextChanged += new System.EventHandler(this.textChanged);
-            // 
-            // infoTotalFee
-            // 
-            this.infoTotalFee.BackColor = System.Drawing.Color.Gold;
-            this.infoTotalFee.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.infoTotalFee.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.infoTotalFee.ForeColor = System.Drawing.SystemColors.Window;
-            this.infoTotalFee.Location = new System.Drawing.Point(201, 353);
-            this.infoTotalFee.Name = "infoTotalFee";
-            this.infoTotalFee.Size = new System.Drawing.Size(559, 49);
-            this.infoTotalFee.TabIndex = 9;
-            this.infoTotalFee.Text = "XX,XXX원 입니다.";
-            this.infoTotalFee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // payBtn
             // 
             this.payBtn.BackColor = System.Drawing.Color.Firebrick;
             this.payBtn.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.payBtn.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.payBtn.Location = new System.Drawing.Point(131, 501);
+            this.payBtn.Location = new System.Drawing.Point(138, 514);
             this.payBtn.Name = "payBtn";
-            this.payBtn.Size = new System.Drawing.Size(516, 49);
+            this.payBtn.Size = new System.Drawing.Size(510, 67);
             this.payBtn.TabIndex = 12;
             this.payBtn.Text = "결제 승인중입니다.";
             this.payBtn.UseVisualStyleBackColor = false;
-            this.payBtn.Click += new System.EventHandler(this.payBtnClick);
             // 
             // Payment
             // 
@@ -177,11 +175,11 @@ namespace TheProject
         private System.Windows.Forms.DataGridView dgvInfo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label infoPayFee;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label infoTotalFee;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label infoPayFee;
-        private System.Windows.Forms.Label infoTotalFee;
         private System.Windows.Forms.Button payBtn;
     }
 }
