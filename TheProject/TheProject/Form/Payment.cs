@@ -145,7 +145,7 @@ namespace TheProject
         private void payBtnClick(object sender, EventArgs e)
         {
             // 여기에 데이터 넘겨줘야함
-            Dao.Payment.InputData(paymentList);
+           // Dao.Payment.InputData(paymentList);
             Close();
         }
 

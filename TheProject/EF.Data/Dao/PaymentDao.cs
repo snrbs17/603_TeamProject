@@ -29,7 +29,7 @@ namespace EF.Data.Dao
             }
         }
         
-        public void InputData(List<PaymentEntity> paymentList)
+        /*public void InputData(List<PaymentEntity> paymentList)
         {
             using (var context = new projectEntities())
             {
@@ -49,7 +49,7 @@ namespace EF.Data.Dao
                 return query.ToList();
             }
         }
-
+        */
 
         
     }

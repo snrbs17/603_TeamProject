@@ -34,7 +34,7 @@ namespace TheProject
             CreateLabelList();
 
             // 데이터를 받아 storageTypeId 에 따라 색을 부여
-            toggle();
+            Toggle();
 
             //dgv
             dgvStorageInfo.DataSource = null;
@@ -76,21 +76,21 @@ namespace TheProject
                 tog.ToggleCircleColor = Color.Green;
                 tog.ToggleBarText = " 신선";
                 toggleFlag = 1;
-                toggleReverse();
+                ToggleReverse();
             }
             else
             {
                 tog.ToggleCircleColor = Color.Silver;
                 tog.ToggleBarText = " 일반";
                 toggleFlag = 0;
-                toggle();
+                Toggle();
             }
 
-            selectCheck();
+            SelectCheck();
         }
 
         // 선택체크
-        private void selectCheck()
+        private void SelectCheck()
         {
             addDataList.Clear();
             foreach (var item in _labels)
@@ -103,7 +103,7 @@ namespace TheProject
             }
         }
         // 토글 기능
-        public void toggle()
+        public void Toggle()
         {
             foreach (var item in _labels)
             {
@@ -133,7 +133,7 @@ namespace TheProject
                 }
             }
         }
-        public void toggleReverse()
+        public void ToggleReverse()
         {
             foreach (var item in _labels)
             {
@@ -248,19 +248,28 @@ namespace TheProject
             infoBtn.Text = $"현재 보관함 {yellowCount}개를 선택하셨습니다.";
         }
 
-        private void saveListPush(List<StorageInfoForClientEntity> addDataList)
+        private void SaveListPush(List<StorageInfoForClientEntity> addDataList)
         {
             saveData = addDataList;
         }
 
         // 결제버튼 누르면 화면 띄우는 메서드
-        public void boxCheckClick(object sender, EventArgs e)
+        public void BoxCheckClick(object sender, EventArgs e)
         {
             dgvStorageInfo.DataSource = null;
             dgvStorageInfo.Rows.Clear();
-            selectCheck();
-            
+            SelectCheck();
+
             dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
+            
+            for (int i = 0; i < dgvStorageInfo.ColumnCount; i++)
+            {
+                DataGridViewColumn column = dgvStorageInfo.Columns[i];
+                dgvStorageInfo.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                column.Width = 191;
+            }
+
+
             payBtnClickFlag = 1;   
         }
 
@@ -268,15 +277,21 @@ namespace TheProject
         {
             dgvStorageInfo.DataSource = null;
             dgvStorageInfo.Rows.Clear();
-            selectCheck();
+            SelectCheck();
             dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
-            saveListPush(addDataList);
+            for (int i = 0; i < dgvStorageInfo.ColumnCount; i++)
+            {
+                DataGridViewColumn column = dgvStorageInfo.Columns[i];
+                dgvStorageInfo.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                column.Width = 191;
+            }
+            SaveListPush(addDataList);
             payBtnClickFlag = 1;
             Payment payment = new Payment(saveData);
             payment.Show();
         }
 
-        private void exitBtn(object sender, EventArgs e)
+        private void ExitBtn(object sender, EventArgs e)
         {
             Close();
         }
