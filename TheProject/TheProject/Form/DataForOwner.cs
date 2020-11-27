@@ -24,16 +24,21 @@ namespace TheProject
 
         private void DataForOwner_Load(object sender, EventArgs e)
         {
+            radioButton3.PerformClick();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            chart1.Series.Clear();
+
             List<ImportEntity> list =
-                Dao.Import.ImpoprtPerUnitTime(DataCreator.TimeScope, DataCreator.TimeUnit);
+                Dao.Import.ImpoprtPerUnitTime(DataCreator.TimeScope, DataCreator.TimeUnit, DataCreator.TypeSelect);
             dataGridView1.DataSource = list;
 
+            chart1.Series.Add("Import");
             foreach (var x in list)
-                chart1.Series[0].Points.AddXY(x.TimeUnit,x.Cost);
+                chart1.Series["Import"].Points.AddXY(x.TimeUnit,x.Cost);
+            //chart1.Series["Import"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -45,7 +50,6 @@ namespace TheProject
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-
             comboBox3.Visible = true;
             comboBox1.Visible = false;
 
@@ -56,6 +60,7 @@ namespace TheProject
             int timeUnitValue = comboBox1.SelectedIndex+1;
             DataCreator.TimeScope = Dao.Import.Monthly(timeUnitValue);
             DataCreator.TimeUnit = Dao.Import.DaylyUnit();
+            button1.Enabled = true;
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,6 +68,22 @@ namespace TheProject
             int timeUnitValue = DateTime.Now.Year - comboBox3.SelectedIndex;
             DataCreator.TimeScope = Dao.Import.Yearly(timeUnitValue);
             DataCreator.TimeUnit = Dao.Import.MonthlyUnit();
+            button1.Enabled = true;
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            DataCreator.TypeSelect = Dao.Import.Normal();
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            DataCreator.TypeSelect = Dao.Import.Fridge();
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            DataCreator.TypeSelect = Dao.Import.AnyType();
         }
     }
 }

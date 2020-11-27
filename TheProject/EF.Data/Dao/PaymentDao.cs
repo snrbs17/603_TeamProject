@@ -8,10 +8,10 @@ namespace EF.Data.Dao
 {
     public class PaymentDao
     {
-        
+
         public List<PaymentEntity> GetList(List<StorageInfoForClientEntity> list)
         {
-            using(var context = new projectEntities())
+            using (var context = new projectEntities())
             {
                 var query = from x in list
                             join y in context.StorageSelections on x.StorageId equals y.StorageId
@@ -21,14 +21,14 @@ namespace EF.Data.Dao
                                 StorageId = x.StorageId,
                                 StorageTypeId = x.StorageTypeId,
                                 EntryDate = DateTime.Now,
-                                
+
                             };
 
                 return query.ToList();
             }
         }
 
-        public List<projectEntities> inputList()
+/*        public List<projectEntities> inputList()
         {
             using (var context = new projectEntities())
             {
@@ -47,5 +47,6 @@ namespace EF.Data.Dao
 
                 return query.ToList();
             }
+        }*/
     }
 }

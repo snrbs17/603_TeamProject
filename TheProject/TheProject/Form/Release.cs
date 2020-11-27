@@ -19,12 +19,12 @@ namespace TheProject
             base.OnLoad(e);
 
             // dgv에 표시
-            dgvList.DataSource = list;
+            //dgvList.DataSource = list;
             // totalCost 계산
-            foreach (var item in list)
-            {
-                totalCost += Convert.ToInt32(item.cost);
-            }
+            //foreach (var item in list)
+            //{
+            //    totalCost += Convert.ToInt32(item.cost);
+            //}
 
             if(totalCost == 0)
             {
