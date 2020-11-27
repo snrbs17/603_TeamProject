@@ -16,8 +16,10 @@ namespace TheProject
         }
 
         // Storage에서 리스트를 payList에 받아옴
-        private List<StorageInfoForClientEntity> selectList = new List<StorageInfoForClientEntity>();
+        //private List<StorageInfoForClientEntity> selectList = new List<StorageInfoForClientEntity>();
         public List<PaymentEntity> paymentList = new List<PaymentEntity>();
+        public List<PaymentEntity> sendPaymentList = new List<PaymentEntity>();
+
 
         public Payment(List<StorageInfoForClientEntity> list)
         {
@@ -63,7 +65,7 @@ namespace TheProject
         }
 
         // dgvCell readonly
-        private void dgvCellReadOnly()
+        private void DgvCellReadOnly()
         {
             for (int i = 0; i < dgvInfo.Columns.Count; i++)
             {
@@ -72,7 +74,7 @@ namespace TheProject
         }
 
         // dgv error
-        private void dgvTest_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void DgvTest_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             try
             {
@@ -104,22 +106,21 @@ namespace TheProject
             {
                 dgvInfo.Rows[i].Cells[4] = dgvComboBox();
             }
-            dgvCellReadOnly();
+            DgvCellReadOnly();
             dgvInfo.Columns[4].ReadOnly = false;
 
-            payBtn.Enabled = false;
-            payBtn.BackColor = Color.DarkGray;
+            TextCheck();
             infoTotalFee.Text = "시간을 선택해주세요.";
             infoPayFee.Text = "0원 입니다.";
         }
 
-        private void addBtn(object sender, EventArgs e)
+        private void AddBtnClick(object sender, EventArgs e)
         {
             // 넘어간 폼의 기존 화면 쓰게
             Close();
         }
 
-        private void exitBtn(object sender, EventArgs e)
+        private void ExitBtnClick(object sender, EventArgs e)
         {
             // 나중에 넘어간 Form 데이터 리셋시켜야함
             Close();
@@ -127,7 +128,7 @@ namespace TheProject
 
 
         // 입금금액과 총금액이 맞는지 확인
-        private void textChanged(object sender, EventArgs e)
+        private void TextCheck()
         {
             if (infoPayFee.Text == infoTotalFee.Text)
             {
@@ -142,19 +143,41 @@ namespace TheProject
         }
 
         // 결제 버튼 누른겨
-        private void payBtnClick(object sender, EventArgs e)
+        private void PayBtnClick(object sender, EventArgs e)
         {
             // 여기에 데이터 넘겨줘야함
-           // Dao.Payment.InputData(paymentList);
+            // Dao.Payment.InputData(paymentList);
+
+            foreach (DataGridViewRow dr in dgvInfo.Rows)
+            {
+                //Create object of your list type pl
+                PaymentEntity pl = new PaymentEntity();
+                pl.StorageId = Convert.ToInt32(dr.Cells[0].Value);
+                pl.StorageTypeId = Convert.ToInt32(dr.Cells[1].Value);
+                pl.EntryDate = Convert.ToDateTime(dr.Cells[2].Value);
+                pl.ExitDateExpected = Convert.ToDateTime(dr.Cells[3].Value);
+                pl.TimePassId = Convert.ToInt32(dr.Cells[4].Value);
+                pl.Cost = Convert.ToInt32(dr.Cells[5].Value);
+                //Add pl to your List  
+                sendPaymentList.Add(pl);
+            }
+            //todo 데이터 업데이트
+
             Close();
         }
 
+        // 돈 받아서 넣게 해야할듯
+        private void PayTestBtnClick(object sender, EventArgs e)
+        {
+            int testMoney = 3000;
+            infoPayFee.Text = $"{testMoney:c} 원 입니다.";
+            TextCheck();
+        }
 
         // comboBoxClick시 
         // 아직 바로 떠야되는데 안뜸
-        private void comboBoxClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
+        private void ComboBoxClick(object sender, DataGridViewCellEventArgs e)
+        { 
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
             {
                 return;
@@ -176,6 +199,7 @@ namespace TheProject
             }
 
             infoTotalFee.Text = $"{sumTotal:C} 원 입니다.";
+            
         }
 
         /*private void changedCell(DataGridViewCellEventArgs e)
