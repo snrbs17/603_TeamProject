@@ -171,6 +171,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form\Cover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Cover.Designer.cs">
+      <DependentUpon>Cover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Selection.Designer.cs">
+      <DependentUpon>Selection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\DataForOwner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +241,18 @@
     <Compile Include="Test\SearchTest.Designer.cs">
       <DependentUpon>SearchTest.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form\Cover.resx">
+      <DependentUpon>Cover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Selection.resx">
+      <DependentUpon>Selection.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\DataForOwner.resx">
       <DependentUpon>DataForOwner.cs</DependentUpon>
     </EmbeddedResource>
