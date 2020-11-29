@@ -83,20 +83,23 @@ namespace TheProject
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 74);
+            this.groupBox1.Location = new System.Drawing.Point(16, 89);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(957, 479);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1196, 575);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "TheProject 보관함";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(29, 439);
+            this.button2.Location = new System.Drawing.Point(14, 509);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 23);
+            this.button2.Size = new System.Drawing.Size(121, 66);
             this.button2.TabIndex = 21;
-            this.button2.Text = "보관함 정보";
+            this.button2.Text = "보관함\r\n정보 확인";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.BoxCheckClick);
             // 
@@ -104,10 +107,11 @@ namespace TheProject
             // 
             this.label21.BackColor = System.Drawing.Color.DarkGray;
             this.label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label21.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label21.Location = new System.Drawing.Point(646, 299);
+            this.label21.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label21.Location = new System.Drawing.Point(808, 359);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(89, 177);
+            this.label21.Size = new System.Drawing.Size(111, 212);
             this.label21.TabIndex = 20;
             this.label21.Text = "20";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -117,10 +121,11 @@ namespace TheProject
             // 
             this.label20.BackColor = System.Drawing.Color.White;
             this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label20.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label20.Location = new System.Drawing.Point(646, 115);
+            this.label20.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label20.Location = new System.Drawing.Point(808, 138);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 174);
+            this.label20.Size = new System.Drawing.Size(111, 208);
             this.label20.TabIndex = 19;
             this.label20.Text = "19";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -130,10 +135,11 @@ namespace TheProject
             // 
             this.label19.BackColor = System.Drawing.Color.Red;
             this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label19.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label19.Location = new System.Drawing.Point(646, 21);
+            this.label19.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label19.Location = new System.Drawing.Point(808, 25);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(89, 82);
+            this.label19.Size = new System.Drawing.Size(111, 98);
             this.label19.TabIndex = 18;
             this.label19.Text = "18";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -143,10 +149,11 @@ namespace TheProject
             // 
             this.label18.BackColor = System.Drawing.Color.DarkGray;
             this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label18.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label18.Location = new System.Drawing.Point(551, 299);
+            this.label18.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label18.Location = new System.Drawing.Point(689, 359);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(89, 177);
+            this.label18.Size = new System.Drawing.Size(111, 212);
             this.label18.TabIndex = 17;
             this.label18.Text = "17";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -156,10 +163,11 @@ namespace TheProject
             // 
             this.label17.BackColor = System.Drawing.Color.White;
             this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label17.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label17.Location = new System.Drawing.Point(551, 115);
+            this.label17.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label17.Location = new System.Drawing.Point(689, 138);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(89, 174);
+            this.label17.Size = new System.Drawing.Size(111, 208);
             this.label17.TabIndex = 16;
             this.label17.Text = "16";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -169,10 +177,11 @@ namespace TheProject
             // 
             this.label16.BackColor = System.Drawing.Color.White;
             this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label16.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label16.Location = new System.Drawing.Point(551, 21);
+            this.label16.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label16.Location = new System.Drawing.Point(689, 25);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(89, 82);
+            this.label16.Size = new System.Drawing.Size(111, 98);
             this.label16.TabIndex = 15;
             this.label16.Text = "15";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,10 +191,11 @@ namespace TheProject
             // 
             this.label15.BackColor = System.Drawing.Color.Red;
             this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label15.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label15.Location = new System.Drawing.Point(456, 394);
+            this.label15.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label15.Location = new System.Drawing.Point(570, 473);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 82);
+            this.label15.Size = new System.Drawing.Size(111, 98);
             this.label15.TabIndex = 14;
             this.label15.Text = "14";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -195,10 +205,11 @@ namespace TheProject
             // 
             this.label14.BackColor = System.Drawing.Color.DarkGray;
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label14.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label14.Location = new System.Drawing.Point(456, 299);
+            this.label14.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label14.Location = new System.Drawing.Point(570, 359);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 82);
+            this.label14.Size = new System.Drawing.Size(111, 98);
             this.label14.TabIndex = 13;
             this.label14.Text = "13";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -208,10 +219,11 @@ namespace TheProject
             // 
             this.label13.BackColor = System.Drawing.Color.Red;
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label13.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label13.Location = new System.Drawing.Point(456, 207);
+            this.label13.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label13.Location = new System.Drawing.Point(570, 248);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(89, 82);
+            this.label13.Size = new System.Drawing.Size(111, 98);
             this.label13.TabIndex = 12;
             this.label13.Text = "12";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -221,10 +233,11 @@ namespace TheProject
             // 
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label12.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label12.Location = new System.Drawing.Point(456, 115);
+            this.label12.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label12.Location = new System.Drawing.Point(570, 138);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 82);
+            this.label12.Size = new System.Drawing.Size(111, 98);
             this.label12.TabIndex = 11;
             this.label12.Text = "11";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -234,10 +247,11 @@ namespace TheProject
             // 
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label11.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(456, 21);
+            this.label11.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label11.Location = new System.Drawing.Point(570, 25);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 82);
+            this.label11.Size = new System.Drawing.Size(111, 98);
             this.label11.TabIndex = 10;
             this.label11.Text = "10";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -247,10 +261,11 @@ namespace TheProject
             // 
             this.label10.BackColor = System.Drawing.Color.Red;
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label10.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(275, 299);
+            this.label10.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label10.Location = new System.Drawing.Point(344, 359);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(175, 177);
+            this.label10.Size = new System.Drawing.Size(218, 212);
             this.label10.TabIndex = 9;
             this.label10.Text = "9";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -260,10 +275,11 @@ namespace TheProject
             // 
             this.label9.BackColor = System.Drawing.Color.White;
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label9.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(275, 115);
+            this.label9.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Location = new System.Drawing.Point(344, 138);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(175, 174);
+            this.label9.Size = new System.Drawing.Size(218, 208);
             this.label9.TabIndex = 8;
             this.label9.Text = "8";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -273,10 +289,11 @@ namespace TheProject
             // 
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(361, 21);
+            this.label8.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Location = new System.Drawing.Point(451, 25);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 82);
+            this.label8.Size = new System.Drawing.Size(111, 98);
             this.label8.TabIndex = 7;
             this.label8.Text = "7";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -286,10 +303,11 @@ namespace TheProject
             // 
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(275, 21);
+            this.label7.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Location = new System.Drawing.Point(344, 25);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 82);
+            this.label7.Size = new System.Drawing.Size(100, 98);
             this.label7.TabIndex = 6;
             this.label7.Text = "6";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -299,10 +317,11 @@ namespace TheProject
             // 
             this.label5.BackColor = System.Drawing.Color.DarkGray;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(180, 394);
+            this.label5.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(225, 473);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 82);
+            this.label5.Size = new System.Drawing.Size(111, 98);
             this.label5.TabIndex = 5;
             this.label5.Text = "5";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -312,10 +331,11 @@ namespace TheProject
             // 
             this.label4.BackColor = System.Drawing.Color.DarkGray;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(180, 299);
+            this.label4.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(225, 359);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 82);
+            this.label4.Size = new System.Drawing.Size(111, 98);
             this.label4.TabIndex = 4;
             this.label4.Text = "4";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -325,10 +345,11 @@ namespace TheProject
             // 
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(180, 207);
+            this.label3.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(225, 248);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 82);
+            this.label3.Size = new System.Drawing.Size(111, 98);
             this.label3.TabIndex = 3;
             this.label3.Text = "3";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -338,10 +359,11 @@ namespace TheProject
             // 
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(180, 115);
+            this.label2.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(225, 138);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 82);
+            this.label2.Size = new System.Drawing.Size(111, 98);
             this.label2.TabIndex = 2;
             this.label2.Text = "2";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -351,10 +373,11 @@ namespace TheProject
             // 
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Gulim", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(180, 21);
+            this.label1.Font = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(225, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 82);
+            this.label1.Size = new System.Drawing.Size(111, 98);
             this.label1.TabIndex = 1;
             this.label1.Text = "1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -364,11 +387,11 @@ namespace TheProject
             // 
             this.toggleSliderComponent1.AutoSize = true;
             this.toggleSliderComponent1.Checked = false;
-            this.toggleSliderComponent1.Font = new System.Drawing.Font("Gulim", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.toggleSliderComponent1.Location = new System.Drawing.Point(208, 16);
-            this.toggleSliderComponent1.Margin = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.toggleSliderComponent1.Font = new System.Drawing.Font("굴림", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.toggleSliderComponent1.Location = new System.Drawing.Point(260, 19);
+            this.toggleSliderComponent1.Margin = new System.Windows.Forms.Padding(12, 8, 12, 8);
             this.toggleSliderComponent1.Name = "toggleSliderComponent1";
-            this.toggleSliderComponent1.Size = new System.Drawing.Size(145, 48);
+            this.toggleSliderComponent1.Size = new System.Drawing.Size(181, 58);
             this.toggleSliderComponent1.TabIndex = 3;
             this.toggleSliderComponent1.ToggleBarText = " 일반";
             this.toggleSliderComponent1.ToggleCircleColor = System.Drawing.Color.Silver;
@@ -378,28 +401,31 @@ namespace TheProject
             // dgvStorageInfo
             // 
             this.dgvStorageInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStorageInfo.Location = new System.Drawing.Point(24, 559);
+            this.dgvStorageInfo.Location = new System.Drawing.Point(30, 671);
+            this.dgvStorageInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvStorageInfo.Name = "dgvStorageInfo";
             this.dgvStorageInfo.ReadOnly = true;
             this.dgvStorageInfo.RowHeadersWidth = 51;
             this.dgvStorageInfo.RowTemplate.Height = 27;
-            this.dgvStorageInfo.Size = new System.Drawing.Size(935, 134);
+            this.dgvStorageInfo.Size = new System.Drawing.Size(1169, 161);
             this.dgvStorageInfo.TabIndex = 4;
             // 
             // infoBtn
             // 
-            this.infoBtn.Location = new System.Drawing.Point(374, 733);
+            this.infoBtn.Location = new System.Drawing.Point(429, 880);
+            this.infoBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.infoBtn.Name = "infoBtn";
-            this.infoBtn.Size = new System.Drawing.Size(419, 65);
+            this.infoBtn.Size = new System.Drawing.Size(506, 78);
             this.infoBtn.TabIndex = 6;
             this.infoBtn.Text = "현재 보관함 0개를 선택하셨습니다.";
             this.infoBtn.UseVisualStyleBackColor = true;
             // 
             // payBtn
             // 
-            this.payBtn.Location = new System.Drawing.Point(213, 733);
+            this.payBtn.Location = new System.Drawing.Point(241, 880);
+            this.payBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.payBtn.Name = "payBtn";
-            this.payBtn.Size = new System.Drawing.Size(134, 65);
+            this.payBtn.Size = new System.Drawing.Size(168, 78);
             this.payBtn.TabIndex = 7;
             this.payBtn.Text = "선택완료";
             this.payBtn.UseVisualStyleBackColor = true;
@@ -407,28 +433,30 @@ namespace TheProject
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(846, 41);
+            this.button3.Location = new System.Drawing.Point(1038, 36);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(114, 41);
             this.button3.TabIndex = 8;
-            this.button3.Text = "나가기";
+            this.button3.Text = "처음으로";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.ExitBtn);
             // 
             // Storage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(982, 853);
+            this.ClientSize = new System.Drawing.Size(1228, 990);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.payBtn);
             this.Controls.Add(this.infoBtn);
             this.Controls.Add(this.dgvStorageInfo);
             this.Controls.Add(this.toggleSliderComponent1);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Storage";
-            this.Text = "Form1";
+            this.Text = "보관함 선택";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStorageInfo)).EndInit();
             this.ResumeLayout(false);

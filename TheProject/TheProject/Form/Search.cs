@@ -13,14 +13,20 @@ namespace TheProject
     {
         List<SearchEntity> searchList = new List<SearchEntity>();
 
-        // test용
-        List<MemberEntity> mem = new List<MemberEntity>();
+        // GetList에서 써야하는데 query문에서 그냥 entity로는 안됐는데
+        // List로 하니깐 먹혀서 우선은 이걸로
+        List<MemberEntity> memList = new List<MemberEntity>();
         
 
         public Search()
         {
             InitializeComponent();
         }
+        // todo 메인이랑 연결되면 풀어줘야함
+        //public Search(MemberEntity memberInfo) : base()
+        //{
+        //    memList.Add(memberInfo);
+        //}
 
         private List<Button> _btns = new List<Button>();
 
@@ -34,9 +40,10 @@ namespace TheProject
             MemberEntity member = new MemberEntity();
             member.MemberId = 1;
             member.MemberTest = 2;
-            mem.Add(member);
+            memList.Add(member);
             // 여기까지
-            searchList = Dao.Search.GetList(mem);
+
+            searchList = Dao.Search.GetList(memList);
 
             dgvSearchInfo.DataSource = searchList;
 
