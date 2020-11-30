@@ -328,6 +328,7 @@
     <None Include="Resources\캡처.GIF" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\동작화면\DatabaseSchema.png" />
     <Content Include="Resources\동작화면\관리자_버튼.png" />
     <Content Include="Resources\동작화면\관리자_초기.png" />
     <Content Include="Resources\동작화면\로그인.png" />
