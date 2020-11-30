@@ -127,45 +127,41 @@
 ## 결과
 - 작업중
 
-# DB 테이블의 속성 변경 등 업데이트 내역이 EntityFramework에 반영되지 않은 문제 [#24](https://github.com/dlehd333/DKClinic/issues/24)
+# DGV_Search 에 페이지를 나누는 동작이 반영되지 않은 문제 [#8](https://github.com/snrbs17/603_TeamProject/issues/8)
 
 ## 증상
-- 문진표 저장을 누를 시 에러 발생
+- DGV에 항목을 5개씩 표시해주고 이전/다음페이지 누르면 넘어가게 구현중이나 항목 나눠지는게 안먹히고 한번에 다 나옴
 
 ## 원인
-- EntityFramework로 불러온 데이터베이스의 문진표 테이블 PK컬럼의 IDENTITY_INSERT 속성이 OFF로 되어있었다
+- 가져온 코드에서 상황에 맞춰 바꾼 부분이 원인으로 예상됨 (원인 찾는중)
 
 ## 결과
-- 처음에는 DB에 있는 문진표 테이블 PK컬럼의 IDENTITY_INSERT 속성을 ON으로 변경했다. 하지만 같은 오류가 발생했다.
-- 확인 결과, 처음에 DB 스키마 설계 시 테이블 PK에 IDENTITY_INSERT 속성을 ON으로 바꾸지 않았고, 그 상태로 EntityFramework로 불러와, EntityFramework상에는 IDENTITY_INSERT 속성이 OFF로 저장되어 있었다.
-- 그래서, EntityFramework 다이어그램에서 우클릭으로 제공하는 '데이터베이스에서 모델 업데이트'메뉴를 실행, 업데이트 마법사를 이용해 DB의 정보를 업데이트하여 문제를 해결함
-![update](https://user-images.githubusercontent.com/69996028/100321023-6b69d600-3005-11eb-8bb2-52bb1a5326c3.png)
+- 작업중
 
----
 
-# 외래키로 연결된 여러 테이블의 값을 동시에 삽입하는 트랜잭션 진행중에 에러가 발생하는 문제 [#24](https://github.com/dlehd333/DKClinic/issues/24)
+# DGV_Payment 에 선택하는 ComboBox가 실시간으로 반영되지 않은 문제 [#8](https://github.com/snrbs17/603_TeamProject/issues/8)
 
 ## 증상
-- 새로운 Customer(환자)가 문진표를 입력하면, 에러가 발생
+- DGV에 ComboBox를 넣어 선택 시 실시간으로 반영되지않고 옆의 Cell이나 다른 버튼의 동작 이후에 결과가 반영된다.
 
 ## 원인
-- 신규 환자가 문진표 입력이 완료되면 Customer(고객), Questionnare(문진표), Response(문진표응답) 총 3개의 테이블에 데이터가 삽입되는데, 이 때 신규 환자는 등록 전에는 CustomerID가 없어, Customer테이블에서 키값의 최대값을 가져와 등록했는데 이 값이 실제 IDENTITY 컬럼을 통해 저장되는 내용과 맞지 않아 오류가 발생했다
-- 여러 테이블의 데이터가 동시에 저장되는 트랜잭션을 끊지 않고 IDENTITY 컬럼의 값을 미리 구해서 저장하거나 다른 방법이 필요했다.
+- 클릭 문제로 예상된다. (원인 찾는중)
 
 ## 결과
-- 처음에는 C#에서 IDENTITY 컬럼의 값을 구하는 법을 찾고 있었는데, 검색 하던 도중 다른 방법을 발견했다
-- EF가 ID값을 찾아 할당하는 것이 아니라 테이블 개체 자체를 할당하는 기능을 지원하며, EF로 생성된 Entity 모델에 생성되어 있는 외래키로 연결된 하위 모델을 이용해 연결할 수 있다는 것을 알게 되었다.
-- 그래서 Entity 모델의 개체를 생성할 때 상위 테이블 개체를 연결해주면, 한번에 SaveChange를 진행해도 Insert된 개체에 대해 자동으로 ID키가 연결되어 에러가 발생하지 않고 트랜젝션도 깨지지 않게 된다.
-- 그래서 개체를 생성할 때, 상위 테이블 개체를 연결해주는 작업을 진행했다.
+- 작업중
 
-```csharp
-public Questionnare CreateQuestionnare { get; set; }
 
-// before
-CreateQuestionnare = new Questionnare();
-// after
-CreatedQuestionnare = new Questionnare { Customer = ConnectedCustomer };
-```
+# DGV_Storage 에 나타나는 DB 데이터가 코드 변환 에러가 떠서 반영되지 않은 문제 [#7](https://github.com/snrbs17/603_TeamProject/issues/7)
 
----
+## 증상
+- DGV에 DB를 가져올때 에러 발생
+
+## 원인
+- DB와 코드상에 CanUse는 bool로 StorageTypeId는 int로 설정되어있어 string으로 변경 불가하다고 에러창에 표기되었다.
+- DateTime은 시간이 같이 나와야하나 날짜만 나오고 있다.
+
+## 결과
+- 작업중
+
+
 
