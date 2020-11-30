@@ -29,7 +29,7 @@ namespace TheProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvSearchInfo = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.firstPageBtn = new System.Windows.Forms.Button();
@@ -37,18 +37,19 @@ namespace TheProject
             this.lastPageBtn = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearchInfo)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvSearchInfo
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 121);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 208);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvSearchInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearchInfo.Location = new System.Drawing.Point(12, 121);
+            this.dgvSearchInfo.Name = "dgvSearchInfo";
+            this.dgvSearchInfo.ReadOnly = true;
+            this.dgvSearchInfo.RowHeadersWidth = 51;
+            this.dgvSearchInfo.RowTemplate.Height = 27;
+            this.dgvSearchInfo.Size = new System.Drawing.Size(776, 208);
+            this.dgvSearchInfo.TabIndex = 1;
             // 
             // label2
             // 
@@ -70,24 +71,25 @@ namespace TheProject
             // 
             // firstPageBtn
             // 
+            this.firstPageBtn.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.firstPageBtn.Location = new System.Drawing.Point(294, 372);
             this.firstPageBtn.Name = "firstPageBtn";
             this.firstPageBtn.Size = new System.Drawing.Size(60, 60);
             this.firstPageBtn.TabIndex = 7;
-            this.firstPageBtn.Text = "4";
-            this.firstPageBtn.UseVisualStyleBackColor = true;
+            this.firstPageBtn.Text = "1";
+            this.firstPageBtn.UseVisualStyleBackColor = false;
             this.firstPageBtn.Click += new System.EventHandler(this.TestBtn);
             // 
             // centerPageBtn
             // 
-            this.centerPageBtn.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.centerPageBtn.BackColor = System.Drawing.SystemColors.Control;
             this.centerPageBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.centerPageBtn.FlatAppearance.BorderSize = 0;
             this.centerPageBtn.Location = new System.Drawing.Point(360, 372);
             this.centerPageBtn.Name = "centerPageBtn";
             this.centerPageBtn.Size = new System.Drawing.Size(60, 60);
             this.centerPageBtn.TabIndex = 8;
-            this.centerPageBtn.Text = "5";
+            this.centerPageBtn.Text = "2";
             this.centerPageBtn.UseVisualStyleBackColor = false;
             this.centerPageBtn.Click += new System.EventHandler(this.TestBtn);
             // 
@@ -98,7 +100,7 @@ namespace TheProject
             this.lastPageBtn.Name = "lastPageBtn";
             this.lastPageBtn.Size = new System.Drawing.Size(60, 60);
             this.lastPageBtn.TabIndex = 9;
-            this.lastPageBtn.Text = "6";
+            this.lastPageBtn.Text = "3";
             this.lastPageBtn.UseVisualStyleBackColor = false;
             this.lastPageBtn.Click += new System.EventHandler(this.TestBtn);
             // 
@@ -132,10 +134,10 @@ namespace TheProject
             this.Controls.Add(this.firstPageBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvSearchInfo);
             this.Name = "Search";
             this.Text = "Form8";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearchInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,7 +145,7 @@ namespace TheProject
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSearchInfo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button firstPageBtn;

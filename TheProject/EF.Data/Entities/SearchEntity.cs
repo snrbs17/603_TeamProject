@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EF.Data.Entities
 {
-    public class ReleaseEntity
+    public class SearchEntity
     {
         public string Region { get; set; }
         public int StorageId { get; set; }
@@ -14,18 +14,5 @@ namespace EF.Data.Entities
         public DateTime EntryDate { get; set; }
         public DateTime ExitDateExpected { get; set; }
         public TimeSpan RemainingTime { get; set; }
-        //{
-        //    get 
-        //    {
-        //        return ExitDateExpected - DateTime.Now;
-        //    }
-        //    set
-        //    {
-        //        RemainingTime = value;
-        //    } 
-        //}
-
-
-
     }
 }

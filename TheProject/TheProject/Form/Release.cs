@@ -1,51 +1,69 @@
-﻿using System;
+﻿using EF.Data.Dao;
+using EF.Data.Entities;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace TheProject
 {
     public partial class Release : Form
     {
-        /*
+        // 로그인한 사용자의 id값에 맞는 정보를 가지고 와야함
+        // 조인을 쓰는데 
+
+        List<ReleaseEntity> releaseList = new List<ReleaseEntity>();
+        
+        // test용
+        List<MemberEntity> mem = new List<MemberEntity>();
+
+
         public Release()
         {
             InitializeComponent();
         }
-
-
-        private int totalCost = 0;
+        public Release(List<MemberEntity> member) : base()
+        {
+            releaseList = Dao.Release.GetList(/*테스트용*/mem);
+        }
 
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
-            // dgv에 표시
-            //dgvList.DataSource = list;
-            // totalCost 계산
-            //foreach (var item in list)
-            //{
-            //    totalCost += Convert.ToInt32(item.cost);
-            //}
+            // test용
+            MemberEntity member = new MemberEntity();
+            member.MemberId = 1;
+            member.MemberTest = 2;
+            mem.Add(member);
+            // 여기까지
 
-            if(totalCost == 0)
+            releaseList = Dao.Release.GetList(mem);
+
+            dgvList.DataSource = releaseList;
+            int listCount = releaseList.Count;
+            if (listCount == 0)
             {
-                chargeLabel.Visible = false;
+                releaseBtn.Text = $"맡기신 물건이 없습니다.";
             }
-            else if(totalCost != 0)
+            else
             {
-                chargeLabel.Text = Convert.ToString(totalCost);
+                releaseBtn.Text = $"총 {listCount} 건이 존재합니다.";
             }
         }
 
-
-
         private void releaseBtn_Click(object sender, EventArgs e)
         {
-            if(chargeLabel.Visible == false)
+            if(releaseBtn.Text == $"맡기신 물건이 없습니다.")
             {
-                MessageBox.Show("이용 감사");
+                Close();
             }
-            Close();
-        }*/
+            else
+            {
+                // 결제폼으로
+            }
+        }
+
+        
     }
 }

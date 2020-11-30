@@ -1,5 +1,8 @@
-﻿using System;
+﻿using EF.Data.Dao;
+using EF.Data.Entities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
@@ -8,10 +11,22 @@ namespace TheProject
 {
     public partial class Search : Form
     {
+        List<SearchEntity> searchList = new List<SearchEntity>();
+
+        // GetList에서 써야하는데 query문에서 그냥 entity로는 안됐는데
+        // List로 하니깐 먹혀서 우선은 이걸로
+        List<MemberEntity> memList = new List<MemberEntity>();
+        
+
         public Search()
         {
             InitializeComponent();
         }
+        // todo 메인이랑 연결되면 풀어줘야함
+        //public Search(MemberEntity memberInfo) : base()
+        //{
+        //    memList.Add(memberInfo);
+        //}
 
         private List<Button> _btns = new List<Button>();
 
@@ -20,7 +35,20 @@ namespace TheProject
             base.OnLoad(e);
 
             LoadNumberButtons();
+
+            // test용
+            MemberEntity member = new MemberEntity();
+            member.MemberId = 1;
+            member.MemberTest = 2;
+            memList.Add(member);
+            // 여기까지
+
+            searchList = Dao.Search.GetList(memList);
+
+            dgvSearchInfo.DataSource = searchList;
+
         }
+
 
         // 이건 나중에 DB에서 집어넣어야함
         int MaxNum = 7;

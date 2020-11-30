@@ -117,13 +117,14 @@ namespace TheProject
 
         private void AddBtnClick(object sender, EventArgs e)
         {
-            // 넘어간 폼의 기존 화면 쓰게
+            // 넘어간 폼의 기존 화면 쓰게 그냥 close
             Close();
         }
 
         private void ExitBtnClick(object sender, EventArgs e)
         {
-            // 나중에 넘어간 Form 데이터 리셋시켜야함
+            // 나중에 메인으로 연결하기
+            // ex) MainForm mainForm = new MainForm(고객아이디)    mainForm.show()
             Close();
         }
 
@@ -166,12 +167,12 @@ namespace TheProject
             storageForm.Close();
             Close();
         }
-
+        int sumTotal = 0;
         // todo 카드나 돈을 받아서 넣게 해야할듯
         private void PayTestBtnClick(object sender, EventArgs e)
         {
-            int testMoney = 3000;
-            infoPayFee.Text = $"{testMoney:c} 원 입니다.";
+            //int testMoney = 3000;
+            infoPayFee.Text = $"{sumTotal:c} 원 입니다.";
             TextCheck();
         }
 
@@ -193,7 +194,7 @@ namespace TheProject
                 dgvInfo.Rows[selectCellRow].Cells[5].Value = selectTime * 1000;
             }
 
-            int sumTotal = 0;
+            
             for (int i = 0; i < dgvInfo.Rows.Count; i++)
             {
                 sumTotal += Convert.ToInt32(dgvInfo.Rows[i].Cells[5].Value);

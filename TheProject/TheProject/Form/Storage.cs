@@ -299,19 +299,38 @@ namespace TheProject
             dgvStorageInfo.Rows.Clear();
             SelectCheck();
             dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
+            
+            // todo 가서 서버로 확인해보기
+            // 여기는 일반/신선 구분을 한글로 나타내주려고 
+            for (int i = 0; i < dgvStorageInfo.RowCount; i++)
+            {
+                if(dgvStorageInfo.Rows[i].Cells[2].Value == "1")
+                {
+                    dgvStorageInfo.Rows[i].Cells[2].Value = "일반";
+                }
+                else if (dgvStorageInfo.Rows[i].Cells[2].Value == "2")
+                {
+                    dgvStorageInfo.Rows[i].Cells[2].Value = "신선";
+                }
+            }
+            
             for (int i = 0; i < dgvStorageInfo.ColumnCount; i++)
             {
                 DataGridViewColumn column = dgvStorageInfo.Columns[i];
                 dgvStorageInfo.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 column.Width = 191;
             }
+            
             dgvStorageInfo.Columns[4].Visible = false;
             payBtnClickFlag = 1;
         }
 
-        // ExitBtn - 나가기 버튼
+        // ExitBtn - 처음으로 버튼
         private void ExitBtn(object sender, EventArgs e)
         {
+            // 메인화면 띄우기
+            // 아직이름 모름
+
             Close();
         }
     }
