@@ -125,6 +125,7 @@ namespace TheProject
         {
             // 나중에 메인으로 연결하기
             // ex) MainForm mainForm = new MainForm(고객아이디)    mainForm.show()
+            storageForm.Close();
             Close();
         }
 
@@ -164,16 +165,37 @@ namespace TheProject
                 sendPaymentList.Add(pl);
             }
             //todo 데이터 업데이트
+            MessageBox.Show($"1번 고객님 결제가 완료되었습니다.");
             storageForm.Close();
             Close();
         }
         int sumTotal = 0;
+        int showFlag = 0;
         // todo 카드나 돈을 받아서 넣게 해야할듯
         private void PayTestBtnClick(object sender, EventArgs e)
         {
-            //int testMoney = 3000;
-            infoPayFee.Text = $"{sumTotal:c} 원 입니다.";
-            TextCheck();
+            for (int i = 0; i < dgvInfo.Rows.Count; i++)
+            {
+                if(dgvInfo.Rows[i].Cells[3].Value == null || Convert.ToString(dgvInfo.Rows[i].Cells[5].Value)=="0")
+                {
+                    payBtn.Enabled = false;
+                    payBtn.BackColor = Color.DarkGray;
+                    payBtn.ForeColor = Color.White;
+                    MessageBox.Show("아직 사용시간이 선택되지 않았습니다.");
+                    showFlag = 1;
+                    break;
+                }
+                else
+                {
+                    showFlag = 0;
+                }
+            }
+            if(showFlag == 0)
+            {
+                infoPayFee.Text = $"{sumTotal:c} 원 입니다.";
+                TextCheck();
+            }
+            
         }
 
         // comboBoxClick시 
@@ -194,7 +216,7 @@ namespace TheProject
                 dgvInfo.Rows[selectCellRow].Cells[5].Value = selectTime * 1000;
             }
 
-            
+            sumTotal = 0;
             for (int i = 0; i < dgvInfo.Rows.Count; i++)
             {
                 sumTotal += Convert.ToInt32(dgvInfo.Rows[i].Cells[5].Value);

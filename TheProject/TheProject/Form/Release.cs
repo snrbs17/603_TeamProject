@@ -64,6 +64,9 @@ namespace TheProject
             }
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
