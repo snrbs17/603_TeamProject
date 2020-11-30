@@ -327,6 +327,20 @@
   <ItemGroup>
     <None Include="Resources\캡처.GIF" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\동작화면\관리자_버튼.png" />
+    <Content Include="Resources\동작화면\관리자_초기.png" />
+    <Content Include="Resources\동작화면\로그인.png" />
+    <Content Include="Resources\동작화면\메인.png" />
+    <Content Include="Resources\동작화면\선택_검색.png" />
+    <Content Include="Resources\동작화면\선택_입고.png" />
+    <Content Include="Resources\동작화면\선택_입고_결제시간선택.png" />
+    <Content Include="Resources\동작화면\선택_입고_결제초기.png" />
+    <Content Include="Resources\동작화면\선택_입고_정보확인.png" />
+    <Content Include="Resources\동작화면\선택_출고.png" />
+    <Content Include="Resources\동작화면\선택화면.png" />
+    <Content Include="Resources\동작화면\회원가입.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
