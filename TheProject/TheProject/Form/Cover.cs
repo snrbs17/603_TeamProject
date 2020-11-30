@@ -61,5 +61,11 @@ namespace TheProject
             loginform.ShowDialog();
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            DataForOwner dataForOwner = new DataForOwner();
+            dataForOwner.ShowDialog();
+        }
     }
 }

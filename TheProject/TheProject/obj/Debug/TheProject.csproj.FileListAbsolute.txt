@@ -307,7 +307,15 @@ D:\603_TeamProject\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.cs
 D:\603_TeamProject\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.csproj.CopyComplete
 D:\603_TeamProject\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.exe
 D:\603_TeamProject\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.pdb
+<<<<<<< HEAD
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.Cover.resources
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.Login.resources
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.SignUp.resources
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.Selection.resources
+=======
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.Cover.resources
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.Login.resources
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.SignUp.resources
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.Selection.resources
+C:\Users\kccistc\Desktop\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.SearchTest.resources
+>>>>>>> d87b8ac67e9e48b298fc09080cc0ffc12b49fd31

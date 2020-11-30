@@ -46,6 +46,7 @@ namespace TheProject
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.button34 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,7 +82,11 @@ namespace TheProject
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel3);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(667, 1055);
+<<<<<<< HEAD
             this.splitContainer1.SplitterDistance = 478;
+=======
+            this.splitContainer1.SplitterDistance = 479;
+>>>>>>> d87b8ac67e9e48b298fc09080cc0ffc12b49fd31
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -91,7 +96,11 @@ namespace TheProject
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
+<<<<<<< HEAD
             this.panel2.Size = new System.Drawing.Size(667, 478);
+=======
+            this.panel2.Size = new System.Drawing.Size(667, 479);
+>>>>>>> d87b8ac67e9e48b298fc09080cc0ffc12b49fd31
             this.panel2.TabIndex = 0;
             this.panel2.Visible = false;
             // 
@@ -103,6 +112,7 @@ namespace TheProject
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.splitContainer2, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.splitContainer3, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label3, 2, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -111,7 +121,11 @@ namespace TheProject
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.42308F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.230769F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.53846F));
+<<<<<<< HEAD
             this.tableLayoutPanel3.Size = new System.Drawing.Size(667, 572);
+=======
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(667, 571);
+>>>>>>> d87b8ac67e9e48b298fc09080cc0ffc12b49fd31
             this.tableLayoutPanel3.TabIndex = 10;
             // 
             // splitContainer2
@@ -327,6 +341,14 @@ namespace TheProject
             this.button33.UseVisualStyleBackColor = true;
             this.button33.Click += new System.EventHandler(this.signUpbtn_Click);
             // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(487, 448);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(177, 123);
+            this.label3.TabIndex = 8;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Cover
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -377,5 +399,6 @@ namespace TheProject
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Button button34;
         private System.Windows.Forms.Button button33;
+        private System.Windows.Forms.Label label3;
     }
 }
