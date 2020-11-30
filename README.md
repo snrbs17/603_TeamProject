@@ -111,11 +111,10 @@
 # 클래스 다이어그램
 <img src="./TheProject/TheProject/Resources/동작화면/ClassDiagram.png">
 
-# 순서도
 
-## 1. 고객용 프로그램
+# User Case Diagram
 
-![고객용 다이어그램](./Document/고객알고리즘.jpg)
+<img src="./TheProject/TheProject/Resources/동작화면/UserCaseDiagram.png">
 
 ## 2. 직원용 프로그램
 
