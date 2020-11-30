@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EF.Data.Dao.Dao" Collapsed="true">
+    <Position X="12.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAIAAAAAAAAAAAAAAgAAAABAgAgA=</HashCode>
+      <FileName>Dao\Dao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EF.Data.Dao.StorageTypeDao" Collapsed="true">
+    <Position X="9.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dao\StorageTypeDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EF.Data.Dao.StorageSelectionDao" Collapsed="true">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dao\StorageSelectionDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EF.Data.Dao.StorageInfoForClientDao" Collapsed="true">
+    <Position X="16" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Dao\StorageInfoForClientDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EF.Data.Dao.StorageDao" Collapsed="true">
+    <Position X="11.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dao\StorageDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EF.Data.Dao.SearchDao" Collapsed="true">
+    <Position X="14.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Dao\SearchDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EF.Data.Dao.ReleaseDao" Collapsed="true">
+    <Position X="12.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Dao\ReleaseDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EF.Data.Dao.PaymentDao" Collapsed="true">
+    <Position X="16" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Dao\PaymentDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EF.Data.Dao.FeeDao" Collapsed="true">
+    <Position X="13.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dao\FeeDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EF.Data.Dao.EarningDao" Collapsed="true">
+    <Position X="14.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAgAAAAAIAAAAAAAAAAQIIAAAIAAAAAAAAAgA=</HashCode>
+      <FileName>Dao\EarningDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EFLibrary.SingleKeyDao&lt;T, K&gt;" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAABAAAAAEAAAAAAAAAAABAAAAAQAAAAA=</HashCode>
+      <FileName>EFLibrary\SingleKeyDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EFLibrary.DualKeyDao&lt;T, K1, K2&gt;" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAEAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>EFLibrary\DualKeyDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EFLibrary.BaseDao&lt;T&gt;" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAAAAAAAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>EFLibrary\BaseDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Malgun Gothic" Size="9" />
+</ClassDiagram>
