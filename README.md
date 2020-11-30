@@ -108,11 +108,13 @@
 - 이외의 모든 항목이 제 3 정규화까지 완료됐다
 
 
-# 클래스 다이어그램
+# UML
+
+## 클래스 다이어그램
 <img src="./TheProject/TheProject/Resources/동작화면/ClassDiagram.png">
 
 
-# User Case Diagram
+## User Case Diagram
 
 <img src="./TheProject/TheProject/Resources/동작화면/UserCaseDiagram.png">
 
