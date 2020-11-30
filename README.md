@@ -54,9 +54,10 @@
 
 ### 1. 관리자 화면
 
+<div>
 <img src="./TheProject/TheProject/Resources/동작화면/관리자_초기.png" width="45%">
 <img src="./TheProject/TheProject/Resources/동작화면/관리자_버튼.png" width="45%">
-
+</div>
 
 - 확인 버튼을 누르면 정보가 입력되었는지 판단하고 다음 창으로 넘어간다.
 
