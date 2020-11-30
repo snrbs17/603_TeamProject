@@ -235,6 +235,7 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagramOfTheProject.cd" />
     <None Include="packages.config" />
     <EntityDeploy Include="ProjectModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

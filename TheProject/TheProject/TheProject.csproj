@@ -281,6 +281,7 @@
     <EmbeddedResource Include="Test\SearchTest.resx">
       <DependentUpon>SearchTest.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagramforForms.cd" />
     <None Include="packages.config" />
     <None Include="ProjectDataSet.xsc">
       <DependentUpon>ProjectDataSet.xsd</DependentUpon>
@@ -328,6 +329,7 @@
     <None Include="Resources\캡처.GIF" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\동작화면\ClassDiagram.png" />
     <Content Include="Resources\동작화면\DatabaseSchema.png" />
     <Content Include="Resources\동작화면\DGV해결.png" />
     <Content Include="Resources\동작화면\관리자_버튼.png" />
