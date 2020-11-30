@@ -36,7 +36,7 @@ namespace TheProject
             radioButton3.PerformClick();
             radioButton1.PerformClick();
 
-            //comboBox3.SelectedIndex = 0;
+            comboBox3.SelectedIndex = 0;
             comboBox1.SelectedIndex = DateTime.Now.Month -1;
 
             chart1.Series.Clear();

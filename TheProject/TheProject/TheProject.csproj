@@ -328,8 +328,10 @@
     <None Include="Resources\캡처.GIF" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\동작화면\DatabaseSchema.png" />
     <Content Include="Resources\동작화면\관리자_버튼.png" />
     <Content Include="Resources\동작화면\관리자_초기.png" />
+    <Content Include="Resources\동작화면\관리자_출력.png" />
     <Content Include="Resources\동작화면\로그인.png" />
     <Content Include="Resources\동작화면\메인.png" />
     <Content Include="Resources\동작화면\선택_검색.png" />
