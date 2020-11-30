@@ -13,9 +13,10 @@
 
 ### 1. 회원 가입 및 로그인
 
+<div>
 <img src="./TheProject/TheProject/Resources/동작화면/회원가입.png" width="45%">
 <img src="./TheProject/TheProject/Resources/동작화면/로그인.png" width="45%">
-
+</div>
 
 - 회원 가입을 하면 ID 중복판단 후 Password가 맞으면 다음 창으로 넘어간다.
 - ID와 Password 확인 후 로그인.
