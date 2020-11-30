@@ -84,12 +84,12 @@
 
 ## 언어
 
-- C# 3.0+
+- C# 8.0
 
 ## 프레임워크
 
 - .Net FrameWork 4.8
-- EntityFrameWork 6.2
+- EntityFrameWork 6.4
 - Winform
 
 ## 데이터베이스
