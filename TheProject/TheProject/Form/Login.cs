@@ -87,5 +87,10 @@ namespace TheProject
         {
             ((TextBox)sender).SelectAll();
         }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

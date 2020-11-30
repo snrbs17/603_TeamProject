@@ -74,6 +74,7 @@ namespace TheProject
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.button34 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
+            this.button35 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.button32 = new System.Windows.Forms.Button();
@@ -569,6 +570,7 @@ namespace TheProject
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel6, 1, 1);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel10, 1, 2);
+            this.tableLayoutPanel7.Controls.Add(this.button35, 2, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -728,7 +730,7 @@ namespace TheProject
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(337, 80);
             this.tableLayoutPanel10.TabIndex = 15;
             // 
@@ -760,6 +762,17 @@ namespace TheProject
             this.button33.Text = "회원가입";
             this.button33.UseVisualStyleBackColor = true;
             this.button33.Click += new System.EventHandler(this.SignUpbtn_Click);
+            // 
+            // button35
+            // 
+            this.button35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button35.Location = new System.Drawing.Point(589, 3);
+            this.button35.Name = "button35";
+            this.button35.Size = new System.Drawing.Size(75, 23);
+            this.button35.TabIndex = 16;
+            this.button35.Text = "나가기";
+            this.button35.UseVisualStyleBackColor = true;
+            this.button35.Click += new System.EventHandler(this.button35_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -1005,5 +1018,6 @@ namespace TheProject
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button35;
     }
 }
