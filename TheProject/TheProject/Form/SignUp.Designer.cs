@@ -130,20 +130,22 @@ namespace TheProject
             this.tableLayoutPanel2.Controls.Add(this.button2, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(578, 51);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(661, 63);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // button10
             // 
             this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button10.Location = new System.Drawing.Point(516, 3);
+            this.button10.Location = new System.Drawing.Point(597, 4);
+            this.button10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(59, 45);
+            this.button10.Size = new System.Drawing.Size(61, 55);
             this.button10.TabIndex = 9;
             this.button10.Text = "P";
             this.button10.UseVisualStyleBackColor = true;
@@ -152,9 +154,10 @@ namespace TheProject
             // button9
             // 
             this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.Location = new System.Drawing.Point(459, 3);
+            this.button9.Location = new System.Drawing.Point(531, 4);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(51, 45);
+            this.button9.Size = new System.Drawing.Size(60, 55);
             this.button9.TabIndex = 8;
             this.button9.Text = "O";
             this.button9.UseVisualStyleBackColor = true;
@@ -163,9 +166,10 @@ namespace TheProject
             // button8
             // 
             this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.Location = new System.Drawing.Point(402, 3);
+            this.button8.Location = new System.Drawing.Point(465, 4);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(51, 45);
+            this.button8.Size = new System.Drawing.Size(60, 55);
             this.button8.TabIndex = 7;
             this.button8.Text = "I";
             this.button8.UseVisualStyleBackColor = true;
@@ -174,9 +178,10 @@ namespace TheProject
             // button7
             // 
             this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.Location = new System.Drawing.Point(345, 3);
+            this.button7.Location = new System.Drawing.Point(399, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(51, 45);
+            this.button7.Size = new System.Drawing.Size(60, 55);
             this.button7.TabIndex = 126;
             this.button7.Text = "U";
             this.button7.UseVisualStyleBackColor = true;
@@ -185,9 +190,10 @@ namespace TheProject
             // button6
             // 
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Location = new System.Drawing.Point(288, 3);
+            this.button6.Location = new System.Drawing.Point(333, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(51, 45);
+            this.button6.Size = new System.Drawing.Size(60, 55);
             this.button6.TabIndex = 61;
             this.button6.Text = "Y";
             this.button6.UseVisualStyleBackColor = true;
@@ -196,9 +202,10 @@ namespace TheProject
             // button5
             // 
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Location = new System.Drawing.Point(231, 3);
+            this.button5.Location = new System.Drawing.Point(267, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(51, 45);
+            this.button5.Size = new System.Drawing.Size(60, 55);
             this.button5.TabIndex = 136;
             this.button5.Text = "T";
             this.button5.UseVisualStyleBackColor = true;
@@ -207,9 +214,10 @@ namespace TheProject
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(174, 3);
+            this.button4.Location = new System.Drawing.Point(201, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(51, 45);
+            this.button4.Size = new System.Drawing.Size(60, 55);
             this.button4.TabIndex = 16;
             this.button4.Text = "R";
             this.button4.UseVisualStyleBackColor = true;
@@ -218,9 +226,10 @@ namespace TheProject
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Location = new System.Drawing.Point(117, 3);
+            this.button3.Location = new System.Drawing.Point(135, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 45);
+            this.button3.Size = new System.Drawing.Size(60, 55);
             this.button3.TabIndex = 612;
             this.button3.Text = "E";
             this.button3.UseVisualStyleBackColor = true;
@@ -229,9 +238,10 @@ namespace TheProject
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(60, 3);
+            this.button2.Location = new System.Drawing.Point(69, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(51, 45);
+            this.button2.Size = new System.Drawing.Size(60, 55);
             this.button2.TabIndex = 12;
             this.button2.Text = "W";
             this.button2.UseVisualStyleBackColor = true;
@@ -240,9 +250,10 @@ namespace TheProject
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Location = new System.Drawing.Point(3, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(51, 45);
+            this.button1.Size = new System.Drawing.Size(60, 55);
             this.button1.TabIndex = 51;
             this.button1.Text = "Q";
             this.button1.UseVisualStyleBackColor = true;
@@ -251,9 +262,10 @@ namespace TheProject
             // button22
             // 
             this.button22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button22.Location = new System.Drawing.Point(3, 3);
+            this.button22.Location = new System.Drawing.Point(3, 4);
+            this.button22.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(58, 45);
+            this.button22.Size = new System.Drawing.Size(67, 55);
             this.button22.TabIndex = 3;
             this.button22.UseVisualStyleBackColor = true;
             // 
@@ -271,20 +283,21 @@ namespace TheProject
             this.tableLayoutPanel6.Controls.Add(this.textBox4, 0, 4);
             this.tableLayoutPanel6.Controls.Add(this.signUpConfirmtxtBox, 0, 7);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(145, 121);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(165, 134);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 10;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.94895F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.94897F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.94897F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.94897F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.94897F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.94897F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.306221F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(299, 324);
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(342, 354);
             this.tableLayoutPanel6.TabIndex = 16;
             this.tableLayoutPanel6.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel6_Paint);
             // 
@@ -295,9 +308,10 @@ namespace TheProject
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox2.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox2.Location = new System.Drawing.Point(3, 103);
+            this.textBox2.Location = new System.Drawing.Point(3, 114);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(293, 25);
+            this.textBox2.Size = new System.Drawing.Size(336, 31);
             this.textBox2.TabIndex = 214;
             this.textBox2.Text = "Password";
             // 
@@ -308,9 +322,10 @@ namespace TheProject
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox3.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox3.Location = new System.Drawing.Point(3, 203);
+            this.textBox3.Location = new System.Drawing.Point(3, 224);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(293, 25);
+            this.textBox3.Size = new System.Drawing.Size(336, 31);
             this.textBox3.TabIndex = 1611;
             this.textBox3.Text = "Password 확인";
             // 
@@ -321,9 +336,10 @@ namespace TheProject
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
+            this.textBox1.Location = new System.Drawing.Point(3, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(293, 25);
+            this.textBox1.Size = new System.Drawing.Size(336, 31);
             this.textBox1.TabIndex = 199;
             this.textBox1.Text = "Username";
             // 
@@ -331,27 +347,30 @@ namespace TheProject
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(3, 195);
+            this.panel3.Location = new System.Drawing.Point(3, 214);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(293, 1);
+            this.panel3.Size = new System.Drawing.Size(336, 1);
             this.panel3.TabIndex = 10;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 295);
+            this.panel1.Location = new System.Drawing.Point(3, 324);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(293, 1);
+            this.panel1.Size = new System.Drawing.Size(336, 1);
             this.panel1.TabIndex = 16;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 95);
+            this.panel2.Location = new System.Drawing.Point(3, 104);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(293, 1);
+            this.panel2.Size = new System.Drawing.Size(336, 1);
             this.panel2.TabIndex = 13;
             // 
             // idtxtBox
@@ -360,9 +379,10 @@ namespace TheProject
             this.idtxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.idtxtBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.idtxtBox.Font = new System.Drawing.Font("Gulim", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.idtxtBox.Location = new System.Drawing.Point(3, 64);
+            this.idtxtBox.Location = new System.Drawing.Point(3, 65);
+            this.idtxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.idtxtBox.Name = "idtxtBox";
-            this.idtxtBox.Size = new System.Drawing.Size(293, 25);
+            this.idtxtBox.Size = new System.Drawing.Size(336, 31);
             this.idtxtBox.TabIndex = 1;
             this.idtxtBox.Click += new System.EventHandler(this.idtxtBox_Click);
             this.idtxtBox.TextChanged += new System.EventHandler(this.idtxtBox_TextChanged);
@@ -373,10 +393,11 @@ namespace TheProject
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.textBox4.Font = new System.Drawing.Font("Gulim", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox4.Location = new System.Drawing.Point(3, 164);
+            this.textBox4.Location = new System.Drawing.Point(3, 175);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox4.Name = "textBox4";
             this.textBox4.PasswordChar = '*';
-            this.textBox4.Size = new System.Drawing.Size(293, 25);
+            this.textBox4.Size = new System.Drawing.Size(336, 31);
             this.textBox4.TabIndex = 2;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -386,10 +407,11 @@ namespace TheProject
             this.signUpConfirmtxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.signUpConfirmtxtBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.signUpConfirmtxtBox.Font = new System.Drawing.Font("Gulim", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.signUpConfirmtxtBox.Location = new System.Drawing.Point(3, 264);
+            this.signUpConfirmtxtBox.Location = new System.Drawing.Point(3, 285);
+            this.signUpConfirmtxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.signUpConfirmtxtBox.Name = "signUpConfirmtxtBox";
             this.signUpConfirmtxtBox.PasswordChar = '*';
-            this.signUpConfirmtxtBox.Size = new System.Drawing.Size(293, 25);
+            this.signUpConfirmtxtBox.Size = new System.Drawing.Size(336, 31);
             this.signUpConfirmtxtBox.TabIndex = 3;
             // 
             // tableLayoutPanel8
@@ -400,23 +422,23 @@ namespace TheProject
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.55814F));
             this.tableLayoutPanel8.Controls.Add(this.label3, 1, 1);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(145, 2);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(165, 2);
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 3;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.36364F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.54545F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(299, 114);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(342, 126);
             this.tableLayoutPanel8.TabIndex = 17;
             // 
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Gulim", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(47, 31);
+            this.label3.Location = new System.Drawing.Point(54, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(210, 65);
+            this.label3.Size = new System.Drawing.Size(241, 72);
             this.label3.TabIndex = 218;
             this.label3.Text = "회원가입";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -426,23 +448,24 @@ namespace TheProject
             this.tableLayoutPanel10.ColumnCount = 3;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.60938F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.39063F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel10.Controls.Add(this.button33, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(145, 450);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(165, 494);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(299, 81);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(342, 89);
             this.tableLayoutPanel10.TabIndex = 18;
             // 
             // button33
             // 
             this.button33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button33.Location = new System.Drawing.Point(60, 3);
+            this.button33.Location = new System.Drawing.Point(68, 4);
+            this.button33.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(171, 75);
+            this.button33.Size = new System.Drawing.Size(195, 81);
             this.button33.TabIndex = 4;
             this.button33.Text = "회원가입";
             this.button33.UseVisualStyleBackColor = true;
@@ -452,6 +475,7 @@ namespace TheProject
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -464,8 +488,9 @@ namespace TheProject
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel9);
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(584, 961);
-            this.splitContainer1.SplitterDistance = 533;
+            this.splitContainer1.Size = new System.Drawing.Size(667, 1055);
+            this.splitContainer1.SplitterDistance = 585;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 13;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
@@ -486,7 +511,7 @@ namespace TheProject
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.28572F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.10131F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.75985F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(584, 533);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(667, 585);
             this.tableLayoutPanel7.TabIndex = 17;
             // 
             // tableLayoutPanel9
@@ -497,20 +522,21 @@ namespace TheProject
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.88356F));
             this.tableLayoutPanel9.Controls.Add(this.splitContainer2, 1, 1);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 305);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 316);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 3;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.956522F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.08696F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.153846F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(584, 119);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(667, 149);
             this.tableLayoutPanel9.TabIndex = 11;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(162, 11);
+            this.splitContainer2.Location = new System.Drawing.Point(184, 14);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -521,8 +547,9 @@ namespace TheProject
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.label2);
-            this.splitContainer2.Size = new System.Drawing.Size(261, 97);
-            this.splitContainer2.SplitterDistance = 38;
+            this.splitContainer2.Size = new System.Drawing.Size(299, 121);
+            this.splitContainer2.SplitterDistance = 47;
+            this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 7;
             // 
             // label1
@@ -530,7 +557,7 @@ namespace TheProject
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 38);
+            this.label1.Size = new System.Drawing.Size(299, 47);
             this.label1.TabIndex = 5;
             this.label1.Text = "현재 보관소 위치";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -540,7 +567,7 @@ namespace TheProject
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(261, 55);
+            this.label2.Size = new System.Drawing.Size(299, 69);
             this.label2.TabIndex = 0;
             this.label2.Text = "보관소 번호";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -549,20 +576,21 @@ namespace TheProject
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(584, 249);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(667, 311);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // tableLayoutPanel5
@@ -577,19 +605,21 @@ namespace TheProject
             this.tableLayoutPanel5.Controls.Add(this.button30, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.button29, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 174);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 217);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(578, 72);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(661, 90);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // button32
             // 
             this.button32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button32.Location = new System.Drawing.Point(361, 3);
+            this.button32.Location = new System.Drawing.Point(412, 4);
+            this.button32.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(82, 66);
+            this.button32.Size = new System.Drawing.Size(94, 82);
             this.button32.TabIndex = 136;
             this.button32.Text = "한/영";
             this.button32.UseVisualStyleBackColor = true;
@@ -597,9 +627,10 @@ namespace TheProject
             // button31
             // 
             this.button31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button31.Location = new System.Drawing.Point(449, 3);
+            this.button31.Location = new System.Drawing.Point(512, 4);
+            this.button31.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(126, 66);
+            this.button31.Size = new System.Drawing.Size(146, 82);
             this.button31.TabIndex = 136;
             this.button31.Text = "완료";
             this.button31.UseVisualStyleBackColor = true;
@@ -608,9 +639,10 @@ namespace TheProject
             // button30
             // 
             this.button30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button30.Location = new System.Drawing.Point(3, 3);
+            this.button30.Location = new System.Drawing.Point(3, 4);
+            this.button30.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(88, 66);
+            this.button30.Size = new System.Drawing.Size(101, 82);
             this.button30.TabIndex = 156;
             this.button30.Text = "?123";
             this.button30.UseVisualStyleBackColor = true;
@@ -618,9 +650,10 @@ namespace TheProject
             // button29
             // 
             this.button29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button29.Location = new System.Drawing.Point(97, 3);
+            this.button29.Location = new System.Drawing.Point(110, 4);
+            this.button29.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(258, 66);
+            this.button29.Size = new System.Drawing.Size(296, 82);
             this.button29.TabIndex = 6136;
             this.button29.UseVisualStyleBackColor = true;
             // 
@@ -636,7 +669,7 @@ namespace TheProject
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanel4.Controls.Add(this.button28, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.button27, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.button26, 0, 0);
@@ -647,19 +680,21 @@ namespace TheProject
             this.tableLayoutPanel4.Controls.Add(this.button21, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.button20, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 117);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 146);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(578, 51);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(661, 63);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // button28
             // 
             this.button28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button28.Location = new System.Drawing.Point(387, 3);
+            this.button28.Location = new System.Drawing.Point(441, 4);
+            this.button28.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(58, 45);
+            this.button28.Size = new System.Drawing.Size(67, 55);
             this.button28.TabIndex = 9;
             this.button28.Text = "N";
             this.button28.UseVisualStyleBackColor = true;
@@ -668,9 +703,10 @@ namespace TheProject
             // button27
             // 
             this.button27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button27.Location = new System.Drawing.Point(323, 3);
+            this.button27.Location = new System.Drawing.Point(368, 4);
+            this.button27.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(58, 45);
+            this.button27.Size = new System.Drawing.Size(67, 55);
             this.button27.TabIndex = 8;
             this.button27.Text = "B";
             this.button27.UseVisualStyleBackColor = true;
@@ -679,9 +715,10 @@ namespace TheProject
             // button26
             // 
             this.button26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button26.Location = new System.Drawing.Point(515, 3);
+            this.button26.Location = new System.Drawing.Point(587, 4);
+            this.button26.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(60, 45);
+            this.button26.Size = new System.Drawing.Size(71, 55);
             this.button26.TabIndex = 7;
             this.button26.UseVisualStyleBackColor = true;
             this.button26.Click += new System.EventHandler(this.backspacebtn_Click);
@@ -689,9 +726,10 @@ namespace TheProject
             // button25
             // 
             this.button25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button25.Location = new System.Drawing.Point(451, 3);
+            this.button25.Location = new System.Drawing.Point(514, 4);
+            this.button25.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(58, 45);
+            this.button25.Size = new System.Drawing.Size(67, 55);
             this.button25.TabIndex = 6;
             this.button25.Text = "M";
             this.button25.UseVisualStyleBackColor = true;
@@ -700,9 +738,10 @@ namespace TheProject
             // button24
             // 
             this.button24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button24.Location = new System.Drawing.Point(259, 3);
+            this.button24.Location = new System.Drawing.Point(295, 4);
+            this.button24.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(58, 45);
+            this.button24.Size = new System.Drawing.Size(67, 55);
             this.button24.TabIndex = 5;
             this.button24.Text = "V";
             this.button24.UseVisualStyleBackColor = true;
@@ -711,9 +750,10 @@ namespace TheProject
             // button23
             // 
             this.button23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button23.Location = new System.Drawing.Point(67, 3);
+            this.button23.Location = new System.Drawing.Point(76, 4);
+            this.button23.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(58, 45);
+            this.button23.Size = new System.Drawing.Size(67, 55);
             this.button23.TabIndex = 4;
             this.button23.Text = "Z";
             this.button23.UseVisualStyleBackColor = true;
@@ -722,9 +762,10 @@ namespace TheProject
             // button21
             // 
             this.button21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button21.Location = new System.Drawing.Point(195, 3);
+            this.button21.Location = new System.Drawing.Point(222, 4);
+            this.button21.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(58, 45);
+            this.button21.Size = new System.Drawing.Size(67, 55);
             this.button21.TabIndex = 2;
             this.button21.Text = "C";
             this.button21.UseVisualStyleBackColor = true;
@@ -733,9 +774,10 @@ namespace TheProject
             // button20
             // 
             this.button20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button20.Location = new System.Drawing.Point(131, 3);
+            this.button20.Location = new System.Drawing.Point(149, 4);
+            this.button20.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(58, 45);
+            this.button20.Size = new System.Drawing.Size(67, 55);
             this.button20.TabIndex = 215;
             this.button20.Text = "X";
             this.button20.UseVisualStyleBackColor = true;
@@ -765,19 +807,21 @@ namespace TheProject
             this.tableLayoutPanel3.Controls.Add(this.button12, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.button11, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 60);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 75);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(578, 51);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(661, 63);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // button19
             // 
             this.button19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button19.Location = new System.Drawing.Point(378, 3);
+            this.button19.Location = new System.Drawing.Point(435, 4);
+            this.button19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(53, 45);
+            this.button19.Size = new System.Drawing.Size(62, 55);
             this.button19.TabIndex = 9;
             this.button19.Text = "J";
             this.button19.UseVisualStyleBackColor = true;
@@ -786,9 +830,10 @@ namespace TheProject
             // button18
             // 
             this.button18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button18.Location = new System.Drawing.Point(319, 3);
+            this.button18.Location = new System.Drawing.Point(367, 4);
+            this.button18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(53, 45);
+            this.button18.Size = new System.Drawing.Size(62, 55);
             this.button18.TabIndex = 61;
             this.button18.Text = "H";
             this.button18.UseVisualStyleBackColor = true;
@@ -797,9 +842,10 @@ namespace TheProject
             // button17
             // 
             this.button17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button17.Location = new System.Drawing.Point(496, 3);
+            this.button17.Location = new System.Drawing.Point(571, 4);
+            this.button17.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(53, 45);
+            this.button17.Size = new System.Drawing.Size(62, 55);
             this.button17.TabIndex = 7;
             this.button17.Text = "L";
             this.button17.UseVisualStyleBackColor = true;
@@ -808,9 +854,10 @@ namespace TheProject
             // button16
             // 
             this.button16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button16.Location = new System.Drawing.Point(437, 3);
+            this.button16.Location = new System.Drawing.Point(503, 4);
+            this.button16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(53, 45);
+            this.button16.Size = new System.Drawing.Size(62, 55);
             this.button16.TabIndex = 6;
             this.button16.Text = "K";
             this.button16.UseVisualStyleBackColor = true;
@@ -819,9 +866,10 @@ namespace TheProject
             // button15
             // 
             this.button15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button15.Location = new System.Drawing.Point(260, 3);
+            this.button15.Location = new System.Drawing.Point(299, 4);
+            this.button15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(53, 45);
+            this.button15.Size = new System.Drawing.Size(62, 55);
             this.button15.TabIndex = 5;
             this.button15.Text = "G";
             this.button15.UseVisualStyleBackColor = true;
@@ -830,9 +878,10 @@ namespace TheProject
             // button14
             // 
             this.button14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button14.Location = new System.Drawing.Point(83, 3);
+            this.button14.Location = new System.Drawing.Point(95, 4);
+            this.button14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(53, 45);
+            this.button14.Size = new System.Drawing.Size(62, 55);
             this.button14.TabIndex = 4;
             this.button14.Text = "S";
             this.button14.UseVisualStyleBackColor = true;
@@ -841,9 +890,10 @@ namespace TheProject
             // button13
             // 
             this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button13.Location = new System.Drawing.Point(24, 3);
+            this.button13.Location = new System.Drawing.Point(27, 4);
+            this.button13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(53, 45);
+            this.button13.Size = new System.Drawing.Size(62, 55);
             this.button13.TabIndex = 61;
             this.button13.Text = "A";
             this.button13.UseVisualStyleBackColor = true;
@@ -852,9 +902,10 @@ namespace TheProject
             // button12
             // 
             this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button12.Location = new System.Drawing.Point(201, 3);
+            this.button12.Location = new System.Drawing.Point(231, 4);
+            this.button12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(53, 45);
+            this.button12.Size = new System.Drawing.Size(62, 55);
             this.button12.TabIndex = 215;
             this.button12.Text = "F";
             this.button12.UseVisualStyleBackColor = true;
@@ -863,9 +914,10 @@ namespace TheProject
             // button11
             // 
             this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button11.Location = new System.Drawing.Point(142, 3);
+            this.button11.Location = new System.Drawing.Point(163, 4);
+            this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(53, 45);
+            this.button11.Size = new System.Drawing.Size(62, 55);
             this.button11.TabIndex = 512;
             this.button11.Text = "D";
             this.button11.UseVisualStyleBackColor = true;
@@ -873,10 +925,11 @@ namespace TheProject
             // 
             // SignUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 961);
+            this.ClientSize = new System.Drawing.Size(667, 1055);
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUp";

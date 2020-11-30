@@ -22,6 +22,7 @@ namespace TheProject
             DbContextCreator.Context = () => new projectEntities();
 
             Application.Run(new Cover());
+
         }
     }
 }

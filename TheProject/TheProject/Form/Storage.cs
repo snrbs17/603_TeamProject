@@ -137,6 +137,7 @@ namespace TheProject
                     }
                 }
             }
+            boxDesc.Text = "신선";
             CheckRedBox();
         }
         public void ToggleReverse()
@@ -167,6 +168,7 @@ namespace TheProject
                     }
                 }
             }
+            boxDesc.Text = "일반";
             CheckRedBox();
         }
 
@@ -209,16 +211,16 @@ namespace TheProject
                 }
             }
             // 빨간건 이미 사용중인거라 결제버튼 비활성화하고 검정색으로
-            else if (labelBox.BackColor == Color.Red)
-            {
-                labelBox.BackColor = Color.Black;
-                labelBox.ForeColor = Color.White;
-            }
-            else if (labelBox.BackColor == Color.Black)
-            {
-                labelBox.BackColor = Color.Red;
-                labelBox.ForeColor = Color.Black;
-            }
+            //else if (labelBox.BackColor == Color.Red)
+            //{
+            //    labelBox.BackColor = Color.Black;
+            //    labelBox.ForeColor = Color.White;
+            //}
+            //else if (labelBox.BackColor == Color.Black)
+            //{
+            //    labelBox.BackColor = Color.Red;
+            //    labelBox.ForeColor = Color.Black;
+            //}
             // 다크그레이는 신선이나 일반에서 비활성화인것들
             else if (labelBox.BackColor == Color.DarkGray)
             {
@@ -300,19 +302,7 @@ namespace TheProject
             SelectCheck();
             dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
             
-            // todo 가서 서버로 확인해보기
-            // 여기는 일반/신선 구분을 한글로 나타내주려고 
-            for (int i = 0; i < dgvStorageInfo.RowCount; i++)
-            {
-                if(dgvStorageInfo.Rows[i].Cells[2].Value == "1")
-                {
-                    dgvStorageInfo.Rows[i].Cells[2].Value = "일반";
-                }
-                else if (dgvStorageInfo.Rows[i].Cells[2].Value == "2")
-                {
-                    dgvStorageInfo.Rows[i].Cells[2].Value = "신선";
-                }
-            }
+            
             
             for (int i = 0; i < dgvStorageInfo.ColumnCount; i++)
             {
@@ -323,6 +313,21 @@ namespace TheProject
             
             dgvStorageInfo.Columns[4].Visible = false;
             payBtnClickFlag = 1;
+
+            // todo 가서 서버로 확인해보기
+            // 여기는 일반/신선 구분을 한글로 나타내주려고 
+            //for (int i = 0; i < dgvStorageInfo.RowCount; i++)
+            //{
+            //    if (dgvStorageInfo.Rows[i].Cells[3].Value == "1")
+            //    {
+            //        dgvStorageInfo.Rows[i].Cells[3].Value = "일반";
+            //    }
+            //    else if (dgvStorageInfo.Rows[i].Cells[4].Value == "2")
+            //    {
+            //        dgvStorageInfo.Rows[i].Cells[2].Value = "신선";
+            //    }
+            //}
+
         }
 
         // ExitBtn - 처음으로 버튼
@@ -332,6 +337,12 @@ namespace TheProject
             // 아직이름 모름
 
             Close();
+        }
+
+        // Test용
+        private void infoBtn_Click(object sender, EventArgs e)
+        {
+            dgvStorageInfo.Rows[1].Cells[3].Value = 2;
         }
     }
 }

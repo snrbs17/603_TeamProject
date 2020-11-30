@@ -121,6 +121,7 @@ namespace TheProject
             this.button1.TabIndex = 14;
             this.button1.Text = "나가기";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Search
             // 
@@ -136,7 +137,7 @@ namespace TheProject
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvSearchInfo);
             this.Name = "Search";
-            this.Text = "Form8";
+            this.Text = "물품 검색";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

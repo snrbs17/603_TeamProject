@@ -276,6 +276,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Test\SearchTest.resx">
       <DependentUpon>SearchTest.cs</DependentUpon>
@@ -313,6 +314,18 @@
       <Project>{c10fcdf1-584a-413c-a3e3-6ba60fcdfb45}</Project>
       <Name>EF.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box-27581_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass-1976105_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package-27770_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\캡처.GIF" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
