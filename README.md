@@ -100,6 +100,7 @@
 # 데이터베이스 스키마
 
 <img src="./TheProject/TheProject/Resources/동작화면/DatabaseSchema.png">
+
 - StorageSelection table의 ExitDateExpected항목과 Reciept table의 TotalCost 항목은 역정규화한 결과이다.
 
 - 이외의 모든 항목이 제 3 정규화까지 완료됐다
@@ -158,14 +159,19 @@
 - 그래서 Entity 모델의 개체를 생성할 때 상위 테이블 개체를 연결해주면, 한번에 SaveChange를 진행해도 Insert된 개체에 대해 자동으로 ID키가 연결되어 에러가 발생하지 않고 트랜젝션도 깨지지 않게 된다.
 - 그래서 개체를 생성할 때, 상위 테이블 개체를 연결해주는 작업을 진행했다.
 
-```csharp
-public Questionnare CreateQuestionnare { get; set; }
 
-// before
-CreateQuestionnare = new Questionnare();
-// after
-CreatedQuestionnare = new Questionnare { Customer = ConnectedCustomer };
-```
+# Data Grid View에 값이 출력되지 않는 오류
 
----
+## 증상
+- LINQ문으로 데이터를 가지고는 와지나 DGV에 입력되지 않았다.
+## 원인
+- Data Grid View에 바인딩되지 않았다.
+- MSSQL 테이블에서 직접 가져오지 않고 join문과 groupby문을 거쳐왔기 때문에 추가적인 작업이 필요했다.
+## 결과
+- LINQ의 결과로 가져온 데이터를 나타낼 수 있는 class들을 선언해 Entities 폴더를 구성했다.
+- 각 class들을 DGV에 인식시킨 후 LINQ로 각 class의 인스턴스 list를 가져와 DGV에 입력했다.
+
+<img src="./TheProject/TheProject/Resources/동작화면/DGV해결.png">
+
+
 
