@@ -20,8 +20,6 @@ namespace EF.Data.Dao
         public Func<RecieptSelectionStorage, bool> Fridge() => x => x.storage.StorageTypeId == 1;
         public Func<RecieptSelectionStorage, bool> Normal() => x => x.storage.StorageTypeId == 2;
         
-
-        
         public class RecieptSelectionStorage       
         {
             public Reciept reciept;
