@@ -127,7 +127,7 @@
 ## 결과
 - 작업중
 
-# DGV_Search 에 페이지를 나누는 동작이 반영되지 않은 문제 [#8](https://github.com/snrbs17/603_TeamProject/issues/8)
+# DGV_Search 에 페이지를 나누는 동작이 반영되지 않은 문제 [#9](https://github.com/snrbs17/603_TeamProject/issues/9)
 
 ## 증상
 - DGV에 항목을 5개씩 표시해주고 이전/다음페이지 누르면 넘어가게 구현중이나 항목 나눠지는게 안먹히고 한번에 다 나옴
