@@ -118,9 +118,12 @@
 
 <img src="./TheProject/TheProject/Resources/동작화면/UserCaseDiagram.png">
 
-# 
+## 순서도
 
-![직원용 다이어그램](./Document/직원알고리즘.jpg)
+<div>
+<img src="./TheProject/TheProject/Resources/동작화면/순서도1.png" width="30%">
+<img src="./TheProject/TheProject/Resources/동작화면/순서도2.png" width="60%">
+</div>
 
 # Point of Interest
 
