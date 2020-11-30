@@ -67,11 +67,11 @@
 
 ### 1. 보관함 정보
 
-- 현재 사용중인 정보와 과거 정보들을 확인할 수 있다.
-
+- 현재 보관함 상태에 따라 활성화/비활성화를 선택할 수 있다.
 ### 2. 관리자용 정보
 
-- 매출액같은 정보를 확인할 수 있다.
+- 월간/연간 매출액 추이를 그래프로 확인할 수 있다.
+- 보관함 종류에 따라 데이터를 구분해 시각화할 수 있다.
 
 
 
@@ -99,9 +99,10 @@
 
 # 데이터베이스 스키마
 
-![스키마](./Document/스키마.png)
+<img src="./TheProject/TheProject/Resources/동작화면/DatabaseSchema.png">
+- StorageSelection table의 ExitDateExpected항목과 Reciept table의 TotalCost 항목은 역정규화한 결과이다.
 
-- 모든 항목이 제 3 정규화까지 완료됐다
+- 이외의 모든 항목이 제 3 정규화까지 완료됐다
 
 # 순서도
 
@@ -114,6 +115,17 @@
 ![직원용 다이어그램](./Document/직원알고리즘.jpg)
 
 # Point of Interest
+
+# Data Analysis시 기본값이 제대로 출력되지 않는 문제 [#11](https://github.com/snrbs17/603_TeamProject/issues/11)
+
+## 증상
+- TimeScope를 Yearly로 설정한 후 바로 Search를 누를 경우 잘못된 값이 출력됨
+
+## 원인
+- Form 전체에 default값이 Monthly TimeScope 11월을 기준으로 설정되어 있음
+
+## 결과
+- 작업중
 
 # DB 테이블의 속성 변경 등 업데이트 내역이 EntityFramework에 반영되지 않은 문제 [#24](https://github.com/dlehd333/DKClinic/issues/24)
 
