@@ -6,6 +6,8 @@
 # 개발 기간
 - 2020년 11월 23일 ~ 2020년 11월 29일 (1차 Mini Project)
 
+# 구성원
+- 양석원, 양창혁, 이주형, 임동희
 
 # 기능 목록
 
@@ -100,6 +102,7 @@
 # 데이터베이스 스키마
 
 <img src="./TheProject/TheProject/Resources/동작화면/DatabaseSchema.png">
+
 - StorageSelection table의 ExitDateExpected항목과 Reciept table의 TotalCost 항목은 역정규화한 결과이다.
 
 - 이외의 모든 항목이 제 3 정규화까지 완료됐다
@@ -162,6 +165,19 @@
 
 ## 결과
 - 작업중
+
+# Data Grid View에 값이 출력되지 않는 오류
+
+## 증상
+- LINQ문으로 데이터를 가지고는 와지나 DGV에 입력되지 않았다.
+## 원인
+- Data Grid View에 바인딩되지 않았다.
+- MSSQL 테이블에서 직접 가져오지 않고 join문과 groupby문을 거쳐왔기 때문에 추가적인 작업이 필요했다.
+## 결과
+- LINQ의 결과로 가져온 데이터를 나타낼 수 있는 class들을 선언해 Entities 폴더를 구성했다.
+- 각 class들을 DGV에 인식시킨 후 LINQ로 각 class의 인스턴스 list를 가져와 DGV에 입력했다.
+
+<img src="./TheProject/TheProject/Resources/동작화면/DGV해결.png">
 
 
 

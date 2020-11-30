@@ -38,7 +38,8 @@ namespace EF.Data.Dao
                     .Where(SelectTimeScope)
                     .Where(TypeSelect)
                     .OrderBy(SelectTimeUnit)
-                    .GroupBy(SelectTimeUnit, x => x.storageSelection.FeeId, (key, entities) => new EarningEntity { TimeUnit = key, Cost = entities.Sum() *1000  });
+                    .GroupBy(SelectTimeUnit, x => x.storageSelection.FeeId, (key, entities)
+                    => new EarningEntity { TimeUnit = key, Cost = entities.Sum() *1000  });
                                         
                 return query.ToList();
             }
