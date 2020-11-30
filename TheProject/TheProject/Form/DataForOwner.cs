@@ -70,7 +70,7 @@ namespace TheProject
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             comboBox3.Visible = true;
-            comboBox3.PerformLayout();
+            //comboBox3.PerformLayout();
             comboBox1.Enabled = false;
 
         }
