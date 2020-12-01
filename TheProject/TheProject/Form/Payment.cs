@@ -245,5 +245,13 @@ namespace TheProject
 
             infoTotalFee.Text = $"{sumTotal:C} 원 입니다.";
         }*/
+
+
+        // todo Payment
+        // 1. 콤보박스 선택 후 반응 바로 안되는거
+        // 2. date 전부 나올 수 있게 칸 사이즈 조절
+        // 3. DB에 업데이트 가능하게
+        // 4. 카드결제 가능하게(테스트 버튼 대신에)
+        
     }
 }

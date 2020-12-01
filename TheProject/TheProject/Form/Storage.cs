@@ -344,5 +344,12 @@ namespace TheProject
         {
             dgvStorageInfo.Rows[1].Cells[3].Value = 2;
         }
+
+
+
+        // todo Storage
+        // 사용가능 항목 굳이 넣을건지 - 사용불가는 선택 안되게 해놨으니 넣을거면 풀어주는게 맞다고 봄
+        // 일반/신선 한글로 볼 수 있게
+
     }
 }

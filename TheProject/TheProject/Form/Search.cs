@@ -154,5 +154,10 @@ namespace TheProject
         {
             Close();
         }
+
+
+        // todo Search
+        // 1. 남은시간
+        // 2. 5개씩 보여지고 버튼에 맞춰서 넘어갈 수 있게
     }
 }
