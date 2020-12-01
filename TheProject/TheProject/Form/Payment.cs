@@ -10,22 +10,26 @@ namespace TheProject
 {
     public partial class Payment : Form
     {
-        private Payment()
-        {
-            InitializeComponent();
-        }
 
         // Storage에서 리스트를 payList에 받아옴
         //private List<StorageInfoForClientEntity> selectList = new List<StorageInfoForClientEntity>();
         public List<PaymentEntity> paymentList = new List<PaymentEntity>();
         public List<PaymentEntity> sendPaymentList = new List<PaymentEntity>();
         Storage storageForm;
+        private int memberID = 0;
+        private int sumTotal = 0;
+        private int showFlag = 0;
 
-        public Payment(List<StorageInfoForClientEntity> list, Storage form)
+        private Payment()
         {
             InitializeComponent();
+        }
+
+        public Payment(List<StorageInfoForClientEntity> list, Storage form, int memberId) : this()
+        {
             ExtractStorageData(list);
             storageForm = form;
+            memberID = memberId;
         }
 
         private void ExtractStorageData(List<StorageInfoForClientEntity> list)
@@ -164,13 +168,13 @@ namespace TheProject
                 //Add pl to your List  
                 sendPaymentList.Add(pl);
             }
-            //todo 데이터 업데이트
-            MessageBox.Show($"1번 고객님 결제가 완료되었습니다.");
+            // todo 데이터 업데이트
+            // 만약 입출고선택화면도 꺼져있다면 여기서 열어주기
+            MessageBox.Show($"{memberID} 고객님 결제가 완료되었습니다.");
             storageForm.Close();
             Close();
         }
-        int sumTotal = 0;
-        int showFlag = 0;
+
         // todo 카드나 돈을 받아서 넣게 해야할듯
         private void PayTestBtnClick(object sender, EventArgs e)
         {
@@ -226,6 +230,16 @@ namespace TheProject
             
         }
 
+        private void BGWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+
+        }
+
+        private void BGWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
         /*private void changedCell(DataGridViewCellEventArgs e)
         {
             int selectCellRow = e.RowIndex;
@@ -252,6 +266,6 @@ namespace TheProject
         // 2. date 전부 나올 수 있게 칸 사이즈 조절
         // 3. DB에 업데이트 가능하게
         // 4. 카드결제 가능하게(테스트 버튼 대신에)
-        
+
     }
 }

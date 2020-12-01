@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 using ToggleSlider;
 
@@ -17,10 +18,16 @@ namespace TheProject
             InitializeComponent();
         }
 
+        public Storage(int memberId) : this()
+        {
+            memberID = memberId;
+        }
+
         // 사용하는 필드 (나중에 모아서 클래스 이동)
         private int toggleFlag = 0;
         private int nomalboxMaxNum = 14;
         private int payBtnClickFlag = 0;
+        private int memberID = 0;
 
         // 사용하는 리스트
         private List<Label> _labels = new List<Label>();
@@ -104,7 +111,7 @@ namespace TheProject
                 Toggle();
             }
 
-            SelectCheck();
+            backgroundWorker1.RunWorkerAsync();
         }
         
         // Toggle, ToggleReverse - 토글 기능
@@ -228,8 +235,6 @@ namespace TheProject
                 // 정보도 뜨면 안된다
             }
 
-            
-
             int blackLabelCount = 0;
             foreach (var item in _labels)
             {
@@ -270,7 +275,7 @@ namespace TheProject
 
             SaveListPush(addDataList);
 
-            Payment payment = new Payment(saveData, this);
+            Payment payment = new Payment(saveData, this, memberID);
             payment.Show();
         }
 
@@ -280,38 +285,18 @@ namespace TheProject
             saveData = addDataList;
         }
         
-        // SelectCheck - 다시 화면 돌아왔을때 선택되어 있는 박스를 체크
-        private void SelectCheck()
-        {
-            addDataList.Clear();
-            foreach (var item in _labels)
-            {
-                if (item.BackColor == Color.Yellow)
-                {
-                    int index = Convert.ToInt32(item.Text) - 1;
-                    addDataList.Add(dbList[index]);
-                }
-            }
-        }
 
         // ShowDgv - dgv 보여주는 메서드
         public void ShowDgv()
         {
             dgvStorageInfo.DataSource = null;
             dgvStorageInfo.Rows.Clear();
-            SelectCheck();
-            dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
+            Cursor = Cursors.WaitCursor;
+
+            backgroundWorker1.RunWorkerAsync();
+
+
             
-            
-            
-            for (int i = 0; i < dgvStorageInfo.ColumnCount; i++)
-            {
-                DataGridViewColumn column = dgvStorageInfo.Columns[i];
-                dgvStorageInfo.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                column.Width = 191;
-            }
-            
-            dgvStorageInfo.Columns[4].Visible = false;
             payBtnClickFlag = 1;
 
             // todo 가서 서버로 확인해보기
@@ -334,8 +319,9 @@ namespace TheProject
         private void ExitBtn(object sender, EventArgs e)
         {
             // 메인화면 띄우기
-            // 아직이름 모름
-
+            // todo 생성자에 멤버아이디 넣어주기
+            Selection selection = new Selection();
+            selection.Show();
             Close();
         }
 
@@ -345,10 +331,46 @@ namespace TheProject
             dgvStorageInfo.Rows[1].Cells[3].Value = 2;
         }
 
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            // 백그라운드에서 구동이 되는지 확인하려고 일부러 sleep넣어둠
+            Thread.Sleep(5000);
+            addDataList.Clear();
+            foreach (var item in _labels)
+            {
+                if (item.BackColor == Color.Yellow)
+                {
+                    int index = Convert.ToInt32(item.Text) - 1;
+                    addDataList.Add(dbList[index]);
+                }
+            }
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
+
+
+            for (int i = 0; i < dgvStorageInfo.ColumnCount; i++)
+            {
+                DataGridViewColumn column = dgvStorageInfo.Columns[i];
+                dgvStorageInfo.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                column.Width = 191;
+            }
+
+            // canuse 안보이게
+            dgvStorageInfo.Columns[1].Visible = false;
+
+            dgvStorageInfo.Columns[4].Visible = false;
+            Cursor = Cursors.Default;
+
+        }
+
 
 
         // todo Storage
-        // 사용가능 항목 굳이 넣을건지 - 사용불가는 선택 안되게 해놨으니 넣을거면 풀어주는게 맞다고 봄
+        // 사용가능/시간 항목 굳이 넣을건지 - 사용불가는 선택 안되게 해놨으니 넣을거면 풀어주는게 맞다고 봄
+        // 시간은 굳이 보관 단계에서 볼 필요 없다고 생각함 대신 사용불가를 넣는다면 끝나는 시간은 넣는게 맞고
         // 일반/신선 한글로 볼 수 있게
 
     }

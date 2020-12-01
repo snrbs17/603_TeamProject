@@ -48,7 +48,7 @@ namespace TheProject
             SignUp signUpform = new SignUp();
             signUpform.ShowDialog();
         }
-
+        
         private void KeyBoard_Click(object sender, EventArgs e)
         {
 
@@ -56,6 +56,7 @@ namespace TheProject
 
             Button key = sender as Button;
 
+            
             if (txtBoxposition > 280)            
                idtxtBox.Text = idtxtBox.Text + key.Text;
                //pwtxtBox.Text = pwtxtBox.Text + key.Text;
@@ -70,6 +71,7 @@ namespace TheProject
 
         private void backspacebtn_Click(object sender, EventArgs e)
         {
+            
             if (idtxtBox.Text.Length > 0)
                 idtxtBox.Text = idtxtBox.Text.Remove(idtxtBox.Text.Length - 1, 1);
         }
