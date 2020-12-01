@@ -23,27 +23,27 @@
 - 회원 가입을 하면 ID 중복판단 후 Password가 맞으면 다음 창으로 넘어간다.
 - ID와 Password 확인 후 로그인.
 
-### 3. 선택 (입고, 출고, 검색)
+### 2. 선택 (입고, 출고, 검색)
 
 <img src="./TheProject/TheProject/Resources/동작화면/선택화면.png" width="45%">
 
 - 원하는 항목을 선택한다.
 
-### 3-1. 입고 선택
+### 2-1. 입고 선택
 
 <img src="./TheProject/TheProject/Resources/동작화면/선택_입고.png" width="45%">
 
 - 입고 선택시 일반/신선에 따라 다른 보관함을 지정하여 사용한다.
 - 보관함을 선택하고 시간을 지정한 뒤 결제를 한다.
 
-### 3-2. 출고 선택
+### 2-2. 출고 선택
 
 <img src="./TheProject/TheProject/Resources/동작화면/선택_출고.png" width="45%">
 
 - 원하는 보관함을 선택하고 출고한다.
 - 출고 시 시간이 지났다면 추과금이 부여된다.
 
-### 3-3. 검색 선택
+### 2-3. 검색 선택
 
 <img src="./TheProject/TheProject/Resources/동작화면/선택_검색.png" width="45%">
 
@@ -108,18 +108,22 @@
 - 이외의 모든 항목이 제 3 정규화까지 완료됐다
 
 
-# 클래스 다이어그램
+# UML
+
+## 클래스 다이어그램
 <img src="./TheProject/TheProject/Resources/동작화면/ClassDiagram.png">
 
-# 순서도
 
-## 1. 고객용 프로그램
+## User Case Diagram
 
-![고객용 다이어그램](./Document/고객알고리즘.jpg)
+<img src="./TheProject/TheProject/Resources/동작화면/UserCaseDiagram.png">
 
-## 2. 직원용 프로그램
+## 순서도
 
-![직원용 다이어그램](./Document/직원알고리즘.jpg)
+<div>
+<img src="./TheProject/TheProject/Resources/동작화면/순서도1.png" width="30%">
+<img src="./TheProject/TheProject/Resources/동작화면/순서도2.png" width="60%">
+</div>
 
 # Point of Interest
 
