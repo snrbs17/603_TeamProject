@@ -56,6 +56,7 @@ namespace TheProject
             this.projectDataSet = new TheProject.ProjectDataSet();
             this.recieptTableAdapter = new TheProject.ProjectDataSetTableAdapters.RecieptTableAdapter();
             this.storageSelectionTableAdapter = new TheProject.ProjectDataSetTableAdapters.StorageSelectionTableAdapter();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.importDaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -430,5 +431,6 @@ namespace TheProject
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
