@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EF.Data;
+using EFLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,11 @@ namespace TheProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            DbContextCreator.Context = () => new projectEntities();
+
+            Application.Run(new Cover());
+
         }
     }
 }

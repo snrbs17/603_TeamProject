@@ -1,6 +1,9 @@
-﻿using System;
+﻿using EF.Data.Dao;
+using EF.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using ToggleSlider;
@@ -14,51 +17,19 @@ namespace TheProject
             InitializeComponent();
         }
 
-        // 이건 나중에 5번 폼 시작하면 그룹박스안에 있는 라벨들의 이름을 DB와 매칭 시킨다
-        // 아직 미완성
-        /*public void Form1_Load(object sender, EventArgs e)
-        {
-            for (int iCount = 1; iCount <= 10; iCount++)
-            {
-                this.FindByName<Label>("Label" + iCount.ToString()).Text = "Test" + iCount.ToString();
-            }
-        }*/
+        // 사용하는 필드 (나중에 모아서 클래스 이동)
+        private int toggleFlag = 0;
+        private int nomalboxMaxNum = 14;
+        private int payBtnClickFlag = 0;
 
-
-
-        // 처음 들어오면 시작되어 DB를 가져와서 색 정해지게, 색상이 이상하면 나중에 바꾸면 됨
-        // 박스랑 라벨이랑 일치시켜줘야함(어떻게 해야할까나)
-        /*public void startMainWindowBox()
-        {
-            box = DB에서 가져온 박스의 이름
-           
-            if (box.사용여부 == 0)
-            {
-                if(box.종류?(신선/일반) == 일반)
-                    box.BackColor = Color.White;
-                else (box.종류 ? (신선 / 일반) == 신선)
-                     box.BackColor = Color.DarkGray;
-            }
-            // 1인건 사용중이니깐 
-            else
-            {
-                 box.BackColor = Color.Red;
-            }
-        }
-        */
-
-        // 이건 DB에서 신선박스들을 가져와서 변경해야할듯, 박스리스트에 조건을 넣어서 검색해서 가져옴
-        // 하얀색(일반이나 신선 선택된것)만 누르는거 가능
-
+        // 사용하는 리스트
         private List<Label> _labels = new List<Label>();
+        private List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
+        private List<StorageInfoForClientEntity> addDataList = new List<StorageInfoForClientEntity>();
+        public List<StorageInfoForClientEntity> saveData = new List<StorageInfoForClientEntity>();
 
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            ChangeLabelColor();
-        }
-        private void ChangeLabelColor()
+        // CreateLabelList - _labels를 만들기 위해 reflection 하는 메서드
+        private void CreateLabelList()
         {
             Type type = GetType();
             FieldInfo[] fieldInfos =
@@ -74,120 +45,311 @@ namespace TheProject
             }
         }
 
-        // 우선 보관함종류에 대해 데이터를 받고 일반/신선에 따라 색을 부여해야함
-        // 지금 코드를 좀 바꿔야할듯
-        public void button1_Click(object sender, EventArgs e)
+        // OnLoad - 초기 시작시
+        protected override void OnLoad(EventArgs e)
         {
+            base.OnLoad(e);
 
+            CreateLabelList();
+
+            // 데이터를 받아 storageTypeId 에 따라 색을 부여
+            Toggle();
+
+            //dgv
+            dgvStorageInfo.DataSource = null;
+            CheckRedBox();
+        }
+
+        // CheckRedBox - 사용중인 박스 찾아서 Red로 표현해주는 메서드
+        private void CheckRedBox()
+        {
+            foreach (var item in _labels)
+            {
+                List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
+                for (int i = 0; i < dbList.Count; i++)
+                {
+                    if (item.Text == Convert.ToString(dbList[i].StorageId) && dbList[i].Activation == false)
+                    {
+                        item.BackColor = Color.Red;
+                    }
+                }
+            }
+        }
+
+        // ToggleClick - toggle에 따라 색상 변화하는 메서드
+        public void ToggleClick(object sender, EventArgs e)
+        {
+            if (payBtnClickFlag == 1)
+            {
+                dgvStorageInfo.DataSource = null;
+                dgvStorageInfo.Rows.Clear();
+
+                addDataList = saveData;
+                saveData.Clear();
+                payBtnClickFlag = 0;
+            }
             ToggleSliderComponent tog = (ToggleSliderComponent)sender;
             if (tog.ToggleCircleColor == Color.Silver)
             {
                 tog.ToggleCircleColor = Color.Green;
                 tog.ToggleBarText = " 신선";
-
-                foreach (var label in _labels)
-                {
-                    if (label.BackColor == Color.DarkGray)
-                    {
-                        label.BackColor = Color.White;
-                    }
-                    else if (label.BackColor == Color.White)
-                    {
-                        label.BackColor = Color.DarkGray;
-                    }
-                }
+                toggleFlag = 1;
+                ToggleReverse();
             }
             else
             {
                 tog.ToggleCircleColor = Color.Silver;
                 tog.ToggleBarText = " 일반";
+                toggleFlag = 0;
+                Toggle();
+            }
 
-                foreach (var label in _labels)
+            SelectCheck();
+        }
+        
+        // Toggle, ToggleReverse - 토글 기능
+        public void Toggle()
+        {
+            foreach (var item in _labels)
+            {
+                int labelNum = Convert.ToInt32(item.Text)-1;
+                
+                if(item.BackColor == Color.Yellow)
                 {
-                    if (label.BackColor == Color.DarkGray)
+                    continue;
+                }
+                else
+                {
+                    // 사용불가(누가 사용중임)
+                    if (dbList[labelNum].CanUse == false)
                     {
-                        label.BackColor = Color.White;
+                        item.BackColor = Color.Red;
                     }
-                    else if (label.BackColor == Color.White)
+                    // 사용 가능하고 일반일경우 
+                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 1)
                     {
-                        label.BackColor = Color.DarkGray;
+                        item.BackColor = Color.White;
+                    }
+                    // 사용 가능하지만 신선
+                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 2)
+                    {
+                        item.BackColor = Color.DarkGray;
                     }
                 }
             }
-
+            boxDesc.Text = "신선";
+            CheckRedBox();
         }
-        // 여기까지
-
-
-        // 라벨 버튼 선택시, freshCheckNumber=1 신선만 가능, 스위치로 할까나
-        public void ClickBox(object sender, EventArgs e)
+        public void ToggleReverse()
         {
-            Label labelbox = (Label)sender;
-            // 만약 누른 라벨의 배경색이 하얀거라면 노랗게 만들고
-            if (labelbox.BackColor == Color.White)
+            foreach (var item in _labels)
             {
-                labelbox.BackColor = Color.Yellow;
-                // 그리고 리스트에 나오게 만들어아햠
+                int labelNum = Convert.ToInt32(item.Text)-1;
+                if (item.BackColor == Color.Yellow)
+                {
+                    continue;
+                }
+                else
+                {
+                    // 사용불가(누가 사용중임)
+                    if (dbList[labelNum].CanUse == false)
+                    {
+                        item.BackColor = Color.Red;
+                    }
+                    // 사용 가능하고 일반일경우 
+                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 2)
+                    {
+                        item.BackColor = Color.White;
+                    }
+                    // 사용 가능하지만 신선
+                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 1)
+                    {
+                        item.BackColor = Color.DarkGray;
+                    }
+                }
+            }
+            boxDesc.Text = "일반";
+            CheckRedBox();
+        }
 
-                // 이 사이에
+        // ClickLabel - 라벨 선택시 데이터를 dgv에 표시해주고 색상 변화를 주는 메서드
+        public void ClickLabel(object sender, EventArgs e)
+        {
+            if(payBtnClickFlag == 1)
+            {
+                dgvStorageInfo.DataSource = null;
+                dgvStorageInfo.Rows.Clear();
+                addDataList.Clear();
+                addDataList = saveData;
+                saveData.Clear();
+                payBtnClickFlag = 0;
+            }
+
+            List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
+           
+            Label labelBox = (Label)sender;
+
+            int labelNum = Convert.ToInt32(labelBox.Text);
+            // 만약 누른 라벨의 배경색이 하얀거라면 노랗게 만들고
+            if (labelBox.BackColor == Color.White)
+            {
+                labelBox.BackColor = Color.Yellow;
+                addDataList.Add(dbList[labelNum]);
             }
             // 노란건 이미 선택된거기 때문에 다시 하얀색으로
-            else if (labelbox.BackColor == Color.Yellow)
+            else if (labelBox.BackColor == Color.Yellow)
             {
-                labelbox.BackColor = Color.White;
-                // 그리고 리스트에 사라지게 만들어아햠
+                int labelCheckNum = Convert.ToInt32(labelBox.Text);
 
-                // 이 사이에
+                if((labelCheckNum < nomalboxMaxNum && toggleFlag == 0) || (labelCheckNum >= nomalboxMaxNum && toggleFlag == 1))
+                {
+                    labelBox.BackColor = Color.White;
+                }
+                else if ((labelCheckNum < nomalboxMaxNum && toggleFlag == 1)|| (labelCheckNum >= nomalboxMaxNum && toggleFlag == 0))
+                {
+                    labelBox.BackColor = Color.DarkGray;
+                }
             }
             // 빨간건 이미 사용중인거라 결제버튼 비활성화하고 검정색으로
-            else if (labelbox.BackColor == Color.Red)
-            {
-                labelbox.BackColor = Color.Black;
-                labelbox.ForeColor = Color.White;
-                payBtn.Enabled = false;
-            }
-            else if (labelbox.BackColor == Color.Black)
-            {
-                labelbox.BackColor = Color.Red;
-                labelbox.ForeColor = Color.Black;
-
-                payBtn.Enabled = true;
-            }
+            //else if (labelBox.BackColor == Color.Red)
+            //{
+            //    labelBox.BackColor = Color.Black;
+            //    labelBox.ForeColor = Color.White;
+            //}
+            //else if (labelBox.BackColor == Color.Black)
+            //{
+            //    labelBox.BackColor = Color.Red;
+            //    labelBox.ForeColor = Color.Black;
+            //}
             // 다크그레이는 신선이나 일반에서 비활성화인것들
-            else if (labelbox.BackColor == Color.DarkGray)
+            else if (labelBox.BackColor == Color.DarkGray)
             {
                 // 아무것도 안되도록
                 // 정보도 뜨면 안된다
             }
+
+            
+
+            int blackLabelCount = 0;
+            foreach (var item in _labels)
+            {
+                if(item.BackColor == Color.Black)
+                {
+                    blackLabelCount++;
+                }
+            }
+
+            if(blackLabelCount > 0)
+            {
+                payBtn.Enabled = false;
+            }
+            else if(blackLabelCount == 0)
+            {
+                payBtn.Enabled = true;
+            }
+
+            int yellowCount = 0;
+            foreach (var item in _labels)
+            {
+                if (item.BackColor == Color.Yellow)
+                    yellowCount++;
+            }
+            infoBtn.Text = $"현재 보관함 {yellowCount}개를 선택하셨습니다.";
         }
 
+        // BoxCheckClick - 박스 정보를 보기위해 누르는
+        public void BoxCheckClick(object sender, EventArgs e)
+        {
+            ShowDgv();
+        }
+
+        // PayBtnClick - 버튼 누르면 결제창르로 이동
         public void PayBtnClick(object sender, EventArgs e)
         {
-            Payment payment = new Payment();
+            ShowDgv();
+
+            SaveListPush(addDataList);
+
+            Payment payment = new Payment(saveData, this);
             payment.Show();
         }
 
-        // 여기까지
-
-        // 만약 결제버튼을 누른다면
-        // 상세 내역중에 사용중인게 있는지 확인
-        /*public void ClickPay()
+        // SaveListPush - 저장해서 결제화면으로 보내주기 위해 리스트를 저장
+        private void SaveListPush(List<StorageInfoForClientEntity> addDataList)
         {
-            if(보관소 정보 리스트 항목중에 하나라도 사용가능여부 == 사용중)
+            saveData = addDataList;
+        }
+        
+        // SelectCheck - 다시 화면 돌아왔을때 선택되어 있는 박스를 체크
+        private void SelectCheck()
+        {
+            addDataList.Clear();
+            foreach (var item in _labels)
             {
-                MessageBox.Show("사용중인 항목이 들어있습니다");
-            }
-            else if(전부 == 사용가능)
-            {
-                다음화면으로 넘어감
+                if (item.BackColor == Color.Yellow)
+                {
+                    int index = Convert.ToInt32(item.Text) - 1;
+                    addDataList.Add(dbList[index]);
+                }
             }
         }
-        */
 
-        //public void dgvDataCheck(object sender, EventArgs e)
-        //{
-        //    DataGridView dgvInfo = (DataGridView)sender;
-        //    dgvInfo.Rows[0]="hi";
-        //}
+        // ShowDgv - dgv 보여주는 메서드
+        public void ShowDgv()
+        {
+            dgvStorageInfo.DataSource = null;
+            dgvStorageInfo.Rows.Clear();
+            SelectCheck();
+            dgvStorageInfo.DataSource = addDataList.OrderBy(o => o.StorageId).ToList();
+            
+            
+            
+            for (int i = 0; i < dgvStorageInfo.ColumnCount; i++)
+            {
+                DataGridViewColumn column = dgvStorageInfo.Columns[i];
+                dgvStorageInfo.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                column.Width = 191;
+            }
+            
+            dgvStorageInfo.Columns[4].Visible = false;
+            payBtnClickFlag = 1;
+
+            // todo 가서 서버로 확인해보기
+            // 여기는 일반/신선 구분을 한글로 나타내주려고 
+            //for (int i = 0; i < dgvStorageInfo.RowCount; i++)
+            //{
+            //    if (dgvStorageInfo.Rows[i].Cells[3].Value == "1")
+            //    {
+            //        dgvStorageInfo.Rows[i].Cells[3].Value = "일반";
+            //    }
+            //    else if (dgvStorageInfo.Rows[i].Cells[4].Value == "2")
+            //    {
+            //        dgvStorageInfo.Rows[i].Cells[2].Value = "신선";
+            //    }
+            //}
+
+        }
+
+        // ExitBtn - 처음으로 버튼
+        private void ExitBtn(object sender, EventArgs e)
+        {
+            // 메인화면 띄우기
+            // 아직이름 모름
+
+            Close();
+        }
+
+        // Test용
+        private void infoBtn_Click(object sender, EventArgs e)
+        {
+            dgvStorageInfo.Rows[1].Cells[3].Value = 2;
+        }
+
+
+
+        // todo Storage
+        // 사용가능 항목 굳이 넣을건지 - 사용불가는 선택 안되게 해놨으니 넣을거면 풀어주는게 맞다고 봄
+        // 일반/신선 한글로 볼 수 있게
+
     }
 }

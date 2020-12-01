@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TheProject.Cover" Collapsed="true">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAUQAHAQABAAACCAAAECIAAAARAAgAAAEwBAICA=</HashCode>
+      <FileName>Form\Cover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheProject.DataForOwner" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BACAAACAACAgARAQAACAQgACAAgYAAAAIGAAAYAQgAI=</HashCode>
+      <FileName>Form\DataForOwner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheProject.Login" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wDgAAAAQADAQIBAHAgGAgIMDgMw7wdDgwGAgcTBwIKA=</HashCode>
+      <FileName>Form\Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheProject.Payment" Collapsed="true">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIhAAIFAACAHAREEAACAEAACASBYAEQAEAAEAAAAAAA=</HashCode>
+      <FileName>Form\Payment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheProject.Release" Collapsed="true">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAACCACBAAAACAAQACAQAIAACAAEAAAAAAAAA=</HashCode>
+      <FileName>Form\Release.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheProject.Search" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMAAAACACAACFAAAACAAIACAAAIAAAAAEEEAAgAIAg=</HashCode>
+      <FileName>Form\Search.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheProject.Selection" Collapsed="true">
+    <Position X="4.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABQQACAAABAgAACAAAACAAAQAQAAgAAgIABAACA=</HashCode>
+      <FileName>Form\Selection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheProject.SignUp" Collapsed="true">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wDgAAAAQADAQIBAHAAGAgKFDoMw7wdDg8GAgcTAwAKA=</HashCode>
+      <FileName>Form\SignUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheProject.Storage" Collapsed="true">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wEAApAAKjIAARAFARCAAAACAII5ClAAICAQAQBIwDA=</HashCode>
+      <FileName>Form\Storage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Malgun Gothic" Size="9" />
+</ClassDiagram>

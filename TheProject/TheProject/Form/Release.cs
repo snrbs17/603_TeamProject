@@ -1,127 +1,80 @@
-﻿using System;
+﻿using EF.Data.Dao;
+using EF.Data.Entities;
+using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace TheProject
 {
     public partial class Release : Form
     {
+        // 로그인한 사용자의 id값에 맞는 정보를 가지고 와야함
+        // 조인을 쓰는데 
+
+        List<ReleaseEntity> releaseList = new List<ReleaseEntity>();
+        
+        // test용
+        List<MemberEntity> mem = new List<MemberEntity>();
+
+
         public Release()
         {
             InitializeComponent();
         }
+        public Release(List<MemberEntity> member) : base()
+        {
+            releaseList = Dao.Release.GetList(/*테스트용*/mem);
+        }
 
-        private List<Button> _btns = new List<Button>();
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
-            LoadNumberButtons();
+            // test용
+            MemberEntity member = new MemberEntity();
+            member.MemberId = 1;
+            member.MemberTest = 2;
+            mem.Add(member);
+            // 여기까지
+
+            releaseList = Dao.Release.GetList(mem);
+
+            dgvList.DataSource = releaseList;
+            int listCount = releaseList.Count;
+            if (listCount == 0)
+            {
+                releaseBtn.Text = $"맡기신 물건이 없습니다.";
+            }
+            else
+            {
+                releaseBtn.Text = $"총 {listCount} 건이 존재합니다.";
+            }
         }
 
-        // 이건 나중에 DB에서 집어넣어야함
-        int MaxNum = 7;
-
-        private void TestBtn(object sender, EventArgs e)
+        private void releaseBtn_Click(object sender, EventArgs e)
         {
-            Button selectBtn = (Button)sender;
-            int selectNum = Convert.ToInt32(selectBtn.Text);
-
-            if (selectNum > 1 && selectBtn.Name == "firstPageBtn")
+            if(releaseBtn.Text == $"맡기신 물건이 없습니다.")
             {
-                foreach (Button button in _btns)
-                {
-                    if (button.Name == "btn1" || button.Name == "btn2" || button.Name == "btn3")
-                    {
-                        button.BackColor = SystemColors.Control;
-                        continue;
-                    }
-                    else if (button.Name == "centerPageBtn")
-                    {
-                        button.Text = Convert.ToString(selectNum);
-                        button.BackColor = Color.DeepSkyBlue;
-                    }
-                    else if (button.Name == "lastPageBtn")
-                    {
-                        button.BackColor = SystemColors.Control;
-                        button.Text = Convert.ToString(selectNum + 1);
-                    }
-                    selectBtn.Text = Convert.ToString(selectNum - 1);
-
-                }
+                Close();
             }
-            else if (selectNum > 1 && selectBtn.Name == "centerPageBtn")
+            else
             {
-                foreach (Button button in _btns)
-                {
-                    button.BackColor = SystemColors.Control;
-                }
-                selectBtn.BackColor = Color.DeepSkyBlue;
-            }
-            else if (selectNum > 2 && selectBtn.Name == "lastPageBtn")
-            {
-                if (selectNum == MaxNum)
-                {
-                    foreach (Button button in _btns)
-                    {
-                        button.BackColor = SystemColors.Control;
-                    }
-                    selectBtn.BackColor = Color.DeepSkyBlue;
-                }
-                else if (selectNum < MaxNum)
-                {
-                    foreach (Button button in _btns)
-                    {
-                        if (button.Name == "btn1" || button.Name == "btn2" || button.Name == "btn3")
-                        {
-                            button.BackColor = SystemColors.Control;
-                            continue;
-                        }
-                        else if (button.Name == "centerPageBtn")
-                        {
-                            button.Text = Convert.ToString(selectNum);
-                            button.BackColor = Color.DeepSkyBlue;
-                        }
-                        else if (button.Name == "firstPageBtn")
-                        {
-                            button.BackColor = SystemColors.Control;
-                            button.Text = Convert.ToString(selectNum - 1);
-                        }
-                        selectBtn.Text = Convert.ToString(selectNum + 1);
-
-                    }
-                }
-            }
-            else if (selectNum == 1)
-            {
-                foreach (Button button in _btns)
-                {
-                    button.BackColor = SystemColors.Control;
-                }
-                selectBtn.BackColor = Color.DeepSkyBlue;
+                // 결제폼으로
             }
         }
 
-
-        private void LoadNumberButtons()
+        private void button1_Click(object sender, EventArgs e)
         {
-            Type type = GetType();
-            FieldInfo[] fieldInfos =
-            type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
-
-            foreach (var info in fieldInfos)
-            {
-                Button button = info.GetValue(this) as Button;
-                if (button == null)
-                    continue;
-
-                _btns.Add(button);
-            }
+            Close();
         }
 
 
+        // todo Release
+        // 1. memberID 받아서 내역출력
+        // 2. 체크박스로 빼고 싶은것만 뺄 수 있게
+        // 3. 맡겨진게 없으면 들어오기전에 메세지박스로 알림 후 안뜨게
+        // 4. 출고과금 라벨 과금 없으면 가려지게
+        // 5. 남은시간 제대로 나오게 + cost도 나오게
     }
 }
