@@ -21,3 +21,9 @@ C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.csproj.
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.csproj.CopyComplete
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.exe
 C:\Users\kccistc\Desktop\T603\TheProject\TheProject\obj\Debug\TheProject.pdb
+C:\Users\kccistc\Source\Repos\snrbs17\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.csprojAssemblyReference.cache
+C:\Users\kccistc\Source\Repos\snrbs17\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.Properties.Resources.resources
+C:\Users\kccistc\Source\Repos\snrbs17\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.csproj.GenerateResource.cache
+C:\Users\kccistc\Source\Repos\snrbs17\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.csproj.CoreCompileInputs.cache
+C:\Users\kccistc\Source\Repos\snrbs17\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.exe
+C:\Users\kccistc\Source\Repos\snrbs17\603_TeamProject\TheProject\TheProject\obj\Debug\TheProject.pdb
