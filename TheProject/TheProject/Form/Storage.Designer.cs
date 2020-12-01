@@ -112,36 +112,36 @@ namespace TheProject
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(842, 149);
+            this.button6.Location = new System.Drawing.Point(817, 149);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(104, 34);
+            this.button6.Size = new System.Drawing.Size(129, 34);
             this.button6.TabIndex = 33;
-            this.button6.Text = "선택 불가";
+            this.button6.Text = "사용중/선택불가";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(842, 109);
+            this.button5.Location = new System.Drawing.Point(817, 109);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(104, 34);
+            this.button5.Size = new System.Drawing.Size(129, 34);
             this.button5.TabIndex = 32;
             this.button5.Text = "선택중";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // boxDesc
             // 
-            this.boxDesc.Location = new System.Drawing.Point(842, 69);
+            this.boxDesc.Location = new System.Drawing.Point(817, 69);
             this.boxDesc.Name = "boxDesc";
-            this.boxDesc.Size = new System.Drawing.Size(104, 34);
+            this.boxDesc.Size = new System.Drawing.Size(129, 34);
             this.boxDesc.TabIndex = 31;
             this.boxDesc.Text = "일반 보관함";
             this.boxDesc.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(841, 29);
+            this.button1.Location = new System.Drawing.Point(816, 29);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 34);
+            this.button1.Size = new System.Drawing.Size(129, 34);
             this.button1.TabIndex = 30;
             this.button1.Text = "선택 가능";
             this.button1.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@ namespace TheProject
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Red;
-            this.pictureBox4.Location = new System.Drawing.Point(807, 149);
+            this.pictureBox4.Location = new System.Drawing.Point(782, 149);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(28, 34);
             this.pictureBox4.TabIndex = 29;
@@ -158,7 +158,7 @@ namespace TheProject
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Yellow;
-            this.pictureBox3.Location = new System.Drawing.Point(807, 109);
+            this.pictureBox3.Location = new System.Drawing.Point(782, 109);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(28, 34);
             this.pictureBox3.TabIndex = 28;
@@ -167,7 +167,7 @@ namespace TheProject
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox2.Location = new System.Drawing.Point(807, 69);
+            this.pictureBox2.Location = new System.Drawing.Point(782, 69);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(28, 34);
             this.pictureBox2.TabIndex = 27;
@@ -176,7 +176,7 @@ namespace TheProject
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.pictureBox1.Location = new System.Drawing.Point(807, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(782, 29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 34);
             this.pictureBox1.TabIndex = 26;
