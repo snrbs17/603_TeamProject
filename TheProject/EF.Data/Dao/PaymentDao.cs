@@ -7,9 +7,9 @@ using System.Linq.Expressions;
 
 namespace EF.Data.Dao
 {
-    public class PaymentDao 
+    public class PaymentDao
     {
-        
+
         public List<PaymentEntity> GetList(List<StorageInfoForClientEntity> list)
         {
             using (var context = new projectEntities())
@@ -17,10 +17,12 @@ namespace EF.Data.Dao
                 var query = from x in list
                             join y in context.StorageSelections on x.StorageId equals y.StorageId
                             join z in context.Fees on y.FeeId equals z.FeeId
+                            join a in context.Storages on x.StorageId equals a.StorageId
+                            join b in context.StorageTypes on a.StorageTypeId equals b.StorageTypeId
                             select new PaymentEntity
                             {
                                 StorageId = x.StorageId,
-                                StorageTypeId = x.StorageTypeId,
+                                StorageTypeName = b.StorageTypeName,
                                 EntryDate = DateTime.Now,
 
                             };
@@ -28,7 +30,7 @@ namespace EF.Data.Dao
                 return query.ToList();
             }
         }
-        
+
         /*public void InputData(List<PaymentEntity> paymentList)
         {
             using (var context = new projectEntities())
@@ -51,7 +53,6 @@ namespace EF.Data.Dao
         }
         */
 
-        
+
     }
 }
-    
