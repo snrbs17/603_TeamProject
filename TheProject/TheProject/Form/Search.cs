@@ -44,9 +44,16 @@ namespace TheProject
             memList.Add(member);
             // 여기까지
 
-            searchList = Dao.Search.GetList(memList);
+            searchList = Dao.Search.GetPresentList(memList);
+            if (searchList.Count <5)
+            {
+                onBtnClickViewList = searchList.GetRange(0, searchList.Count);
 
-            onBtnClickViewList = searchList.GetRange(0, 5);
+            }
+            else
+            {
+                onBtnClickViewList = searchList.GetRange(0, 5);
+            }
 
             dgvSearchInfo.DataSource = onBtnClickViewList;
 
