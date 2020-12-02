@@ -700,8 +700,10 @@ namespace TheProject
             this.idtxtBox.Name = "idtxtBox";
             this.idtxtBox.Size = new System.Drawing.Size(331, 32);
             this.idtxtBox.TabIndex = 1;
+            this.idtxtBox.Tag = "2";
             this.idtxtBox.Click += new System.EventHandler(this.idtxtBox_Click);
             this.idtxtBox.TextChanged += new System.EventHandler(this.idtxtBox_TextChanged);
+            this.idtxtBox.DoubleClick += new System.EventHandler(this.pwtxtBox_DoubleClick);
             // 
             // pwtxtBox
             // 
@@ -715,7 +717,9 @@ namespace TheProject
             this.pwtxtBox.PasswordChar = '*';
             this.pwtxtBox.Size = new System.Drawing.Size(331, 32);
             this.pwtxtBox.TabIndex = 2;
-            this.pwtxtBox.Click += new System.EventHandler(this.pwtxtBox_Click);
+            this.pwtxtBox.Tag = "3";
+            this.pwtxtBox.Click += new System.EventHandler(this.idtxtBox_Click);
+            this.pwtxtBox.DoubleClick += new System.EventHandler(this.pwtxtBox_DoubleClick);
             // 
             // tableLayoutPanel10
             // 

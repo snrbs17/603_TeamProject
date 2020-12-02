@@ -34,7 +34,6 @@ namespace TheProject
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.importDaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -53,16 +52,17 @@ namespace TheProject
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.importDaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectDataSet = new TheProject.ProjectDataSet();
             this.recieptTableAdapter = new TheProject.ProjectDataSetTableAdapters.RecieptTableAdapter();
             this.storageSelectionTableAdapter = new TheProject.ProjectDataSetTableAdapters.StorageSelectionTableAdapter();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.importDaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.importBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.importDaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,10 +79,6 @@ namespace TheProject
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(482, 69);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // importDaoBindingSource
-            // 
-            this.importDaoBindingSource.DataSource = typeof(EF.Data.Dao.EarningDao);
             // 
             // button1
             // 
@@ -358,6 +354,15 @@ namespace TheProject
             this.label4.TabIndex = 15;
             this.label4.Text = "Data Analysis";
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // importDaoBindingSource
+            // 
+            this.importDaoBindingSource.DataSource = typeof(EF.Data.Dao.EarningDao);
+            // 
             // projectDataSet
             // 
             this.projectDataSet.DataSetName = "ProjectDataSet";
@@ -393,13 +398,13 @@ namespace TheProject
             this.Text = "DataForOwner";
             this.Load += new System.EventHandler(this.DataForOwner_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.importDaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.importBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.importDaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

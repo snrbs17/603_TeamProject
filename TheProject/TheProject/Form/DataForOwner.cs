@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EF.Data;
@@ -16,7 +17,7 @@ using MyLibrary;
 
 namespace TheProject
 {
-    public partial class DataForOwner : Form
+     partial class DataForOwner : Form
     {
         int timeUnitValue;
         public DataForOwner()
@@ -36,20 +37,33 @@ namespace TheProject
             radioButton3.PerformClick();
             radioButton1.PerformClick();
 
-            comboBox3.SelectedIndex = 0;
             comboBox1.SelectedIndex = DateTime.Now.Month -1;
 
             chart1.Series.Clear();
         }
 
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+             List<EarningEntity> list =
+                Dao.Earning.EarningPerUnitTime(DataCreator.TimeScope, DataCreator.TimeUnit, DataCreator.TypeSelect);
+
+            e.Result = list;
+            Cursor = Cursors.WaitCursor;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Enabled = false;
+            backgroundWorker1.RunWorkerAsync();
+        }
 
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+            Cursor = Cursors.Arrow;
             chart1.Series.Clear();
 
-            List<EarningEntity> list =
-                Dao.Earning.EarningPerUnitTime(DataCreator.TimeScope, DataCreator.TimeUnit, DataCreator.TypeSelect);
+            List<EarningEntity> list = (List<EarningEntity>)e.Result;
             dataGridView1.DataSource = list;
 
             chart1.Series.Add("Earning");
@@ -57,6 +71,9 @@ namespace TheProject
                 chart1.Series["Earning"].Points.AddXY(x.TimeUnit,x.Cost);
             //chart1.Series["Earning"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
             button1.Enabled = true;
+
+
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -73,6 +90,7 @@ namespace TheProject
             comboBox1.Enabled = false;
             comboBox3.PerformLayout();
 
+            comboBox3.SelectedIndex = 0;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,5 +159,6 @@ namespace TheProject
             button2.Enabled = true;
             button2.BackColor = SystemColors.GradientActiveCaption;
         }
+
     }
 }
