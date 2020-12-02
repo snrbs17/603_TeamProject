@@ -217,17 +217,17 @@ namespace TheProject
                     labelBox.BackColor = Color.DarkGray;
                 }
             }
-            // 빨간건 이미 사용중인거라 결제버튼 비활성화하고 검정색으로
-            //else if (labelBox.BackColor == Color.Red)
-            //{
-            //    labelBox.BackColor = Color.Black;
-            //    labelBox.ForeColor = Color.White;
-            //}
-            //else if (labelBox.BackColor == Color.Black)
-            //{
-            //    labelBox.BackColor = Color.Red;
-            //    labelBox.ForeColor = Color.Black;
-            //}
+            //빨간건 이미 사용중인거라 결제버튼 비활성화하고 검정색으로
+            else if (labelBox.BackColor == Color.Red)
+            {
+                labelBox.BackColor = Color.Black;
+                labelBox.ForeColor = Color.White;
+            }
+            else if (labelBox.BackColor == Color.Black)
+            {
+                labelBox.BackColor = Color.Red;
+                labelBox.ForeColor = Color.Black;
+            }
             // 다크그레이는 신선이나 일반에서 비활성화인것들
             else if (labelBox.BackColor == Color.DarkGray)
             {
@@ -334,11 +334,11 @@ namespace TheProject
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             // 백그라운드에서 구동이 되는지 확인하려고 일부러 sleep넣어둠
-            Thread.Sleep(5000);
+            //Thread.Sleep(5000);
             addDataList.Clear();
             foreach (var item in _labels)
             {
-                if (item.BackColor == Color.Yellow)
+                if (item.BackColor == Color.Yellow||item.BackColor==Color.Black)
                 {
                     int index = Convert.ToInt32(item.Text) - 1;
                     addDataList.Add(dbList[index]);
@@ -357,21 +357,16 @@ namespace TheProject
                 dgvStorageInfo.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 column.Width = 191;
             }
-
             // canuse 안보이게
-            dgvStorageInfo.Columns[1].Visible = false;
+            //dgvStorageInfo.Columns[1].Visible = false;
 
             dgvStorageInfo.Columns[4].Visible = false;
             Cursor = Cursors.Default;
 
         }
 
-
-
         // todo Storage
-        // 사용가능/시간 항목 굳이 넣을건지 - 사용불가는 선택 안되게 해놨으니 넣을거면 풀어주는게 맞다고 봄
-        // 시간은 굳이 보관 단계에서 볼 필요 없다고 생각함 대신 사용불가를 넣는다면 끝나는 시간은 넣는게 맞고
-        // 일반/신선 한글로 볼 수 있게
+        // 일반/신선 사용가능 - 한글로 볼 수 있게
 
     }
 }

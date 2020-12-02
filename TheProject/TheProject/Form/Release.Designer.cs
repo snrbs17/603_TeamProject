@@ -35,6 +35,7 @@ namespace TheProject
             this.label1 = new System.Windows.Forms.Label();
             this.infoLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.BGWorker = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@ namespace TheProject
             this.releaseBtn.TabIndex = 1;
             this.releaseBtn.Text = "총 1건 출고";
             this.releaseBtn.UseVisualStyleBackColor = true;
+            this.releaseBtn.Click += new System.EventHandler(this.releaseBtn_Click);
             // 
             // label2
             // 
@@ -97,6 +99,11 @@ namespace TheProject
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // BGWorker
+            // 
+            this.BGWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGWorker_DoWork);
+            this.BGWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BGWorker_RunWorkerCompleted);
+            // 
             // Release
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -124,5 +131,6 @@ namespace TheProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label infoLabel;
         private System.Windows.Forms.Button button1;
+        private System.ComponentModel.BackgroundWorker BGWorker;
     }
 }

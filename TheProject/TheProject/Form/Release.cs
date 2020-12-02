@@ -41,20 +41,19 @@ namespace TheProject
             releaseList = Dao.Release.GetList(mem);
 
             dgvList.DataSource = releaseList;
-            int listCount = releaseList.Count;
-            if (listCount == 0)
+            if (releaseList.Count == 0)
             {
                 releaseBtn.Text = $"맡기신 물건이 없습니다.";
             }
             else
             {
-                releaseBtn.Text = $"총 {listCount} 건이 존재합니다.";
+                releaseBtn.Text = $"총 {releaseList.Count} 건이 존재합니다.";
             }
         }
 
         private void releaseBtn_Click(object sender, EventArgs e)
         {
-            if(releaseBtn.Text == $"맡기신 물건이 없습니다.")
+            if(releaseList.Count == 0)
             {
                 Close();
             }
@@ -67,6 +66,16 @@ namespace TheProject
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void BGWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+
+        }
+
+        private void BGWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+
         }
 
 
