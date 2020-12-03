@@ -21,7 +21,7 @@ namespace EF.Data.Dao
                                 StorageId = x.StorageId,
                                 StorageTypeName = z.StorageTypeName,
                                 CanUse = x.MemberId == null ? "사용가능" : "사용불가",
-                                Time = y.ExitDateExpected,
+                                Time = x.MemberId == null ? (DateTime?)null : y.ExitDateExpected,
                                 Activation = x.Activation
                             };
 

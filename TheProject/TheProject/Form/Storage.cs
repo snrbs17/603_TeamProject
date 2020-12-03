@@ -347,6 +347,7 @@ namespace TheProject
 
             dgvStorageInfo.Columns[4].Visible = false;
             Cursor = Cursors.Default;
+            dgvStorageInfo.Columns[2].DefaultCellStyle.Format = "MM/dd/yyyy HH:mm:ss";
 
         }
 
