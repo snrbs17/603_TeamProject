@@ -13,7 +13,7 @@ namespace EF.Data.Dao
         // todo member의 메서드 인자 확인해서 넣기
         public List<ReleaseEntity> GetList(List<MemberEntity> member)
         {
-            using(var context = new projectEntities())
+            using (var context = new projectEntities())
             {
                 var query = from h in member
                             join x in context.Members on h.MemberId equals x.MemberId

@@ -47,7 +47,7 @@ namespace TheProject
                 paymentList.Add(new PaymentEntity()
                 {
                     StorageId = list[i].StorageId,
-                    StorageTypeId = list[i].StorageTypeId,
+                    StorageTypeName = list[i].StorageTypeName,
                     EntryDate = DateTime.Now,
                     ExitDateExpected = null,
                     TimePassId = 0,
@@ -160,7 +160,7 @@ namespace TheProject
                 //Create object of your list type pl
                 PaymentEntity pl = new PaymentEntity();
                 pl.StorageId = Convert.ToInt32(dr.Cells[0].Value);
-                pl.StorageTypeId = Convert.ToInt32(dr.Cells[1].Value);
+                pl.StorageTypeName = Convert.ToString(dr.Cells[1].Value);
                 pl.EntryDate = Convert.ToDateTime(dr.Cells[2].Value);
                 pl.ExitDateExpected = Convert.ToDateTime(dr.Cells[3].Value);
                 pl.TimePassId = Convert.ToInt32(dr.Cells[4].Value);
@@ -180,7 +180,7 @@ namespace TheProject
         {
             for (int i = 0; i < dgvInfo.Rows.Count; i++)
             {
-                if(dgvInfo.Rows[i].Cells[3].Value == null || Convert.ToString(dgvInfo.Rows[i].Cells[5].Value)=="0")
+                if (dgvInfo.Rows[i].Cells[3].Value == null || Convert.ToString(dgvInfo.Rows[i].Cells[5].Value) == "0")
                 {
                     payBtn.Enabled = false;
                     payBtn.BackColor = Color.DarkGray;
@@ -194,18 +194,18 @@ namespace TheProject
                     showFlag = 0;
                 }
             }
-            if(showFlag == 0)
+            if (showFlag == 0)
             {
                 infoPayFee.Text = $"{sumTotal:c} 원 입니다.";
                 TextCheck();
             }
-            
+
         }
 
         // comboBoxClick시 
         // 아직 바로 떠야되는데 안뜸
         private void ComboBoxClick(object sender, DataGridViewCellEventArgs e)
-        { 
+        {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
             {
                 return;
@@ -227,7 +227,7 @@ namespace TheProject
             }
 
             infoTotalFee.Text = $"{sumTotal:C} 원 입니다.";
-            
+
         }
 
         private void BGWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)

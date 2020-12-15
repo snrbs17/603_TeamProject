@@ -16,7 +16,8 @@ namespace TheProject
         // GetList에서 써야하는데 query문에서 그냥 entity로는 안됐는데
         // List로 하니깐 먹혀서 우선은 이걸로
         List<MemberEntity> memList = new List<MemberEntity>();
-        
+        List<SearchEntity> onBtnClickViewList = new List<SearchEntity>();
+
 
         public Search()
         {
@@ -43,20 +44,38 @@ namespace TheProject
             memList.Add(member);
             // 여기까지
 
-            searchList = Dao.Search.GetList(memList);
+            searchList = Dao.Search.GetPresentList(memList);
+            if (searchList.Count <5)
+            {
+                onBtnClickViewList = searchList.GetRange(0, searchList.Count);
 
-            dgvSearchInfo.DataSource = searchList;
+            }
+            else
+            {
+                onBtnClickViewList = searchList.GetRange(0, 5);
+            }
+
+            dgvSearchInfo.DataSource = onBtnClickViewList;
 
         }
 
 
         // 이건 나중에 DB에서 집어넣어야함
-        int MaxNum = 7;
+
 
         private void TestBtn(object sender, EventArgs e)
         {
             Button selectBtn = (Button)sender;
             int selectNum = Convert.ToInt32(selectBtn.Text);
+
+            int startNum = (selectNum - 1) * 5;
+            int maxNum = searchList.Count / 5;
+
+            onBtnClickViewList = null;
+            onBtnClickViewList = searchList.GetRange(startNum, 5);
+
+            dgvSearchInfo.DataSource = onBtnClickViewList;
+
 
             if (selectNum > 1 && selectBtn.Name == "firstPageBtn")
             {
@@ -91,7 +110,7 @@ namespace TheProject
             }
             else if (selectNum > 2 && selectBtn.Name == "lastPageBtn")
             {
-                if (selectNum == MaxNum)
+                if (selectNum == maxNum)
                 {
                     foreach (Button button in _btns)
                     {
@@ -99,7 +118,7 @@ namespace TheProject
                     }
                     selectBtn.BackColor = Color.DeepSkyBlue;
                 }
-                else if (selectNum < MaxNum)
+                else if (selectNum < maxNum)
                 {
                     foreach (Button button in _btns)
                     {
@@ -131,6 +150,12 @@ namespace TheProject
                 }
                 selectBtn.BackColor = Color.DeepSkyBlue;
             }
+
+
+
+
+
+
         }
 
 

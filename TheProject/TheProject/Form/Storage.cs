@@ -113,32 +113,32 @@ namespace TheProject
 
             backgroundWorker1.RunWorkerAsync();
         }
-        
+
         // Toggle, ToggleReverse - 토글 기능
         public void Toggle()
         {
             foreach (var item in _labels)
             {
-                int labelNum = Convert.ToInt32(item.Text)-1;
-                
-                if(item.BackColor == Color.Yellow)
+                int labelNum = Convert.ToInt32(item.Text) - 1;
+
+                if (item.BackColor == Color.Yellow)
                 {
                     continue;
                 }
                 else
                 {
                     // 사용불가(누가 사용중임)
-                    if (dbList[labelNum].CanUse == false)
+                    if (dbList[labelNum].CanUse == "사용불가")
                     {
                         item.BackColor = Color.Red;
                     }
                     // 사용 가능하고 일반일경우 
-                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 1)
+                    else if (dbList[labelNum].CanUse == "사용가능" && dbList[labelNum].StorageTypeName == "일반")
                     {
                         item.BackColor = Color.White;
                     }
                     // 사용 가능하지만 신선
-                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 2)
+                    else if (dbList[labelNum].CanUse == "사용가능" && dbList[labelNum].StorageTypeName == "신선")
                     {
                         item.BackColor = Color.DarkGray;
                     }
@@ -151,7 +151,7 @@ namespace TheProject
         {
             foreach (var item in _labels)
             {
-                int labelNum = Convert.ToInt32(item.Text)-1;
+                int labelNum = Convert.ToInt32(item.Text) - 1;
                 if (item.BackColor == Color.Yellow)
                 {
                     continue;
@@ -159,17 +159,17 @@ namespace TheProject
                 else
                 {
                     // 사용불가(누가 사용중임)
-                    if (dbList[labelNum].CanUse == false)
+                    if (dbList[labelNum].CanUse == "사용불가")
                     {
                         item.BackColor = Color.Red;
                     }
-                    // 사용 가능하고 일반일경우 
-                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 2)
+                    // 사용 가능하고 신선일경우 
+                    else if (dbList[labelNum].CanUse == "사용가능" && dbList[labelNum].StorageTypeName == "신선")
                     {
                         item.BackColor = Color.White;
                     }
-                    // 사용 가능하지만 신선
-                    else if (dbList[labelNum].CanUse == true && dbList[labelNum].StorageTypeId == 1)
+                    // 사용 가능하지만 일반
+                    else if (dbList[labelNum].CanUse == "사용가능" && dbList[labelNum].StorageTypeName == "일반")
                     {
                         item.BackColor = Color.DarkGray;
                     }
@@ -182,7 +182,7 @@ namespace TheProject
         // ClickLabel - 라벨 선택시 데이터를 dgv에 표시해주고 색상 변화를 주는 메서드
         public void ClickLabel(object sender, EventArgs e)
         {
-            if(payBtnClickFlag == 1)
+            if (payBtnClickFlag == 1)
             {
                 dgvStorageInfo.DataSource = null;
                 dgvStorageInfo.Rows.Clear();
@@ -193,7 +193,7 @@ namespace TheProject
             }
 
             List<StorageInfoForClientEntity> dbList = Dao.StorageInfoForClient.GetList();
-           
+
             Label labelBox = (Label)sender;
 
             int labelNum = Convert.ToInt32(labelBox.Text);
@@ -208,11 +208,11 @@ namespace TheProject
             {
                 int labelCheckNum = Convert.ToInt32(labelBox.Text);
 
-                if((labelCheckNum < nomalboxMaxNum && toggleFlag == 0) || (labelCheckNum >= nomalboxMaxNum && toggleFlag == 1))
+                if ((labelCheckNum < nomalboxMaxNum && toggleFlag == 0) || (labelCheckNum >= nomalboxMaxNum && toggleFlag == 1))
                 {
                     labelBox.BackColor = Color.White;
                 }
-                else if ((labelCheckNum < nomalboxMaxNum && toggleFlag == 1)|| (labelCheckNum >= nomalboxMaxNum && toggleFlag == 0))
+                else if ((labelCheckNum < nomalboxMaxNum && toggleFlag == 1) || (labelCheckNum >= nomalboxMaxNum && toggleFlag == 0))
                 {
                     labelBox.BackColor = Color.DarkGray;
                 }
@@ -238,17 +238,17 @@ namespace TheProject
             int blackLabelCount = 0;
             foreach (var item in _labels)
             {
-                if(item.BackColor == Color.Black)
+                if (item.BackColor == Color.Black)
                 {
                     blackLabelCount++;
                 }
             }
 
-            if(blackLabelCount > 0)
+            if (blackLabelCount > 0)
             {
                 payBtn.Enabled = false;
             }
-            else if(blackLabelCount == 0)
+            else if (blackLabelCount == 0)
             {
                 payBtn.Enabled = true;
             }
@@ -284,7 +284,7 @@ namespace TheProject
         {
             saveData = addDataList;
         }
-        
+
 
         // ShowDgv - dgv 보여주는 메서드
         public void ShowDgv()
@@ -295,23 +295,8 @@ namespace TheProject
 
             backgroundWorker1.RunWorkerAsync();
 
-
-            
             payBtnClickFlag = 1;
 
-            // todo 가서 서버로 확인해보기
-            // 여기는 일반/신선 구분을 한글로 나타내주려고 
-            //for (int i = 0; i < dgvStorageInfo.RowCount; i++)
-            //{
-            //    if (dgvStorageInfo.Rows[i].Cells[3].Value == "1")
-            //    {
-            //        dgvStorageInfo.Rows[i].Cells[3].Value = "일반";
-            //    }
-            //    else if (dgvStorageInfo.Rows[i].Cells[4].Value == "2")
-            //    {
-            //        dgvStorageInfo.Rows[i].Cells[2].Value = "신선";
-            //    }
-            //}
 
         }
 
@@ -338,7 +323,7 @@ namespace TheProject
             addDataList.Clear();
             foreach (var item in _labels)
             {
-                if (item.BackColor == Color.Yellow||item.BackColor==Color.Black)
+                if (item.BackColor == Color.Yellow || item.BackColor == Color.Black)
                 {
                     int index = Convert.ToInt32(item.Text) - 1;
                     addDataList.Add(dbList[index]);
@@ -362,6 +347,7 @@ namespace TheProject
 
             dgvStorageInfo.Columns[4].Visible = false;
             Cursor = Cursors.Default;
+            dgvStorageInfo.Columns[2].DefaultCellStyle.Format = "MM/dd/yyyy HH:mm:ss";
 
         }
 

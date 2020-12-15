@@ -12,7 +12,7 @@ namespace TheProject
         // 조인을 쓰는데 
 
         List<ReleaseEntity> releaseList = new List<ReleaseEntity>();
-        
+
         // test용
         List<MemberEntity> mem = new List<MemberEntity>();
 
@@ -53,7 +53,7 @@ namespace TheProject
 
         private void releaseBtn_Click(object sender, EventArgs e)
         {
-            if(releaseList.Count == 0)
+            if (releaseList.Count == 0)
             {
                 Close();
             }
