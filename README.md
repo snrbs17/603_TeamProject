@@ -61,8 +61,9 @@
 <img src="./TheProject/TheProject/Resources/동작화면/관리자_출력.png" width="45%">
 </div>
 
-- 확인 버튼을 누르면 정보가 입력되었는지 판단하고 다음 창으로 넘어간다.
-
+- 연간/월간 수입을 월별/일별로 구분하여 시각화한다.
+- 보관함의 종류별로 구분하여 시각화 가능하다.
+- Storage Activate/Deactivate를 통해 보관함의 활성화 여부를 실시간 업데이트 가능하다.
 
 
 # 관리 항목
@@ -136,7 +137,7 @@
 - Form 전체에 default값이 Monthly TimeScope 11월을 기준으로 설정되어 있음
 
 ## 결과
-- 작업중
+- TimeScope 설정이 바꿨을 때 default값이 새로 지정되도록 함수의 위치를 변경
 
 # DGV_Search 에 페이지를 나누는 동작이 반영되지 않은 문제 [#9](https://github.com/snrbs17/603_TeamProject/issues/9)
 
